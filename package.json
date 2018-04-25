@@ -44,12 +44,12 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o storybook",
+    "build-storybook": "build-storybook -c .storybook -o docs",
     "screenshots": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "lint": "eslint --fix src;eslint --fix stories",
     "build": "babel src/components --out-dir dist/components;node build-themes",
     "add-build": "git add dist",
-    "add-storybook": "git add storybook"
+    "add-storybook": "git add docs"
   },
   "pre-commit": [
     "lint",
