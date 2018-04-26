@@ -3,7 +3,7 @@ const sass = require('node-sass');
 const webpack = require('webpack');
 
 const THEMES_PATH = __dirname + '/src/themes';
-const DIST_PATH = __dirname + '/dist/themes';
+const DIST_PATH = __dirname + '/themes';
 const WEBPACK_CONFIG_PATH = __dirname + '/webpack.config.js';
 const webpackConfig = require(WEBPACK_CONFIG_PATH)
 

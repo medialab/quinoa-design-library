@@ -52,11 +52,12 @@
     "build-storybook": "build-storybook -c .storybook -o docs",
     "screenshots": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "lint": "eslint --fix src;eslint --fix stories",
-    "build": "babel src/components --out-dir dist/components;node build-themes",
+    "build": "babel src/components --out-dir components;node build-themes",
     "build-sketch-files": "story2sketch",
-    "add-build": "git add dist",
+    "add-build": "git add components;git add themes",
     "add-storybook": "git add docs",
-    "add-sketch": "git add sketch"
+    "add-sketch": "git add sketch",
+    "prepublish": "yarn build"
   },
   "pre-commit": [
     "lint",

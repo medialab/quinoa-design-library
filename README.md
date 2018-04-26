@@ -19,13 +19,13 @@ Then :
 
 ```
 // importing a component
-import {Button} from 'quinoa-design-library';
+import Button from 'quinoa-design-library/components/Buttons';
 
 // importing style from one of the themes
-import style from 'quinoa-design-library/dist/themes/millet/style.css';
+import style from 'quinoa-design-library/themes/millet/style.css';
 
 // import icon assets from one of the themes
-import style from 'quinoa-design-library/dist/themes/millet/icons';
+import icons from 'quinoa-design-library/themes/millet/icons';
 ```
 
 
