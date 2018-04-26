@@ -6786,7 +6786,7 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: stretch; }
-  .columns.is-fullheight .column {
+  .columns.is-fullheight > .column {
     overflow-y: auto; }
 
 /**

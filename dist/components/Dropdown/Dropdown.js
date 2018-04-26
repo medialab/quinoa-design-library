@@ -29,7 +29,8 @@ var DropdownContainer = function DropdownContainer(_ref) {
       _ref$isActive = _ref.isActive,
       isActive = _ref$isActive === undefined ? false : _ref$isActive,
       _ref$options = _ref.options,
-      options = _ref$options === undefined ? [] : _ref$options;
+      options = _ref$options === undefined ? [] : _ref$options,
+      children = _ref.children;
 
   var handleAction = function handleAction(id) {
     if (typeof onChange === 'function') {
@@ -64,7 +65,7 @@ var DropdownContainer = function DropdownContainer(_ref) {
         {
           onClick: onToggle, isOutlined: true, 'aria-haspopup': 'true',
           'aria-controls': 'dropdown-menu' },
-        _react2.default.createElement(
+        children ? children : _react2.default.createElement(
           'span',
           null,
           value && value.label

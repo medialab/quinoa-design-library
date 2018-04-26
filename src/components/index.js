@@ -146,3 +146,5 @@ export {default as DropZone} from './DropZone';
 export {default as Image} from './Image';
 export {default as Collapsable} from './Collapsable';
 export {default as Columns} from './Columns';
+export {default as CodeEditor} from './CodeEditor';
+export {default as ColorPicker} from './ColorPicker';

@@ -17,6 +17,7 @@ const DropdownContainer = ({
   onChange,
   isActive = false,
   options = [],
+  children
 }) => {
   const handleAction = id => {
     if (typeof onChange === 'function') {
@@ -46,7 +47,11 @@ const DropdownContainer = ({
         <Button
           onClick={onToggle} isOutlined aria-haspopup="true"
           aria-controls="dropdown-menu">
-          <span>{value && value.label}</span>
+          {
+            children ?
+            children :
+            <span>{value && value.label}</span>
+          }
           <Icon icon="angle-down" isSize="small" />
         </Button>
       </DropdownTrigger>

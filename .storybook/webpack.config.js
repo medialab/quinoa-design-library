@@ -57,7 +57,6 @@ module.exports = (storybookBaseConfig, configType) => {
         use: ['style-loader', 'css-loader']
       });
 
-  console.log(storybookBaseConfig);
   // Return the altered config
   return storybookBaseConfig;
 };

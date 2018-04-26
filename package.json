@@ -9,8 +9,12 @@
     "bloomer": "^0.6.3",
     "bulma": "^0.7.0",
     "bulma-material-form": "^0.1.0",
+    "codemirror": "^5.37.0",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.10",
     "react": "^16.3.1",
+    "react-codemirror2": "^5.0.1",
+    "react-color": "^2.14.1",
     "react-dom": "^16.3.1",
     "react-dropzone": "^4.2.9",
     "react-tooltip": "^3.5.0"
@@ -64,24 +68,33 @@
     "add-sketch"
   ],
   "story2sketch": {
-    "stories": "all",
+    "stories": [
+      {
+        "kind": "Card",
+        "stories": [
+          {
+            "name": "simple"
+          },
+          {
+            "name": "with aside actions"
+          },
+          {
+            "name": "with icon and aside actions"
+          },
+          {
+            "name": "with icon and header content"
+          },
+          {
+            "name": "with icon and body content"
+          }
+        ]
+      }
+    ],
     "input": "docs/iframe.html",
     "concurrency": 2,
     "pageTitle": "quinoa design library",
     "output": "sketch/quinoa-design-library.asketch.json",
-    "symbolGutter": 1000,
-    "stories": [
-        {
-          "kind": "Card",
-          "stories": [
-            {"name": "simple"},
-            {"name": "with aside actions"},
-            {"name": "with icon and aside actions"},
-            {"name": "with icon and header content"},
-            {"name": "with icon and body content"}
-          ]
-        }
-    ]
+    "symbolGutter": 1000
   },
   "eslintConfig": {
     "parser": "babel-eslint",

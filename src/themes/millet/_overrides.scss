@@ -354,7 +354,7 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
-    .column {
+    > .column {
       overflow-y: auto;
     }
   }
