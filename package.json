@@ -37,6 +37,7 @@
     "node-sass": "^4.8.3",
     "pre-commit": "^1.2.2",
     "sass-loader": "^7.0.1",
+    "story2sketch": "^0.3.0",
     "storybook-addon-jsx": "^5.3.0",
     "storybook-chrome-screenshot": "^1.1.0-alpha.1",
     "style-loader": "^0.20.3",
@@ -48,16 +49,40 @@
     "screenshots": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "lint": "eslint --fix src;eslint --fix stories",
     "build": "babel src/components --out-dir dist/components;node build-themes",
+    "build-sketch-files": "story2sketch",
     "add-build": "git add dist",
-    "add-storybook": "git add docs"
+    "add-storybook": "git add docs",
+    "add-sketch": "git add sketch"
   },
   "pre-commit": [
     "lint",
     "build",
     "build-storybook",
     "add-build",
-    "add-storybook"
+    "add-storybook",
+    "build-sketch-files",
+    "add-sketch"
   ],
+  "story2sketch": {
+    "stories": "all",
+    "input": "docs/iframe.html",
+    "concurrency": 2,
+    "pageTitle": "quinoa design library",
+    "output": "sketch/quinoa-design-library.asketch.json",
+    "symbolGutter": 1000,
+    "stories": [
+        {
+          "kind": "Card",
+          "stories": [
+            {"name": "simple"},
+            {"name": "with aside actions"},
+            {"name": "with icon and aside actions"},
+            {"name": "with icon and header content"},
+            {"name": "with icon and body content"}
+          ]
+        }
+    ]
+  },
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": [

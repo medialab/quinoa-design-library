@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, getStorybook } from '@storybook/react';
 /**
  * Storybook addons
  */
@@ -39,3 +39,5 @@ setScreenshotOptions({
 });
 
 configure(loadStories, module);
+
+export { getStorybook }

@@ -6,7 +6,6 @@ This repository exposes the design library used in quinoa projects. A design lib
 
 # Usage
 
-## For designers (soon)
 
 ## For developers
 
@@ -54,10 +53,16 @@ yarn lint
 yarn build
 ```
 
-# Technical guidelines
+## For designers (WIP)
 
-- the system exposes react components. These are not supposed to be styled or added css classes during implementation
-- inside the design library, components are styled thanks to a class-based system (inline styles are forbidden, component-specific classes are not advised)
-- style is based on the bulma framework, enhanced with custom scss templates
+The system relies on [story2sketch](https://github.com/chrisvxd/story2sketch) tool.
+
+Use this design library in sketch :
+
+1. copy from this repostory to your drive the content the [asketch file representing this library](https://github.com/medialab/quinoa-design-library/tree/master/sketch/quinoa-design-library.asketch.json)
+1. install the [asketch2sketch.sketch plugin](https://github.com/brainly/html-sketchapp/releases/download/v3.0.2/asketch2sketch.sketchplugin.zip)
+2. in sketch, go to `Plugins > From *Almost* Sketch to Sketch in Sketch menu bar.` and select the file copied from step 1. You should have added to your file a library of symbols taken from the library
+
+![Image of the sketch](https://camo.githubusercontent.com/144c66d6a16d8de08f1faea3becae0eabcf93f65/68747470733a2f2f692e696d6775722e636f6d2f61413934614e4e2e706e67)
 
 
