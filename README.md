@@ -10,9 +10,9 @@ This repository exposes the design library used in quinoa projects. A design lib
 ## For developers
 
 ```
-yarn add https://github.com/medialab/quinoa-design-library
+yarn add quinoa-design-library
 # or
-npm install --save https://github.com/medialab/quinoa-design-library
+npm install --save quinoa-design-library
 ```
 
 Then :
