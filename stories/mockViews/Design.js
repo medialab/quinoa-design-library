@@ -149,7 +149,7 @@ p{
     return (
       <div>
         <Navbar
-          brandImage={icons.brand.svg}
+          fonioBrandImage={icons.fonioBrand.svg}
           isOpen={false}
           isFixed
 

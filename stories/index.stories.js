@@ -190,7 +190,7 @@ storiesOf('Navbar', module)
   .add('default', withScreenshot()(() =>
     (<Column beginingWidth={1}>
       <Navbar
-        brandImage={icons.brand.svg}
+        fonioBrandImage={icons.fonioBrand.svg}
 
         locationBreadCrumbs={[
           {

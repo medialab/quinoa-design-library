@@ -73,7 +73,7 @@ export default class SectionsView extends Component {
     return (
       <div>
         <Navbar
-          brandImage={icons.brand.svg}
+          fonioBrandImage={icons.fonioBrand.svg}
           isOpen={false}
           isFixed
 

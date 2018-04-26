@@ -31,9 +31,9 @@ const ModalCardContainer = ({
         <ModalCardBody>
           {mainContent}
         </ModalCardBody>
-        <ModalCardFooter>
+        {footerContent && <ModalCardFooter>
           {footerContent}
-        </ModalCardFooter>
+        </ModalCardFooter>}
       </ModalCard>
     </Modal>
   );

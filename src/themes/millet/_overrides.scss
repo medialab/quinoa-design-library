@@ -360,6 +360,11 @@ hr {
   }
 }
 
+.box.is-active{
+  background: $primary;
+  color: $background;
+}
+
 /**
  * NEW COMPONENTS
  */

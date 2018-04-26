@@ -462,7 +462,7 @@ export default class HomeView extends Component {
             <Navbar
               isOpen={false}
               isFixed
-              brandImage={icons.brand.svg}
+              fonioBrandImage={icons.fonioBrand.svg}
 
               locationBreadCrumbs={[
               {

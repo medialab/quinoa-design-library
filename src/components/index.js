@@ -3,7 +3,7 @@ export {
   Column,
   Tile,
 
-  Box,
+  // Box,
   // Button,
   Content,
   Delete,
@@ -148,3 +148,5 @@ export {default as Collapsable} from './Collapsable';
 export {default as Columns} from './Columns';
 export {default as CodeEditor} from './CodeEditor';
 export {default as ColorPicker} from './ColorPicker';
+export {default as BigSelect} from './BigSelect';
+export {default as Box} from './Box';
