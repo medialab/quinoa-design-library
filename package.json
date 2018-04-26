@@ -2,7 +2,7 @@
   "name": "quinoa-design-library",
   "version": "0.0.1",
   "description": "design library (components and styling themes) for quinoa components",
-  "main": "dist/components/index.js",
+  "main": "components/index.js",
   "author": "Robin de Mourat",
   "license": "ISC",
   "dependencies": {
@@ -49,12 +49,11 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o docs",
-    "screenshots": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "lint": "eslint --fix src;eslint --fix stories",
     "build": "babel src/components --out-dir components;node build-themes",
+    "screenshots": "storybook-chrome-screenshot -p 9001 -c .storybook",
     "build-sketch-files": "story2sketch",
-    "add-build": "git add components;git add themes",
+    "build-storybook": "build-storybook -c .storybook -o docs",
     "add-storybook": "git add docs",
     "add-sketch": "git add sketch",
     "prepublish": "yarn build"
@@ -63,7 +62,7 @@
     "lint",
     "build",
     "build-storybook",
-    "add-build",
+    "build-sketch-files",
     "add-storybook",
     "build-sketch-files",
     "add-sketch"
