@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # build
-themes
-components
+./themes
+./components
 
 # Runtime data
 pids
@@ -63,5 +63,3 @@ typings/
 
 # OS-related files
 .DS_Store
-src/.DS_Store
-
