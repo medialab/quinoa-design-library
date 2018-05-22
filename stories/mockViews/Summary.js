@@ -22,6 +22,7 @@ import {
   TextArea,
   LevelItem,
   LevelLeft,
+  StatusMarker,
   Navbar,
   Title,
 } from '../../src/components';
@@ -94,8 +95,6 @@ export default class SectionsView extends Component {
               href: '/',
               isActive: true,
               content: <span>Summary</span>,
-              lockStatus: 'active',
-              statusMessage: 'Edited by you',
               // subItems: [
               //   {
               //     href: '/',
@@ -134,7 +133,8 @@ export default class SectionsView extends Component {
           }
           ]}
           profile={{
-            imageUri: 'https://via.placeholder.com/48x48'
+            imageUri: 'https://via.placeholder.com/48x48',
+            nickName: 'rawbin'
           }} />
         <Container>
           <Level />
@@ -193,6 +193,12 @@ export default class SectionsView extends Component {
 
               <Level isFullWidth>
                 <Button isColor={metadataEdited ? 'primary' : 'info'} onClick={() => this.setState({metadataEdited: !metadataEdited})}>
+                  {
+                    metadataEdited &&
+                    <StatusMarker
+                      lockStatus={'active'}
+                      statusMessage={'edited by you'} />
+                  }
                   Edit global settings
                 </Button>
               </Level>

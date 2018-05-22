@@ -41,7 +41,7 @@ import SectionView from './mockViews/Section';
 import SummaryView from './mockViews/Summary';
 import DesignView from './mockViews/Design';
 import NewResourceView from './mockViews/NewResource';
-import ResourcesView from './mockViews/Resources';
+import LibraryView from './mockViews/Library';
 import ExportView from './mockViews/Export';
 
 storiesOf('Presentation', module)
@@ -364,7 +364,7 @@ storiesOf('Mock views for the Fonio app', module)
   .add('authentication view', withScreenshot()(() => <AuthenticationView />))
   .add('summary view', withScreenshot()(() => <SummaryView />))
   .add('section edition view', withScreenshot()(() => <SectionView />))
-  .add('resources view', withScreenshot()(() => <ResourcesView />))
+  .add('library view', withScreenshot()(() => <LibraryView />))
   .add('new resource view', withScreenshot()(() => <NewResourceView />))
   .add('design view', withScreenshot()(() => <DesignView />))
   .add('export view', withScreenshot()(() => <ExportView />));
