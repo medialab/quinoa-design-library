@@ -125,8 +125,8 @@ const NavbarWrapper = ({
             {
             profile ?
               <NavbarItem>
-                <Button data-tip="logged as rawbin" data-for="profile-btn" isRounded>
-                  <Image isRounded isSize="32x32" src="https://via.placeholder.com/48x48" />
+                <Button data-tip={`logged as ${profile.nickName}`} data-for="profile-btn" isRounded>
+                  <Image isRounded isSize="32x32" src={profile.imageUri} />
                 </Button>
                 <Tooltip
                   id="profile-btn"
