@@ -368,6 +368,12 @@ hr {
 /**
  * NEW COMPONENTS
  */
+
+
+.color-picker-container{
+  z-index: 5;
+}
+
 .collapsable{
   transition: all $transition-medium ease;
   max-height: 30rem;
