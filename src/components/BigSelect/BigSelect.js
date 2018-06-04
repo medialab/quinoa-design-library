@@ -23,10 +23,12 @@ const BigSelect = ({
           };
           return (
             <Column onClick={onClick} key={index}>
-              <Box isActive={activeOptionId === option.id}>
+              <Box style={{textAlign: 'center'}} isActive={activeOptionId === option.id}>
                 {
                   option.iconUrl &&
-                  <Image src={option.iconUrl} />
+                  <div style={{textAlign: 'center'}}>
+                    <Image style={{display: 'inline-block'}} isSize={'64x64'} src={option.iconUrl} />
+                  </div>
                 }
                 {option.label}
               </Box>
