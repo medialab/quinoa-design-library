@@ -69,7 +69,7 @@ export default class ColorPicker extends Component {
         </button>
         {
           edited &&
-          <div style={{position: 'absolute'}}>
+          <div className="color-picker-container" style={{position: 'absolute'}}>
             <Picker
               color={color}
               onChange={onChange} />

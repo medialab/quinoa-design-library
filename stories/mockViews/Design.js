@@ -53,30 +53,58 @@ export default class DesignView extends Component {
       case 'parameters':
         return (
           <Column>
-            <form>
-              <Field>
-                <Label>Citation style</Label>
-                <Box>
-                  <Title isSize={5}>
-                        APA
-                  </Title>
-                  <Help>Example:</Help>
-                  <Content isSize={'small'}>
-                      Ricci, D., de Mourat, R., Leclercq, C., & Latour, B. (2015). Clues. Anomalies. Understanding. <i>Visible Language</i>, 49(3).
-                  </Content>
-                </Box>
-              </Field>
-            </form>
+            <Level>
+              <form>
+                <Field>
+                  <Label>Citation style</Label>
+                  <Box>
+                    <Title isSize={5}>
+                          APA
+                    </Title>
+                    <Help>Example:</Help>
+                    <Content isSize={'small'}>
+                        Ricci, D., de Mourat, R., Leclercq, C., & Latour, B. (2015). Clues. Anomalies. Understanding. <i>Visible Language</i>, 49(3).
+                    </Content>
+                  </Box>
+                </Field>
+              </form>
+            </Level>
+            <Level>
+              <form>
+                <Field>
+                  <Label>Notes position</Label>
+                  <Control>
+                    <Select value={'side notes'}>
+                      <option>side notes</option>
+                      <option>foot notes</option>
+                    </Select>
+                  </Control>
+                </Field>
+              </form>
+            </Level>
+            <Level>
+              <form>
+                <Field>
+                  <Label>Enable comments</Label>
+                  <Control>
+                    <Select value={'enable comments through discuss service'}>
+                      <option>enable comments through discuss service</option>
+                      <option>disable comments through discuss service</option>
+                    </Select>
+                  </Control>
+                </Field>
+              </form>
+            </Level>
           </Column>
         );
       case 'style':
       default:
         return (
           <Column>
-            <Collapsable paddingBottom={'5rem'} isCollapsed={stylesMode === 'code'}>
+            <Collapsable maxHeight={900} paddingBottom={'5rem'} isCollapsed={stylesMode === 'code'}>
               <form>
                 <Field>
-                  <Label>Title 1 size:</Label>
+                  <Label>Text size:</Label>
                   <Dropdown
                     onToggle={() => this.setState({sizeActive: !sizeActive})}
                     isActive={sizeActive}
@@ -87,13 +115,22 @@ export default class DesignView extends Component {
                   </Dropdown>
                 </Field>
                 <Field>
-                  <Label>Title 1 size:</Label>
+                  <Label>Titles size:</Label>
+                  <Dropdown
+                    value={{id: 1, label: '1 rem'}}
+                    options={[1, 2, 3, 4].map(id => ({id, label: id + ' rem'}))}>
+                    <Input
+                      value={'1.1rem'} />
+                  </Dropdown>
+                </Field>
+                <Field>
+                  <Label>List styles:</Label>
                   <Control>
                     <Select value={'3rem'}>
-                      <option>1rem</option>
-                      <option>2rem</option>
-                      <option>3rem</option>
-                      <option>4rem</option>
+                      <option>chevron</option>
+                      <option>bullet</option>
+                      <option>dash</option>
+                      <option>star</option>
                     </Select>
                   </Control>
                 </Field>
