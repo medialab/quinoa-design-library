@@ -34,17 +34,19 @@ export default class SectionsView extends Component {
       sections: [
         {
           title: 'Chapitre 1',
-          subtitle: 'Comment ça va',
+          subtitle: 'First few words ...',
           lockStatus: 'locked',
           statusMessage: 'Edited by Fania'
         },
         {
           title: 'Chapitre 2',
-          subtitle: 'Comment ça va'
+          subtitle: 'First few words ...',
+          lockStatus: 'open',
         },
         {
           title: 'Chapitre 3',
-          subtitle: 'Comment ça va'
+          subtitle: 'First few words ...',
+          lockStatus: 'open',
         },
       ],
       activeAuthors: [

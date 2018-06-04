@@ -66,7 +66,8 @@ export default class HomeView extends Component {
       newStoryTabMode: 'new-story',
       stories,
       instanceTitle: 'Scube 2018',
-      profileEdited: false
+      profileEdited: false,
+      backgroundImage: require(`../mockAssets/cover_forccast.jpg`)
     };
   }
 
@@ -167,7 +168,7 @@ export default class HomeView extends Component {
 
                 <div>
                   <Title isSize={5}>
-                            Your profile <HelpPin>choose how you will be displayed to other writers</HelpPin>
+                            Your profile <HelpPin>choose how you will be identified by other writers</HelpPin>
                   </Title>
                   <Level isMobile>
                     <LevelLeft>
@@ -199,7 +200,7 @@ export default class HomeView extends Component {
                 </div>
                 <Level />
                 <Content>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum sodales massa, non malesuada neque. Duis congue non ipsum at posuere. Morbi sit amet sodales est.
+                  Create a new story to produce a website.
                 </Content>
 
                 <div>
@@ -451,13 +452,24 @@ export default class HomeView extends Component {
       state: {
         tabMode,
         instanceTitle,
+        backgroundImage,
       },
       renderContent,
     } = this;
+    console.log('background image', backgroundImage);
     const setTabMode = thatTabmode => this.setState({tabMode: thatTabmode});
     return (
       <section>
-        <Hero isColor="success" isSize="medium">
+        <Hero isColor="success" isSize="medium"
+        style={{
+                background: `url(${backgroundImage})`,
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+                backgroundSize: 'cover',
+                backgroundColor: '#999',
+              }}
+        >
           <HeroHeader>
             <Navbar
               isOpen={false}
