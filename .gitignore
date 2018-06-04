@@ -63,3 +63,6 @@ typings/
 
 # OS-related files
 .DS_Store
+
+# Design lib related elements
+__screenshots__
