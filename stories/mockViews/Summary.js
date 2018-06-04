@@ -70,7 +70,7 @@ export default class SectionsView extends Component {
       state: {
         sections,
         activeAuthors,
-        metadataEdited
+        metadataEdited,
       }
     } = this;
     return (

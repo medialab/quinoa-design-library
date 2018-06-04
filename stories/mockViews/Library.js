@@ -35,15 +35,13 @@ import {
   LevelRight,
   LevelItem,
   Delete,
+  StatusMarker,
   Grid,
   Card,
 } from '../../src/components';
 
-const mockAssetIds = [];
-const mockAssetsNbr = 20;
 const mockResourcesIds = [];
 const mockResourcesNbr = 20;
-for (let i = 0; i < mockAssetsNbr; i++) mockAssetIds.push(genId());
 for (let i = 0; i < mockResourcesNbr; i++) mockResourcesIds.push(genId());
 const mockNames = [
 'Baleric Shearwater',
@@ -75,18 +73,6 @@ const assetsExtensions = ['csv', 'json', 'jpg', 'png', 'svg'];
 const resourceTypes = ['bib', 'image', 'video', 'embed', 'webpage', 'table', 'glossary'];
 const resourcesModels = [
 ];
-
-const mockAssets = mockAssetIds.reduce((res, id) => {
-  const extension = assetsExtensions[parseInt(Math.random() * assetsExtensions.length)];
-  return {
-    ...res,
-    [id]: {
-      id,
-      fileName: (mockNames[parseInt(Math.random() * mockNames.length)] || mockNames[0]) + '.' + extension,
-      extension
-    }
-  };
-}, {});
 
 const mockResources = mockResourcesIds.map(id => {
   const title = mockNames[parseInt(Math.random() * mockNames.length)];
@@ -155,7 +141,7 @@ export default class ResourcesView extends Component {
                 <Title isSize={5}>
                   Preview
                 </Title>
-                <iframe src="https://www.youtube.com/embed/QHDRRxKlimY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/QHDRRxKlimY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
               </Column>
             </Columns>
             <Level/>
@@ -337,8 +323,15 @@ export default class ResourcesView extends Component {
                                       <img src={icons[resource.metadata.type].black.svg} />
                                     </Icon>
                                   </Column>
-                                  <Column isSize={10}>
+
+                                  <Column isSize={8}>
                                     {resource.metadata.title}
+                                  </Column>
+
+                                  <Column isSize={2}>
+                                    <StatusMarker
+                                          lockStatus={'open'}
+                                          statusMessage={'open'} />
                                   </Column>
                                 </Columns>
                                 <Column>
