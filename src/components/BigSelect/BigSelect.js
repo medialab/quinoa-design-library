@@ -5,7 +5,8 @@ import {
   Box,
   Columns,
   Column,
-  Image
+  Image,
+  Grid,
 } from '../index';
 
 const BigSelect = ({
@@ -14,7 +15,7 @@ const BigSelect = ({
   onChange
 }) => {
   return (
-    <Columns>
+    <Grid>
       {
         options.map((option, index) => {
           const onClick = e => {
@@ -22,21 +23,19 @@ const BigSelect = ({
             onChange(option.id);
           };
           return (
-            <Column onClick={onClick} key={index}>
-              <Box style={{textAlign: 'center'}} isActive={activeOptionId === option.id}>
-                {
-                  option.iconUrl &&
-                  <div style={{textAlign: 'center'}}>
-                    <Image style={{display: 'inline-block'}} isSize={'64x64'} src={option.iconUrl} />
-                  </div>
-                }
-                {option.label}
-              </Box>
-            </Column>
+            <Box onClick={onClick} key={index} style={{textAlign: 'center'}} isActive={activeOptionId === option.id}>
+              {
+                option.iconUrl &&
+                <div style={{textAlign: 'center'}}>
+                  <Image style={{display: 'inline-block'}} isSize={'64x64'} src={option.iconUrl} />
+                </div>
+              }
+              {option.label}
+            </Box>
           );
         })
       }
-    </Columns>
+    </Grid>
   );
 };
 

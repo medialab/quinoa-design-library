@@ -135,6 +135,7 @@ export {
 
   withHelpersModifiers,
 } from 'bloomer';
+
 export {default as Navbar} from './Navbar';
 export {default as ModalCard} from './ModalCard';
 export {default as Dropdown} from './Dropdown';
@@ -150,3 +151,4 @@ export {default as CodeEditor} from './CodeEditor';
 export {default as ColorPicker} from './ColorPicker';
 export {default as BigSelect} from './BigSelect';
 export {default as Box} from './Box';
+export {default as Grid} from './Grid';
