@@ -40,7 +40,6 @@ import PasswordPromptView from './mockViews/PasswordPrompt';
 import SectionView from './mockViews/Section';
 import SummaryView from './mockViews/Summary';
 import DesignView from './mockViews/Design';
-import NewResourceView from './mockViews/NewResource';
 import LibraryView from './mockViews/Library';
 import ExportView from './mockViews/Export';
 
@@ -365,7 +364,6 @@ storiesOf('Mock views for the Fonio app', module)
   .add('summary view', withScreenshot()(() => <SummaryView />))
   .add('section edition view', withScreenshot()(() => <SectionView />))
   .add('library view', withScreenshot()(() => <LibraryView />))
-  .add('new resource view', withScreenshot()(() => <NewResourceView />))
   .add('design view', withScreenshot()(() => <DesignView />))
   .add('export view', withScreenshot()(() => <ExportView />));
 /**

@@ -79,7 +79,7 @@ var ColorPicker = function (_Component) {
         ),
         edited && _react2.default.createElement(
           'div',
-          { style: { position: 'absolute' } },
+          { className: 'color-picker-container', style: { position: 'absolute' } },
           _react2.default.createElement(_reactColor.SwatchesPicker, {
             color: color,
             onChange: onChange })

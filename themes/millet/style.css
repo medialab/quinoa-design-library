@@ -6796,6 +6796,9 @@ hr {
 /**
  * NEW COMPONENTS
  */
+.color-picker-container {
+  z-index: 5; }
+
 .collapsable {
   transition: all 500ms ease;
   max-height: 30rem;
@@ -6804,21 +6807,18 @@ hr {
     max-height: 0; }
 
 .status-marker {
-  width: 0.5em;
-  height: 0.5em;
-  position: relative;
-  border-radius: 50%;
+  width: 1.2em;
   float: left; }
   .status-marker.is-lock-status-open {
-    background: lightgreen; }
+    color: lightgreen; }
   .status-marker.is-lock-status-active {
-    background: lightblue; }
+    color: lightblue; }
   .status-marker.is-lock-status-locked {
-    background: red; }
+    color: red; }
   .status-marker.is-lock-status-asked {
-    background: lightgrey; }
+    color: lightgrey; }
   .status-marker.is-lock-status-idle {
-    background: darkgrey; }
+    color: darkgrey; }
 
 .drop-zone {
   /*
@@ -6826,12 +6826,13 @@ hr {
    */
   position: relative;
   width: 100%;
-  min-height: 1rem;
+  min-height: 10rem;
   text-align: center;
   border: 1px dashed #3F51B5;
   display: flex;
   align-items: center;
-  flex-flow: row nowrap; }
+  flex-flow: row nowrap;
+  padding: 1rem; }
   .drop-zone .caption-wrapper {
     display: flex;
     align-items: center;

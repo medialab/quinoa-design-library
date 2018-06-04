@@ -195,12 +195,9 @@ export default class SectionsView extends Component {
 
               <Level isFullWidth>
                 <Button isColor={metadataEdited ? 'primary' : 'info'} onClick={() => this.setState({metadataEdited: !metadataEdited})}>
-                  {
-                    metadataEdited &&
-                    <StatusMarker
-                      lockStatus={'active'}
-                      statusMessage={'edited by you'} />
-                  }
+                  <StatusMarker
+                    lockStatus={metadataEdited ? 'active' : 'open'}
+                    statusMessage={metadataEdited ? 'edited by you' : 'open'} />
                   Edit global settings
                 </Button>
               </Level>

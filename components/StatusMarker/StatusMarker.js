@@ -12,6 +12,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _bloomer = require('bloomer');
+
 var _reactTooltip = require('react-tooltip');
 
 var _reactTooltip2 = _interopRequireDefault(_reactTooltip);
@@ -45,6 +47,8 @@ var StatusMarker = function StatusMarker(_ref) {
   return _react2.default.createElement(
     'span',
     { className: 'status-marker is-lock-status-' + lockStatus, 'data-for': 'status-marker', 'data-tip': statusMessage },
+    _react2.default.createElement(_bloomer.Icon, { style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none' }, 'data-tip': computedType, className: 'fa fa-lock' }),
+    _react2.default.createElement(_bloomer.Icon, { style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline' }, 'data-tip': computedType, className: 'fa fa-unlock' }),
     _react2.default.createElement(_reactTooltip2.default, {
       place: 'right',
       effect: 'solid',

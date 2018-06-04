@@ -172,6 +172,11 @@ p{
             {
               href: '/',
               content: <a>My story</a>,
+              isActive: false
+            },
+            {
+              href: '/',
+              content: <a>Section 2</a>,
               isActive: true
             },
           ]}
@@ -187,10 +192,9 @@ p{
             },
             {
               href: '/',
-              isActive: true,
               content: <span>Design</span>,
-              lockStatus: 'active',
-              statusMessage: 'Edited by you',
+              lockStatus: 'locked',
+              statusMessage: 'Edited by Filipe',
             }
           ]}
           actionOptions={[{

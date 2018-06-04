@@ -35,8 +35,12 @@ var BigSelect = function BigSelect(_ref) {
         { onClick: onClick, key: index },
         _react2.default.createElement(
           _index.Box,
-          { isActive: activeOptionId === option.id },
-          option.iconUrl && _react2.default.createElement(_index.Image, { src: option.iconUrl }),
+          { style: { textAlign: 'center' }, isActive: activeOptionId === option.id },
+          option.iconUrl && _react2.default.createElement(
+            'div',
+            { style: { textAlign: 'center' } },
+            _react2.default.createElement(_index.Image, { style: { display: 'inline-block' }, isSize: '64x64', src: option.iconUrl })
+          ),
           option.label
         )
       );

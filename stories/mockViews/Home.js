@@ -415,7 +415,8 @@ export default class HomeView extends Component {
                                           </Button>
                                         </Column>
                                       </Columns>
-                                    </form> :
+                                    </form> 
+                                    :
                                     <Column>
                                       <DropZone>
                                     Drop a fonio file
@@ -460,7 +461,8 @@ export default class HomeView extends Component {
     const setTabMode = thatTabmode => this.setState({tabMode: thatTabmode});
     return (
       <section>
-        <Hero isColor="success" isSize="medium"
+        <Hero isColor="success" 
+        isSize="large"
         style={{
                 background: `url(${backgroundImage})`,
                 backgroundPosition: 'center center',

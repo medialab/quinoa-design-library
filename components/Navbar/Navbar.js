@@ -143,8 +143,8 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
             null,
             _react2.default.createElement(
               _index.Button,
-              { 'data-tip': 'logged as rawbin', 'data-for': 'profile-btn', isRounded: true },
-              _react2.default.createElement(_index.Image, { isRounded: true, isSize: '32x32', src: 'https://via.placeholder.com/48x48' })
+              { 'data-tip': 'logged as ' + profile.nickName, 'data-for': 'profile-btn', isRounded: true },
+              _react2.default.createElement(_index.Image, { isRounded: true, isSize: '32x32', src: profile.imageUri })
             ),
             _react2.default.createElement(_reactTooltip2.default, {
               id: 'profile-btn',
