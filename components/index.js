@@ -742,4 +742,13 @@ Object.defineProperty(exports, 'Box', {
   }
 });
 
+var _Grid = require('./Grid');
+
+Object.defineProperty(exports, 'Grid', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Grid).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

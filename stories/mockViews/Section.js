@@ -3,34 +3,30 @@ import {v4 as genId} from 'uuid';
 import '../../src/themes/millet/bulma.theme.scss';
 import icons from '../../src/themes/millet/icons';
 import {
+  BigSelect,
+  Button,
   Card,
+  Checkbox,
   Column,
   Columns,
-  Container,
-  Navbar,
-  Level,
-  DropZone,
-  Tabs,
-  Title,
-  TabList,
-  TabLink,
-  Collapsable,
-  CodeEditor,
-  Button,
-  Field,
-  Select,
   Control,
+  Delete,
   Dropdown,
-  Input,
+  DropZone,
+  Field,
+  HelpPin,
   Icon,
+  Input,
   Label,
-  ColorPicker,
-  Box,
-  Tab,
-  Help,
-  Content,
-  Checkbox,
+  Level,
+  Navbar,
   StatusMarker,
+  Tab,
+  TabLink,
+  TabList,
+  Tabs,
+  TextArea,
+  Title,
 } from '../../src/components';
 
 import ReactTooltip from 'react-tooltip';
@@ -63,21 +59,18 @@ const mockNames = [
 'Buff-breasted Sandpiper',
 'Bullfinch',
 'Buzzard',
-<span>Coulibaly, P., Anctil, François, & Bobée, B. (1999). Prévision hydrologique par réseaux de neurones artificiels: état de l’art. <i>Canadian Journal of Civil Engineering</i>, 26(3), 293–304.</span>,
+  <span key="bla">Coulibaly, P., Anctil, François, & Bobée, B. (1999). Prévision hydrologique par réseaux de neurones artificiels: état de l’art. <i>Canadian Journal of Civil Engineering</i>, 26(3), 293–304.</span>,
 ];
-const assetsExtensions = ['csv', 'json', 'jpg', 'png', 'svg'];
 const resourceTypes = ['bib', 'image', 'video', 'embed', 'webpage', 'table', 'glossary'];
-const resourcesModels = [
-];
 
 const mockResources = mockResourcesIds.map(id => {
-  const title = mockNames[parseInt(Math.random() * mockNames.length)];
-  const type = resourceTypes[parseInt(Math.random() * resourceTypes.length)];
+  const title = mockNames[parseInt(Math.random() * mockNames.length, 10)];
+  const type = resourceTypes[parseInt(Math.random() * resourceTypes.length, 10)];
   return {
     id,
     metadata: {
-      title: title,
-      type: type,
+      title,
+      type,
       creators: [],
       description: 'description',
       source: 'source'
@@ -162,9 +155,6 @@ export default class SectionView extends Component {
     const {
       state: {
         tabMode,
-        stylesMode,
-        sizeActive,
-        colorEdited,
         tabsAreCollapsed,
         sortVisible,
         filterVisible,
@@ -179,14 +169,14 @@ export default class SectionView extends Component {
       case 'library':
         return (
           <Column>
-              <Field hasAddons>
-                <Control>
-                  <Input placeholder="Find a resource" />
-                </Control>
-                <Control>
-                  <Button>Search</Button>
-                </Control>
-              </Field>
+            <Field hasAddons>
+              <Control>
+                <Input placeholder="Find a resource" />
+              </Control>
+              <Control>
+                <Button>Search</Button>
+              </Control>
+            </Field>
             <Level>
               <Dropdown
                 onToggle={() => this.setState({sortVisible: !sortVisible, filterVisible: false})}
@@ -209,25 +199,25 @@ export default class SectionView extends Component {
                 Sort
               </Dropdown>
               <Dropdown
-                  onToggle={() => this.setState({filterVisible: !filterVisible, sortVisible: false})}
-                  isActive={filterVisible}
-                  value={{id: 1, label: '1 rem'}}
-                  options={[
+                onToggle={() => this.setState({filterVisible: !filterVisible, sortVisible: false})}
+                isActive={filterVisible}
+                value={{id: 1, label: '1 rem'}}
+                options={[
                     {
                       id: 'images',
                       label: <Field>
-                          <Control>
-                              <Checkbox checked>Images</Checkbox>
-                          </Control>
+                        <Control>
+                          <Checkbox checked>Images</Checkbox>
+                        </Control>
                       </Field>
                     },
                     {
                       id: 'videos',
                       label: <Field>
-                                <Control>
-                                    <Checkbox>Videos</Checkbox>
-                                </Control>
-                            </Field>
+                        <Control>
+                          <Checkbox>Videos</Checkbox>
+                        </Control>
+                      </Field>
                     },
                     {
                       id: 'all',
@@ -235,79 +225,77 @@ export default class SectionView extends Component {
                     }
                   ]}>
                   Filter
-                </Dropdown>
-              </Level>
+              </Dropdown>
+            </Level>
             <Level>
-              <Button isFullWidth onClick={() => this.setState({mainColumnMode: 'new'})} isColor={mainColumnMode === 'new' ? 'primary' : 'info'}>
+              <Button isFullWidth onClick={() => this.setState({mainColumnMode: 'newresource'})} isColor={mainColumnMode === 'new' ? 'primary' : 'info'}>
                 New resource
               </Button>
             </Level>
             {
                 mockResources.map(resource => {
                   return (
-                      <Column style={{margin: '0 0 1rem 0', padding: 0}} key={resource.id}>
-                        <Card
-                          key={resource.id}
-                          bodyContent={
-                            <div>
-                              <Columns>
-                                <Column isSize={2}>
-                                  <Icon isSize="medium" isAlign="left">
-                                    <img src={icons[resource.metadata.type].black.svg} />
+                    <Column style={{margin: '0 0 1rem 0', padding: 0}} key={resource.id}>
+                      <Card
+                        key={resource.id}
+                        bodyContent={
+                          <div>
+                            <Columns>
+                              <Column isSize={2}>
+                                <Icon isSize="medium" isAlign="left">
+                                  <img src={icons[resource.metadata.type].black.svg} />
+                                </Icon>
+                              </Column>
+
+                              <Column isSize={8}>
+                                {resource.metadata.title}
+                              </Column>
+
+                              <Column isSize={2}>
+                                <StatusMarker
+                                  lockStatus={'open'}
+                                  statusMessage={'open'} />
+                              </Column>
+                            </Columns>
+                            <Columns>
+                              <Column isOffset={2} isSize={10}>
+                                <Button data-for="card-action" data-tip={'drag this card to the editor'}>
+                                  <Icon isSize="small" isAlign="left">
+                                    <img src={icons.move.black.svg} />
                                   </Icon>
-                                </Column>
-
-                                <Column isSize={8}>
-                                  {resource.metadata.title}
-                                </Column>
-
-                                <Column isSize={2}>
-                                  <StatusMarker
-                                        lockStatus={'open'}
-                                        statusMessage={'open'} />
-                                </Column>
-                              </Columns>
-                              <Columns>
-                                <Column isOffset={2} isSize={10}>
-                                  <Button data-for="card-action" data-tip={'drag this card to the editor'}>
-                                    <Icon isSize="small" isAlign="left">
-                                      <img src={icons.move.black.svg} />
-                                    </Icon>
-                                  </Button>
-                                  <Button data-for="card-action" data-tip={'settings'}>
-                                    <Icon isSize="small" isAlign="left">
-                                      <img src={icons.settings.black.svg} />
-                                    </Icon>
-                                  </Button>
-                                  <Button data-for="card-action" data-tip={'delete this resource'}>
-                                    <Icon isSize="small" isAlign="left">
-                                      <img src={icons.remove.black.svg} />
-                                    </Icon>
-                                  </Button>
-                                  <Button data-for="card-action" data-tip={'use as cover image'}>
-                                    <Icon isSize="small" isAlign="left">
-                                      <img src={icons.cover.black.svg} />
-                                    </Icon>
-                                  </Button>
-                                </Column>
-                              </Columns>
-                              <ReactTooltip
-                                place="right"
-                                effect="solid"
-                                id="card-action"
-                               />
-                            </div>
-                          }
-                          />
-                        </Column>
+                                </Button>
+                                <Button onClick={() => this.setState({mainColumnMode: 'editresource'})} data-for="card-action" data-tip={'settings'}>
+                                  <Icon isSize="small" isAlign="left">
+                                    <img src={icons.settings.black.svg} />
+                                  </Icon>
+                                </Button>
+                                <Button data-for="card-action" data-tip={'delete this resource'}>
+                                  <Icon isSize="small" isAlign="left">
+                                    <img src={icons.remove.black.svg} />
+                                  </Icon>
+                                </Button>
+                                <Button data-for="card-action" data-tip={'use as cover image'}>
+                                  <Icon isSize="small" isAlign="left">
+                                    <img src={icons.cover.black.svg} />
+                                  </Icon>
+                                </Button>
+                              </Column>
+                            </Columns>
+                            <ReactTooltip
+                              place="right"
+                              effect="solid"
+                              id="card-action" />
+                          </div>
+                          } />
+                    </Column>
                   );
                 })
               }
-              <Level>
-                <DropZone>
+            <Level>
+              <DropZone>
                  Drop files to include new resources in your library (images, tables, bibliographies)
-                </DropZone>
-              </Level>
+              </DropZone>
+            </Level>
           </Column>
         );
       case 'summary':
@@ -334,8 +322,8 @@ export default class SectionView extends Component {
 
                                 <Column isSize={2}>
                                   <StatusMarker
-                                        lockStatus={section.lockStatus}
-                                        statusMessage={section.statusMessage} />
+                                    lockStatus={section.lockStatus}
+                                    statusMessage={section.statusMessage} />
                                 </Column>
                               </Columns>
                               <Columns>
@@ -355,18 +343,16 @@ export default class SectionView extends Component {
                                       <img src={icons.remove.black.svg} />
                                     </Icon>
                                   </Button>
-                                 
+
                                 </Column>
                                 <ReactTooltip
                                   place="right"
                                   effect="solid"
-                                  id="card-action"
-                                 />
+                                  id="card-action" />
                               </Columns>
                             </div>
-                          }
-                          />
-                        </Column>
+                          } />
+                      </Column>
                   );
                   })
                 }
@@ -376,7 +362,126 @@ export default class SectionView extends Component {
   }
 
   renderMain = () => {
-    return 'coucou';
+    const renderResourceForm = () => {
+      return (<div>
+        <Columns>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
+                    Url of the video
+                  <HelpPin place="right">
+                      Explanation about the video url
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video url" />
+              </Control>
+            </Field>
+          </Column>
+          <Column>
+            <Title isSize={5}>
+                  Preview
+            </Title>
+            <iframe
+              src="https://www.youtube.com/embed/QHDRRxKlimY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media"
+              allowFullScreen />
+          </Column>
+        </Columns>
+        <Level />
+        <Columns>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
+                      Title of the video
+                  <HelpPin place="right">
+                      Explanation about the video title
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video title" />
+              </Control>
+            </Field>
+            <Field>
+              <Control>
+                <Label>
+                    Source of the video
+                  <HelpPin place="right">
+                      Explanation about the video source
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video source" />
+              </Control>
+            </Field>
+          </Column>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
+                    Description of the video
+                  <HelpPin place="right">
+                      Explanation about the video description
+                  </HelpPin>
+                </Label>
+                <TextArea type="text" placeholder="Video description" />
+              </Control>
+            </Field>
+          </Column>
+        </Columns>
+      </div>);
+    };
+    switch (this.state.mainColumnMode) {
+      case 'newresource':
+        return (
+          <div>
+            <Level />
+            <Title isSize={2}>
+              <Columns>
+                <Column isSize={11}>
+                  Create a new resource
+                </Column>
+                <Column>
+                  <Delete onClick={
+                    () => this.setState({mainColumnMode: 'list'})
+                  } />
+                </Column>
+              </Columns>
+            </Title>
+            <BigSelect
+              activeOptionId={this.state.activeOptionId}
+              onChange={activeOptionId => this.setState({activeOptionId})}
+              options={
+                resourceTypes.map(type => ({
+                  id: type,
+                  label: type,
+                  iconUrl: icons[type].black.svg
+                }))
+              } />
+            {renderResourceForm()}
+          </div>
+        );
+      case 'editresource':
+        return (
+          <div>
+            <Level />
+            <Title isSize={2}>
+              <Columns>
+                <Column isSize={11}>
+                  Edit video
+                </Column>
+                <Column>
+                  <Delete onClick={
+                    () => this.setState({mainColumnMode: 'list'})
+                  } />
+                </Column>
+              </Columns>
+            </Title>
+            {renderResourceForm()}
+          </div>
+        );
+      case 'edit':
+      default:
+        return <img src={require('../mockAssets/mock-section-editor.png')} />;
+    }
   }
 
   render = () => {
@@ -453,7 +558,7 @@ export default class SectionView extends Component {
             {renderAside()}
           </Column>
           <Column isSize={'fullwidth'}>
-            <img src={require('../mockAssets/mock-section-editor.png')} />
+            {renderMain()}
           </Column>
         </Columns>
       </div>

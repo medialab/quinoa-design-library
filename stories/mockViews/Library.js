@@ -3,7 +3,6 @@ import {v4 as genId} from 'uuid';
 import '../../src/themes/millet/bulma.theme.scss';
 import icons from '../../src/themes/millet/icons';
 import {
-  Box,
   BigSelect,
 
   Column,
@@ -17,8 +16,6 @@ import {
   TextArea,
 
   HelpPin,
-
-  Tile,
 
   DropZone,
   Dropdown,
@@ -67,21 +64,18 @@ const mockNames = [
 'Buff-breasted Sandpiper',
 'Bullfinch',
 'Buzzard',
-<span>Coulibaly, P., Anctil, François, & Bobée, B. (1999). Prévision hydrologique par réseaux de neurones artificiels: état de l’art. <i>Canadian Journal of Civil Engineering</i>, 26(3), 293–304.</span>,
+  <span key="blah">Coulibaly, P., Anctil, François, & Bobée, B. (1999). Prévision hydrologique par réseaux de neurones artificiels: état de l’art. <i>Canadian Journal of Civil Engineering</i>, 26(3), 293–304.</span>,
 ];
-const assetsExtensions = ['csv', 'json', 'jpg', 'png', 'svg'];
 const resourceTypes = ['bib', 'image', 'video', 'embed', 'webpage', 'table', 'glossary'];
-const resourcesModels = [
-];
 
 const mockResources = mockResourcesIds.map(id => {
-  const title = mockNames[parseInt(Math.random() * mockNames.length)];
-  const type = resourceTypes[parseInt(Math.random() * resourceTypes.length)];
+  const title = mockNames[parseInt(Math.random() * mockNames.length, 10)];
+  const type = resourceTypes[parseInt(Math.random() * resourceTypes.length, 10)];
   return {
     id,
     metadata: {
-      title: title,
-      type: type,
+      title,
+      type,
       creators: [],
       description: 'description',
       source: 'source'
@@ -122,71 +116,73 @@ export default class ResourcesView extends Component {
       mainColumnMode
     } = this.state;
     const renderResourceForm = () => {
-      return <div>
+      return (<div>
         <Columns>
-              <Column>
-                <Field>
-                  <Control>
-                    <Label>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
                     Url of the video
-                      <HelpPin place="right">
+                  <HelpPin place="right">
                       Explanation about the video url
-                      </HelpPin>
-                    </Label>
-                    <Input type="text" placeholder="Video url" />
-                  </Control>
-                </Field>
-              </Column>
-              <Column>
-                <Title isSize={5}>
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video url" />
+              </Control>
+            </Field>
+          </Column>
+          <Column>
+            <Title isSize={5}>
                   Preview
-                </Title>
-                <iframe src="https://www.youtube.com/embed/QHDRRxKlimY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-              </Column>
-            </Columns>
-            <Level/>
-            <Columns>
-              <Column>
-                <Field>
-                  <Control>
-                    <Label>
+            </Title>
+            <iframe
+              src="https://www.youtube.com/embed/QHDRRxKlimY?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allow="autoplay; encrypted-media"
+              allowFullScreen />
+          </Column>
+        </Columns>
+        <Level />
+        <Columns>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
                       Title of the video
-                      <HelpPin place="right">
+                  <HelpPin place="right">
                       Explanation about the video title
-                      </HelpPin>
-                    </Label>
-                    <Input type="text" placeholder="Video title" />
-                  </Control>
-                </Field>
-                <Field>
-                  <Control>
-                    <Label>
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video title" />
+              </Control>
+            </Field>
+            <Field>
+              <Control>
+                <Label>
                     Source of the video
-                      <HelpPin place="right">
+                  <HelpPin place="right">
                       Explanation about the video source
-                      </HelpPin>
-                    </Label>
-                    <Input type="text" placeholder="Video source" />
-                  </Control>
-                </Field>
-              </Column>
-              <Column>
-                <Field>
-                  <Control>
-                    <Label>
+                  </HelpPin>
+                </Label>
+                <Input type="text" placeholder="Video source" />
+              </Control>
+            </Field>
+          </Column>
+          <Column>
+            <Field>
+              <Control>
+                <Label>
                     Description of the video
-                      <HelpPin place="right">
+                  <HelpPin place="right">
                       Explanation about the video description
-                      </HelpPin>
-                    </Label>
-                    <TextArea type="text" placeholder="Video description" />
-                  </Control>
-                </Field>
-              </Column>
-            </Columns>
-      </div>;
-    }
-    switch(mainColumnMode) {
+                  </HelpPin>
+                </Label>
+                <TextArea type="text" placeholder="Video description" />
+              </Control>
+            </Field>
+          </Column>
+        </Columns>
+      </div>);
+    };
+    switch (mainColumnMode) {
       case 'new':
         return (
           <div>
@@ -238,9 +234,9 @@ export default class ResourcesView extends Component {
       case 'list':
       default:
         return (
-        <div>
+          <div>
 
-          <Column>
+            <Column>
               <Level isMobile>
                 <LevelLeft>
                   <Field hasAddons>
@@ -284,18 +280,18 @@ export default class ResourcesView extends Component {
                         {
                           id: 'images',
                           label: <Field>
-                              <Control>
-                                  <Checkbox checked>Images</Checkbox>
-                              </Control>
+                            <Control>
+                              <Checkbox checked>Images</Checkbox>
+                            </Control>
                           </Field>
                         },
                         {
                           id: 'videos',
                           label: <Field>
-                                    <Control>
-                                        <Checkbox>Videos</Checkbox>
-                                    </Control>
-                                </Field>
+                            <Control>
+                              <Checkbox>Videos</Checkbox>
+                            </Control>
+                          </Field>
                         },
                         {
                           id: 'all',
@@ -313,36 +309,36 @@ export default class ResourcesView extends Component {
                 {
                     mockResources.map(resource => {
                       return (
-                          <Card
-                            key={resource.id}
-                            bodyContent={
-                              <div>
-                                <Columns>
-                                  <Column isSize={2}>
-                                    <Icon isSize="medium" isAlign="left">
-                                      <img src={icons[resource.metadata.type].black.svg} />
-                                    </Icon>
-                                  </Column>
+                        <Card
+                          key={resource.id}
+                          bodyContent={
+                            <div>
+                              <Columns>
+                                <Column isSize={2}>
+                                  <Icon isSize="medium" isAlign="left">
+                                    <img src={icons[resource.metadata.type].black.svg} />
+                                  </Icon>
+                                </Column>
 
-                                  <Column isSize={8}>
-                                    {resource.metadata.title}
-                                  </Column>
+                                <Column isSize={8}>
+                                  {resource.metadata.title}
+                                </Column>
 
-                                  <Column isSize={2}>
-                                    <StatusMarker
-                                          lockStatus={'open'}
-                                          statusMessage={'open'} />
-                                  </Column>
-                                </Columns>
-                                <Column>
+                                <Column isSize={2}>
+                                  <StatusMarker
+                                    lockStatus={'open'}
+                                    statusMessage={'open'} />
+                                </Column>
+                              </Columns>
+                              <Column>
                                 {
                                   ['image', 'video'].indexOf(resource.metadata.type) > -1 &&
                                   <img src="https://inra-dam-front-resources-cdn.brainsonic.com/ressources/afile/224020-77d3e-picture_client_link_1-ouverture-dossier-controverse.JPG" />
                                 }
-                                </Column>
-                              </div>
+                              </Column>
+                            </div>
                             }
-                            footerActions={[
+                          footerActions={[
                               {
                                 id: 'edit',
                                 isColor: 'info',
@@ -354,14 +350,17 @@ export default class ResourcesView extends Component {
                                 label: 'delete'
                               }
                             ]}
-                            onAction={action => action === 'edit' ? this.setState({mainColumnMode: 'edit'}) : undefined}
-                            />
+                          onAction={action => {
+                            if (action === 'edit') {
+                              this.setState({mainColumnMode: 'edit'});
+                            }
+                          }} />
                       );
                     })
                   }
               </Grid>
             </div>
-        </div>
+          </div>
       );
     }
   }
@@ -369,8 +368,6 @@ export default class ResourcesView extends Component {
   render = () => {
     const {
       state: {
-        filterVisible,
-        sortVisible,
         mainColumnMode
       },
       renderMainColumn
@@ -426,7 +423,7 @@ export default class ResourcesView extends Component {
         <Container isFluid>
           <Columns isFullHeight>
             <Column isSize={'1/4'}>
-              <Level/>
+              <Level />
               <Level>
                 <Content>
                   Your library contains all the resources (references, images, visualizations...) that can be used within the story.
@@ -445,8 +442,8 @@ export default class ResourcesView extends Component {
             </Column>
             <Column isSize={'3/4'}>
               {renderMainColumn()}
-            </Column>    
-          </Columns>          
+            </Column>
+          </Columns>
         </Container>
       </div>
     );

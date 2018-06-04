@@ -14,11 +14,13 @@ export default (props) => {
       const lastGroup = result[result.length - 1];
       if (lastGroup.length < columns) {
         lastGroup.push(child);
-      } else {
-        result.push([child])
       }
-    } else {
-      result.push([child])
+ else {
+        result.push([child]);
+      }
+    }
+ else {
+      result.push([child]);
     }
     return result;
   }, []);
@@ -30,9 +32,12 @@ export default (props) => {
           <Tile key={groupIndex} isAncestor>
             {
               group.map((item, itemIndex) => (
-                <Tile isSize={parseInt(12/columns)} isVertical isParent>
-                  <Tile isChild render={
-                    props => item
+                <Tile
+                  key={itemIndex} isSize={parseInt(12 / columns, 10)} isVertical
+                  isParent>
+                  <Tile
+                    isChild render={
+                    () => item
                   } />
                 </Tile>
               ))

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import {
   Box,
-  Columns,
-  Column,
   Image,
   Grid,
 } from '../index';
@@ -23,7 +21,9 @@ const BigSelect = ({
             onChange(option.id);
           };
           return (
-            <Box onClick={onClick} key={index} style={{textAlign: 'center'}} isActive={activeOptionId === option.id}>
+            <Box
+              onClick={onClick} key={index} style={{textAlign: 'center'}}
+              isActive={activeOptionId === option.id}>
               {
                 option.iconUrl &&
                 <div style={{textAlign: 'center'}}>

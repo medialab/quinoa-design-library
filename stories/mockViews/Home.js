@@ -67,7 +67,7 @@ export default class HomeView extends Component {
       stories,
       instanceTitle: 'Scube 2018',
       profileEdited: false,
-      backgroundImage: require(`../mockAssets/cover_forccast.jpg`)
+      backgroundImage: require('../mockAssets/cover_forccast.jpg')
     };
   }
 
@@ -415,7 +415,7 @@ export default class HomeView extends Component {
                                           </Button>
                                         </Column>
                                       </Columns>
-                                    </form> 
+                                    </form>
                                     :
                                     <Column>
                                       <DropZone>
@@ -457,21 +457,20 @@ export default class HomeView extends Component {
       },
       renderContent,
     } = this;
-    console.log('background image', backgroundImage);
     const setTabMode = thatTabmode => this.setState({tabMode: thatTabmode});
     return (
       <section>
-        <Hero isColor="success" 
-        isSize="large"
-        style={{
+        <Hero
+          isColor="success"
+          isSize="large"
+          style={{
                 background: `url(${backgroundImage})`,
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
                 backgroundSize: 'cover',
                 backgroundColor: '#999',
-              }}
-        >
+              }}>
           <HeroHeader>
             <Navbar
               isOpen={false}
