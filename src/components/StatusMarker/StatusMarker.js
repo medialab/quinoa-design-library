@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Icon
+} from 'bloomer'; 
 
 import ReactTooltip from 'react-tooltip';
 
@@ -29,6 +32,8 @@ const StatusMarker = ({
   }
   return (
     <span className={`status-marker is-lock-status-${lockStatus}`} data-for="status-marker" data-tip={statusMessage}>
+        <Icon style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none'}} data-tip={computedType} className={`fa fa-lock`} />
+        <Icon style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline'}} data-tip={computedType} className={`fa fa-unlock`} />
       <ReactTooltip
         place="right"
         effect="solid"

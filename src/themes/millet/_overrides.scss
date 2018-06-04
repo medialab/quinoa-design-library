@@ -377,25 +377,25 @@ hr {
   }
 }
 .status-marker{
-    width: 0.5em;
-    height: 0.5em;
-    position: relative;
-    border-radius: 50%;
+    width: 1.2em;
+    // height: .5em;
+    // position: relative;
+    // border-radius: 50%;
     float: left;
     &.is-lock-status-open{
-      background: lightgreen;
+      color: lightgreen;
     }
     &.is-lock-status-active{
-      background: lightblue;
+      color: lightblue;
     }
     &.is-lock-status-locked{
-      background: red;
+      color: red;
     }
     &.is-lock-status-asked{
-      background: lightgrey;
+      color: lightgrey;
     }
     &.is-lock-status-idle{
-      background: darkgrey;
+      color: darkgrey;
     }
 }
 
