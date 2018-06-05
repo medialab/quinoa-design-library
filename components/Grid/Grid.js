@@ -45,8 +45,11 @@ exports.default = function (props) {
         group.map(function (item, itemIndex) {
           return _react2.default.createElement(
             _bloomer.Tile,
-            { isSize: parseInt(12 / columns), isVertical: true, isParent: true },
-            _react2.default.createElement(_bloomer.Tile, { isChild: true, render: function render(props) {
+            {
+              key: itemIndex, isSize: parseInt(12 / columns, 10), isVertical: true,
+              isParent: true },
+            _react2.default.createElement(_bloomer.Tile, {
+              isChild: true, render: function render() {
                 return item;
               } })
           );
