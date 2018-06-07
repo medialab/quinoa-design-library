@@ -34,6 +34,7 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       _ref$isOpen = _ref.isOpen,
       isOpen = _ref$isOpen === undefined ? true : _ref$isOpen,
       onToggle = _ref.onToggle,
+      onProfileClick = _ref.onProfileClick,
       _ref$isLockStatus = _ref.isLockStatus,
       isLockStatus = _ref$isLockStatus === undefined ? 'open' : _ref$isLockStatus,
       _ref$isFixed = _ref.isFixed,
@@ -143,7 +144,9 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
             null,
             _react2.default.createElement(
               _index.Button,
-              { 'data-tip': 'logged as ' + profile.nickName, 'data-for': 'profile-btn', isRounded: true },
+              {
+                onClick: onProfileClick, 'data-tip': 'logged as ' + profile.nickName, 'data-for': 'profile-btn',
+                isRounded: true },
               _react2.default.createElement(_index.Image, { isRounded: true, isSize: '32x32', src: profile.imageUri })
             ),
             _react2.default.createElement(_reactTooltip2.default, {
@@ -179,6 +182,7 @@ NavbarWrapper.propTypes = {
       content: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element])
     }))
   })),
+  onProfileClick: _propTypes2.default.func,
   actionOptions: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     href: _propTypes2.default.string,
     content: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element])
