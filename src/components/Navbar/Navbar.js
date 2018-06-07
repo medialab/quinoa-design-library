@@ -31,6 +31,7 @@ const NavbarWrapper = ({
   actionOptions = [],
   isOpen = true,
   onToggle,
+  onProfileClick,
   isLockStatus = 'open',
   isFixed = false,
   profile
@@ -125,7 +126,9 @@ const NavbarWrapper = ({
             {
             profile ?
               <NavbarItem>
-                <Button data-tip={`logged as ${profile.nickName}`} data-for="profile-btn" isRounded>
+                <Button
+                  onClick={onProfileClick} data-tip={`logged as ${profile.nickName}`} data-for="profile-btn"
+                  isRounded>
                   <Image isRounded isSize="32x32" src={profile.imageUri} />
                 </Button>
                 <Tooltip
@@ -169,6 +172,7 @@ NavbarWrapper.propTypes = {
       }))
     })
   ),
+  onProfileClick: PropTypes.func,
   actionOptions: PropTypes.arrayOf(
     PropTypes.shape({
       href: PropTypes.string,
