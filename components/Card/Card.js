@@ -116,7 +116,7 @@ var Card = function Card(_ref) {
               { key: index, onClick: onActionClick },
               _react2.default.createElement(
                 _Button2.default,
-                { isColor: action.isColor, className: 'button is-fullwidth' },
+                { isDisabled: action.isDisabled, isColor: action.isColor, className: 'button is-fullwidth' },
                 action.label
               )
             );
@@ -136,7 +136,7 @@ var Card = function Card(_ref) {
           { key: index, className: 'card-footer-item' },
           _react2.default.createElement(
             _Button2.default,
-            { isColor: action.isColor, onClick: onActionClick, className: 'button is-fullwidth' },
+            { isDisabled: action.isDisabled, isColor: action.isColor, onClick: onActionClick, className: 'button is-fullwidth' },
             action.label
           )
         );

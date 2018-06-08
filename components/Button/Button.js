@@ -20,9 +20,20 @@ exports.default = function (props) {
   var className = props.className,
       isLockStatus = props.isLockStatus,
       isRounded = props.isRounded,
-      otherProps = _objectWithoutProperties(props, ['className', 'isLockStatus', 'isRounded']);
+      isDisabled = props.isDisabled,
+      otherProps = _objectWithoutProperties(props, ['className', 'isLockStatus', 'isRounded', 'isDisabled']);
+
+  var onClick = function onClick(e) {
+    if (isDisabled) {
+      e.stopPropagation();
+      e.preventDefault();
+    } else if (typeof otherProps.onClick === 'function') {
+      otherProps.onClick(e);
+    }
+  };
 
   return _react2.default.createElement(_bloomer.Button, _extends({
-    className: (className || '') + ' is-lock-status-' + (isLockStatus || 'open') + ' ' + (isRounded ? 'is-rounded' : '')
+    onClick: onClick,
+    className: (className || '') + ' is-lock-status-' + (isLockStatus || 'open') + ' ' + (isRounded ? 'is-rounded' : '') + ' ' + (isDisabled ? 'is-disabled' : '')
   }, otherProps));
 };

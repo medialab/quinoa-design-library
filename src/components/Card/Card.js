@@ -76,7 +76,7 @@ const Card = ({
                 };
                 return (
                   <p key={index} onClick={onActionClick}>
-                    <Button isColor={action.isColor} className="button is-fullwidth">
+                    <Button isDisabled={action.isDisabled} isColor={action.isColor} className="button is-fullwidth">
                       {action.label}
                     </Button>
                   </p>
@@ -98,7 +98,7 @@ const Card = ({
               };
               return (
                 <p key={index} className="card-footer-item">
-                  <Button isColor={action.isColor} onClick={onActionClick} className="button is-fullwidth">
+                  <Button isDisabled={action.isDisabled} isColor={action.isColor} onClick={onActionClick} className="button is-fullwidth">
                     {action.label}
                   </Button>
                 </p>

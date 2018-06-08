@@ -6,12 +6,23 @@ export default (props) => {
     className,
     isLockStatus,
     isRounded,
+    isDisabled,
     ...otherProps
   } = props;
 
+  const onClick = e => {
+    if (isDisabled) {
+      e.stopPropagation();
+      e.preventDefault();
+    } else if (typeof otherProps.onClick === 'function') {
+      otherProps.onClick(e);
+    }
+  }
+
   return (
     <Button
-      className={`${className || ''} is-lock-status-${isLockStatus || 'open'} ${isRounded ? 'is-rounded' : ''}`}
+      onClick={onClick}
+      className={`${className || ''} is-lock-status-${isLockStatus || 'open'} ${isRounded ? 'is-rounded' : ''} ${isDisabled ? 'is-disabled' : ''}`}
       {...otherProps} />
   );
 };
