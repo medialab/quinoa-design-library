@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Link} from 'react-router-dom';
+
 import {
   Navbar,
   NavbarItem,
@@ -34,8 +36,10 @@ const NavbarWrapper = ({
   onProfileClick,
   isLockStatus = 'open',
   isFixed = false,
+  withReactRouter = true,
   profile
 }) => {
+  const NavLink = withReactRouter ? Link : NavbarLink;
   return (
     <Navbar className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
       <Container>
@@ -51,9 +55,15 @@ const NavbarWrapper = ({
               {
                 locationBreadCrumbs.map((item, index) => (
                   <BreadcrumbItem key={index} isActive={item.isActive}>
-                    <a href={item.href}>
-                      {item.content}
-                    </a>
+                    {withReactRouter ?
+                      <Link to={item.href}>
+                        {item.content}
+                      </Link>
+                      :
+                      <a href={item.href}>
+                        {item.content}
+                      </a>
+                    }
                   </BreadcrumbItem>
                 ))
               }
@@ -63,13 +73,15 @@ const NavbarWrapper = ({
                 return (
                   <NavbarItem
                     key={index}
-                    href={item.href}
+                    href={withReactRouter ? undefined : item.href}
+                    to={item.href}
+                    tag={withReactRouter ? Link : undefined}
                     isActive={item.isActive}
                     hasDropdown={(item.subItems && item.subItems.length > 0) ? true : null}
                     isHoverable={(item.subItems && item.subItems.length > 0) ? true : null}>
                     {
                       item.subItems && item.subItems.length > 0 ?
-                        <NavbarLink href={item.href}>
+                        <NavLink href={item.href}>
                           <span>
                             {item.content}
                             {
@@ -79,7 +91,7 @@ const NavbarWrapper = ({
                                   statusMessage={item.statusMessage} /> : null
                             }
                           </span>
-                        </NavbarLink> :
+                        </NavLink> :
                         <span>
                           {item.content}
                           {

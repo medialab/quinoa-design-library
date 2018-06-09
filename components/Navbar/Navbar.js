@@ -12,6 +12,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactRouterDom = require('react-router-dom');
+
 var _bloomer = require('bloomer');
 
 var _reactTooltip = require('react-tooltip');
@@ -39,8 +41,11 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       isLockStatus = _ref$isLockStatus === undefined ? 'open' : _ref$isLockStatus,
       _ref$isFixed = _ref.isFixed,
       isFixed = _ref$isFixed === undefined ? false : _ref$isFixed,
+      _ref$withReactRouter = _ref.withReactRouter,
+      withReactRouter = _ref$withReactRouter === undefined ? true : _ref$withReactRouter,
       profile = _ref.profile;
 
+  var NavLink = withReactRouter ? _reactRouterDom.Link : _bloomer.NavbarLink;
   return _react2.default.createElement(
     _bloomer.Navbar,
     { className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') },
@@ -72,7 +77,11 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
               return _react2.default.createElement(
                 _bloomer.BreadcrumbItem,
                 { key: index, isActive: item.isActive },
-                _react2.default.createElement(
+                withReactRouter ? _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: item.href },
+                  item.content
+                ) : _react2.default.createElement(
                   'a',
                   { href: item.href },
                   item.content
@@ -85,12 +94,14 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
               _bloomer.NavbarItem,
               {
                 key: index,
-                href: item.href,
+                href: withReactRouter ? undefined : item.href,
+                to: item.href,
+                tag: withReactRouter ? _reactRouterDom.Link : undefined,
                 isActive: item.isActive,
                 hasDropdown: item.subItems && item.subItems.length > 0 ? true : null,
                 isHoverable: item.subItems && item.subItems.length > 0 ? true : null },
               item.subItems && item.subItems.length > 0 ? _react2.default.createElement(
-                _bloomer.NavbarLink,
+                NavLink,
                 { href: item.href },
                 _react2.default.createElement(
                   'span',
