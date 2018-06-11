@@ -136,7 +136,9 @@ var Card = function Card(_ref) {
           { key: index, className: 'card-footer-item' },
           _react2.default.createElement(
             _Button2.default,
-            { isDisabled: action.isDisabled, isColor: action.isColor, onClick: onActionClick, className: 'button is-fullwidth' },
+            {
+              isDisabled: action.isDisabled, isColor: action.isColor, onClick: onActionClick,
+              className: 'button is-fullwidth' },
             action.label
           )
         );

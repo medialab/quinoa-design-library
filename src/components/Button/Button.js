@@ -14,10 +14,11 @@ export default (props) => {
     if (isDisabled) {
       e.stopPropagation();
       e.preventDefault();
-    } else if (typeof otherProps.onClick === 'function') {
+    }
+ else if (typeof otherProps.onClick === 'function') {
       otherProps.onClick(e);
     }
-  }
+  };
 
   return (
     <Button

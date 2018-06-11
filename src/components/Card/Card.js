@@ -98,7 +98,9 @@ const Card = ({
               };
               return (
                 <p key={index} className="card-footer-item">
-                  <Button isDisabled={action.isDisabled} isColor={action.isColor} onClick={onActionClick} className="button is-fullwidth">
+                  <Button
+                    isDisabled={action.isDisabled} isColor={action.isColor} onClick={onActionClick}
+                    className="button is-fullwidth">
                     {action.label}
                   </Button>
                 </p>
