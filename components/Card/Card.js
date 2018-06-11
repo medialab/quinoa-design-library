@@ -114,7 +114,7 @@ var Card = function Card(_ref) {
             return _react2.default.createElement(
               'p',
               { key: index, onClick: onActionClick },
-              _react2.default.createElement(
+              action.component ? _react2.default.createElement(action.component, null) : _react2.default.createElement(
                 _Button2.default,
                 { isDisabled: action.isDisabled, isColor: action.isColor, className: 'button is-fullwidth' },
                 action.label
@@ -148,7 +148,7 @@ var Card = function Card(_ref) {
 };
 
 Card.propTypes = {
-  title: _propTypes2.default.string.isRequired,
+  title: _react2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.component]).isRequired,
   icon: _propTypes2.default.element,
   subtitle: _propTypes2.default.string,
   headerContent: _propTypes2.default.element,
