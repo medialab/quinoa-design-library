@@ -76,9 +76,12 @@ const Card = ({
                 };
                 return (
                   <p key={index} onClick={onActionClick}>
-                    <Button isDisabled={action.isDisabled} isColor={action.isColor} className="button is-fullwidth">
-                      {action.label}
-                    </Button>
+                    {
+                      action.component ? <action.component /> :
+                      <Button isDisabled={action.isDisabled} isColor={action.isColor} className="button is-fullwidth">
+                        {action.label}
+                      </Button>
+                    }
                   </p>
                 );
               })
@@ -114,7 +117,7 @@ const Card = ({
 };
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: React.oneOfType([PropTypes.string, PropTypes.component]).isRequired,
   icon: PropTypes.element,
   subtitle: PropTypes.string,
   headerContent: PropTypes.element,
