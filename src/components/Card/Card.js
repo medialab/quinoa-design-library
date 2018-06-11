@@ -117,7 +117,7 @@ const Card = ({
 };
 
 Card.propTypes = {
-  title: React.oneOfType([PropTypes.string, PropTypes.component]).isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.component]).isRequired,
   icon: PropTypes.element,
   subtitle: PropTypes.string,
   headerContent: PropTypes.element,
