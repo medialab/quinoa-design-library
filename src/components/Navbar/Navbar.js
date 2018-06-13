@@ -28,6 +28,7 @@ import {
 const NavbarWrapper = ({
   brandImage,
   brandContent,
+  brandUrl = '/',
   locationBreadCrumbs = [],
   menuOptions = [],
   actionOptions = [],
@@ -40,12 +41,26 @@ const NavbarWrapper = ({
   profile
 }) => {
   const NavLink = withReactRouter ? Link : NavbarLink;
+  const Ref = ({to, children}) => {
+    if (withReactRouter) {
+      return (<Link to={to}>
+        {children}
+      </Link>);
+    } else {
+      return  (<a href={to}>
+        {children}
+      </a>);
+    }
+  }
+
   return (
     <Navbar className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
       <Container>
         <NavbarBrand>
           <NavbarItem>
-            {brandImage && <img src={brandImage} />} {brandContent}
+            <Ref to={brandUrl}>
+              {brandImage && <img src={brandImage} />} {brandContent}
+            </Ref>
           </NavbarItem>
           <NavbarBurger isActive={isOpen} onClick={onToggle} />
         </NavbarBrand>
@@ -55,15 +70,9 @@ const NavbarWrapper = ({
               {
                 locationBreadCrumbs.map((item, index) => (
                   <BreadcrumbItem key={index} isActive={item.isActive}>
-                    {withReactRouter ?
-                      <Link to={item.href}>
-                        {item.content}
-                      </Link>
-                      :
-                      <a href={item.href}>
-                        {item.content}
-                      </a>
-                    }
+                    <Ref to={item.href}>
+                      {item.content}
+                    </Ref>
                   </BreadcrumbItem>
                 ))
               }

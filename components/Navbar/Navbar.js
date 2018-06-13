@@ -27,6 +27,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var NavbarWrapper = function NavbarWrapper(_ref) {
   var brandImage = _ref.brandImage,
       brandContent = _ref.brandContent,
+      _ref$brandUrl = _ref.brandUrl,
+      brandUrl = _ref$brandUrl === undefined ? '/' : _ref$brandUrl,
       _ref$locationBreadCru = _ref.locationBreadCrumbs,
       locationBreadCrumbs = _ref$locationBreadCru === undefined ? [] : _ref$locationBreadCru,
       _ref$menuOptions = _ref.menuOptions,
@@ -46,6 +48,20 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       profile = _ref.profile;
 
   var NavLink = withReactRouter ? _reactRouterDom.Link : _bloomer.NavbarLink;
+  var Ref = function Ref(_ref2) {
+    var to = _ref2.to,
+        children = _ref2.children;
+    return withReactRouter ? _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: to },
+      children
+    ) : _react2.default.createElement(
+      'a',
+      { href: to },
+      children
+    );
+  };
+
   return _react2.default.createElement(
     _bloomer.Navbar,
     { className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') },
@@ -58,9 +74,13 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
         _react2.default.createElement(
           _bloomer.NavbarItem,
           null,
-          brandImage && _react2.default.createElement('img', { src: brandImage }),
-          ' ',
-          brandContent
+          _react2.default.createElement(
+            Ref,
+            { to: brandUrl },
+            brandImage && _react2.default.createElement('img', { src: brandImage }),
+            ' ',
+            brandContent
+          )
         ),
         _react2.default.createElement(_bloomer.NavbarBurger, { isActive: isOpen, onClick: onToggle })
       ),
@@ -77,13 +97,9 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
               return _react2.default.createElement(
                 _bloomer.BreadcrumbItem,
                 { key: index, isActive: item.isActive },
-                withReactRouter ? _react2.default.createElement(
-                  _reactRouterDom.Link,
+                _react2.default.createElement(
+                  Ref,
                   { to: item.href },
-                  item.content
-                ) : _react2.default.createElement(
-                  'a',
-                  { href: item.href },
                   item.content
                 )
               );
