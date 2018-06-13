@@ -117,7 +117,7 @@ const Card = ({
 };
 
 Card.propTypes = {
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.component]).isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   icon: PropTypes.element,
   subtitle: PropTypes.string,
   headerContent: PropTypes.element,
