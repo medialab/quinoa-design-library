@@ -79,6 +79,7 @@ export default class SectionsView extends Component {
           brandImage={icons.fonioBrand.svg}
           isOpen={false}
           isFixed
+          withReactRouter={false}
 
           locationBreadCrumbs={[
             {
