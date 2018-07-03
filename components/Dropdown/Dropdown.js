@@ -36,19 +36,30 @@ var DropdownContainer = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (DropdownContainer.__proto__ || Object.getPrototypeOf(DropdownContainer)).call(this, props));
 
-    _this.componentWillReceiveProps = function () {
+    _this.componentWillReceiveProps = function (nextProps) {
       if (_this.menuRef) {
+        var _nextProps$menuAlign = nextProps.menuAlign,
+            menuAlign = _nextProps$menuAlign === undefined ? 'left' : _nextProps$menuAlign;
+
         var elemRect = _this.menuRef.getBoundingClientRect();
         var x = elemRect.x,
             y = elemRect.y,
             width = elemRect.width;
 
         var _this$triggerRef$getB = _this.triggerRef.getBoundingClientRect(),
-            height = _this$triggerRef$getB.height;
+            height = _this$triggerRef$getB.height,
+            triggerWidth = _this$triggerRef$getB.width;
 
+        var finalX = void 0;
+        if (menuAlign === 'left') {
+          finalX = x + width > window.innerWidth ? window.innerWidth - width : x;
+        } else if (menuAlign === 'right') {
+          finalX = window.innerWidth - (x + triggerWidth);
+          finalX = finalX + width > window.innerWidth ? window.innerWidth : finalX;
+        }
         if (y > 0) {
           _this.setState({
-            x: x + width > window.innerWidth ? window.innerWidth - width : x,
+            x: finalX,
             y: y + height
           });
         }
@@ -67,6 +78,8 @@ var DropdownContainer = function (_Component) {
           _this$props$closeOnCh = _this$props.closeOnChange,
           closeOnChange = _this$props$closeOnCh === undefined ? true : _this$props$closeOnCh,
           children = _this$props.children,
+          _this$props$menuAlign = _this$props.menuAlign,
+          menuAlign = _this$props$menuAlign === undefined ? 'left' : _this$props$menuAlign,
           _this$state = _this.state,
           x = _this$state.x,
           y = _this$state.y;
@@ -94,21 +107,20 @@ var DropdownContainer = function (_Component) {
             id = option.id;
 
         var val = nested && value ? value[index].value : value;
-        var isActive = Array.isArray(val) ? val.indexOf(id) > -1 : val === id;
+        var subIsActive = Array.isArray(val) ? val.indexOf(id) > -1 : val === id;
         return _react2.default.createElement(
           _bloomer.DropdownItem,
           {
             href: '#',
             key: id + index,
-            isActive: isActive,
+            isActive: subIsActive,
             onClick: onClick },
           label
         );
       };
 
       var renderGroup = function renderGroup(option, index) {
-        var label = option.label,
-            id = option.id,
+        var id = option.id,
             subOptions = option.options;
 
         return [_react2.default.createElement(
@@ -169,7 +181,8 @@ var DropdownContainer = function (_Component) {
                 maxHeight: window.innerHeight - y,
                 overflow: 'auto',
                 top: y + 'px',
-                left: x + 'px'
+                left: menuAlign === 'left' ? x + 'px' : undefined,
+                right: menuAlign === 'right' ? x + 'px' : undefined
               },
               onClick: function onClick(e) {
                 return e.stopPropagation();

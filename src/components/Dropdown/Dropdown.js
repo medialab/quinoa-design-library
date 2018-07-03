@@ -22,14 +22,22 @@ class DropdownContainer extends Component {
     };
   }
 
-  componentWillReceiveProps = () => {
+  componentWillReceiveProps = (nextProps) => {
     if (this.menuRef) {
+      const {menuAlign = 'left'} = nextProps;
       const elemRect = this.menuRef.getBoundingClientRect();
       const {x, y, width} = elemRect;
-      const {height} = this.triggerRef.getBoundingClientRect();
+      const {height, width: triggerWidth} = this.triggerRef.getBoundingClientRect();
+      let finalX;
+      if (menuAlign === 'left') {
+        finalX = x + width > window.innerWidth ? window.innerWidth - width : x;
+      } else if (menuAlign === 'right') {
+        finalX = window.innerWidth - (x + triggerWidth);
+        finalX = finalX + width > window.innerWidth ? window.innerWidth : finalX;
+      }
       if (y > 0) {
         this.setState({
-          x: x + width > window.innerWidth ? window.innerWidth - width : x,
+          x: finalX,
           y: y + height
         });
       }
@@ -45,7 +53,8 @@ class DropdownContainer extends Component {
         isActive = false,
         options = [],
         closeOnChange = true,
-        children
+        children,
+        menuAlign = 'left',
       },
       state: {
         x,
@@ -129,7 +138,8 @@ class DropdownContainer extends Component {
             maxHeight: window.innerHeight - y,
             overflow: 'auto',
             top: y + 'px',
-            left: x + 'px',
+            left: menuAlign === 'left' ? x + 'px': undefined,
+            right: menuAlign === 'right' ? x + 'px': undefined,
           }}
             onClick={e => e.stopPropagation()}>
             <DropdownContent>
