@@ -22,86 +22,203 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var DropdownContainer = function DropdownContainer(_ref) {
-  var value = _ref.value,
-      onToggle = _ref.onToggle,
-      onChange = _ref.onChange,
-      _ref$isActive = _ref.isActive,
-      isActive = _ref$isActive === undefined ? false : _ref$isActive,
-      _ref$options = _ref.options,
-      options = _ref$options === undefined ? [] : _ref$options,
-      children = _ref.children;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var handleAction = function handleAction(id) {
-    if (typeof onChange === 'function') {
-      onChange(id);
-      onToggle();
-    }
-  };
-  var isNested = options.length && Array.isArray(options[0]);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  var renderOption = function renderOption(option, index) {
-    var onClick = function onClick(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      handleAction(option.id);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DropdownContainer = function (_Component) {
+  _inherits(DropdownContainer, _Component);
+
+  function DropdownContainer(props) {
+    _classCallCheck(this, DropdownContainer);
+
+    var _this = _possibleConstructorReturn(this, (DropdownContainer.__proto__ || Object.getPrototypeOf(DropdownContainer)).call(this, props));
+
+    _this.componentWillReceiveProps = function () {
+      if (_this.menuRef) {
+        var elemRect = _this.menuRef.getBoundingClientRect();
+        var x = elemRect.x,
+            y = elemRect.y,
+            width = elemRect.width;
+
+        var _this$triggerRef$getB = _this.triggerRef.getBoundingClientRect(),
+            height = _this$triggerRef$getB.height;
+
+        if (y > 0) {
+          _this.setState({
+            x: x + width > window.innerWidth ? window.innerWidth - width : x,
+            y: y + height
+          });
+        }
+      }
     };
-    return _react2.default.createElement(
-      _bloomer.DropdownItem,
-      {
-        href: '#', key: option.id + index, isActive: option.id === value.id,
-        onClick: onClick },
-      option.label
-    );
-  };
-  return _react2.default.createElement(
-    _bloomer.Dropdown,
-    { isActive: isActive },
-    _react2.default.createElement(
-      _bloomer.DropdownTrigger,
-      null,
-      _react2.default.createElement(
-        _Button2.default,
-        {
-          onClick: onToggle, isOutlined: true, 'aria-haspopup': 'true',
-          'aria-controls': 'dropdown-menu' },
-        children ? children : _react2.default.createElement(
-          'span',
-          null,
-          value && value.label
-        ),
-        _react2.default.createElement(_bloomer.Icon, { icon: 'angle-down', isSize: 'small' })
-      )
-    ),
-    _react2.default.createElement(
-      _bloomer.DropdownMenu,
-      null,
-      _react2.default.createElement(
-        _bloomer.DropdownContent,
-        null,
-        isNested ? options.reduce(function (result, optionGroup, index) {
-          return [].concat(_toConsumableArray(result), _toConsumableArray(optionGroup.map(renderOption)), [index < options.length - 1 ? _react2.default.createElement(_bloomer.DropdownDivider, { key: index }) : null]);
-        }, []) : options.map(renderOption)
-      )
-    )
-  );
-};
+
+    _this.render = function () {
+      var _this$props = _this.props,
+          value = _this$props.value,
+          onToggle = _this$props.onToggle,
+          onChange = _this$props.onChange,
+          _this$props$isActive = _this$props.isActive,
+          isActive = _this$props$isActive === undefined ? false : _this$props$isActive,
+          _this$props$options = _this$props.options,
+          options = _this$props$options === undefined ? [] : _this$props$options,
+          _this$props$closeOnCh = _this$props.closeOnChange,
+          closeOnChange = _this$props$closeOnCh === undefined ? true : _this$props$closeOnCh,
+          children = _this$props.children,
+          _this$state = _this.state,
+          x = _this$state.x,
+          y = _this$state.y;
+
+
+      var handleAction = function handleAction(id, index) {
+        if (typeof onChange === 'function') {
+          onChange(id, index);
+          if (closeOnChange) {
+            onToggle();
+          }
+        }
+      };
+      var isNested = options.length && options[0].options;
+
+      var renderOption = function renderOption(option, index) {
+        var nested = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+        var onClick = function onClick(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          handleAction(option.id, index);
+        };
+        var label = option.label,
+            id = option.id;
+
+        var val = nested && value ? value[index].value : value;
+        var isActive = Array.isArray(val) ? val.indexOf(id) > -1 : val === id;
+        return _react2.default.createElement(
+          _bloomer.DropdownItem,
+          {
+            href: '#',
+            key: id + index,
+            isActive: isActive,
+            onClick: onClick },
+          label
+        );
+      };
+
+      var renderGroup = function renderGroup(option, index) {
+        var label = option.label,
+            id = option.id,
+            subOptions = option.options;
+
+        return [_react2.default.createElement(
+          _bloomer.DropdownItem,
+          {
+            key: id + index },
+          _react2.default.createElement(
+            _bloomer.Title,
+            { isSize: 5 },
+            option.label
+          )
+        ), _react2.default.createElement(_bloomer.DropdownDivider, { key: id + index + 1 })].concat(_toConsumableArray(subOptions.map(function (o) {
+          return renderOption(o, id, true);
+        })));
+      };
+
+      var bindMenuRef = function bindMenuRef(menuRef) {
+        _this.menuRef = menuRef;
+      };
+      var bindTriggerRef = function bindTriggerRef(triggerRef) {
+        _this.triggerRef = triggerRef;
+      };
+
+      return _react2.default.createElement(
+        _bloomer.Dropdown,
+        { isActive: isActive },
+        _react2.default.createElement(
+          'div',
+          {
+            ref: bindMenuRef },
+          _react2.default.createElement(
+            'div',
+            {
+              ref: bindTriggerRef },
+            _react2.default.createElement(
+              _bloomer.DropdownTrigger,
+              null,
+              _react2.default.createElement(
+                _Button2.default,
+                {
+                  onClick: onToggle, isOutlined: true, 'aria-haspopup': 'true',
+                  'aria-controls': 'dropdown-menu',
+                  isColor: isActive ? 'info' : '' },
+                children ? children : _react2.default.createElement(
+                  'span',
+                  null,
+                  value && value.label
+                ),
+                _react2.default.createElement(_bloomer.Icon, { icon: 'angle-down', isSize: 'small' })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _bloomer.DropdownMenu,
+            {
+              style: {
+                position: 'fixed',
+                maxHeight: window.innerHeight - y,
+                overflow: 'auto',
+                top: y + 'px',
+                left: x + 'px'
+              },
+              onClick: function onClick(e) {
+                return e.stopPropagation();
+              } },
+            _react2.default.createElement(
+              _bloomer.DropdownContent,
+              null,
+              isNested ? options.map(renderGroup).reduce(function (cur, next, index) {
+                return [].concat(_toConsumableArray(cur), [cur.length && index !== options.length - 1 ? _react2.default.createElement(_bloomer.DropdownDivider, null) : null], _toConsumableArray(next));
+              }, []) : options.map(function (o) {
+                return renderOption(o);
+              })
+            )
+          )
+        )
+      );
+    };
+
+    _this.state = {
+      x: 0,
+      y: 0
+    };
+    return _this;
+  }
+
+  return DropdownContainer;
+}(_react.Component);
 
 DropdownContainer.propTypes = {
   isActive: _propTypes2.default.bool,
   onChange: _propTypes2.default.func.isRequired,
   onToggle: _propTypes2.default.func.isRequired,
-  value: _propTypes2.default.shape({
-    id: _propTypes2.default.string,
+  value: _propTypes2.default.oneOfType([_propTypes2.default.shape({
+    id: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
     value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element])
   }),
+  // for nested value
+  _propTypes2.default.object]),
   options: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.shape({
     label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
     id: _propTypes2.default.string
-  }), _propTypes2.default.arrayOf(_propTypes2.default.shape({
+  }), _propTypes2.default.shape({
+    id: _propTypes2.default.string,
     label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
-    id: _propTypes2.default.string
-  }))]))
+    options: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+      label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
+      id: _propTypes2.default.string
+    }))
+  })]))
 };
 
 exports.default = DropdownContainer;

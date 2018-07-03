@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import {
@@ -9,90 +9,171 @@ import {
   DropdownContent,
   DropdownItem,
   DropdownDivider,
+  Title,
 } from 'bloomer';
 
-const DropdownContainer = ({
-  value,
-  onToggle,
-  onChange,
-  isActive = false,
-  options = [],
-  children
-}) => {
-  const handleAction = id => {
-    if (typeof onChange === 'function') {
-      onChange(id);
-      onToggle();
-    }
-  };
-  const isNested = options.length && Array.isArray(options[0]);
+class DropdownContainer extends Component {
 
-  const renderOption = (option, index) => {
-    const onClick = e => {
-      e.stopPropagation();
-      e.preventDefault();
-      handleAction(option.id);
+  constructor(props) {
+    super(props);
+    this.state = {
+      x: 0,
+      y: 0
     };
-    return (
-      <DropdownItem
-        href="#" key={option.id + index} isActive={option.id === value.id}
-        onClick={onClick}>
-        {option.label}
-      </DropdownItem>
-    );
-  };
-  return (
-    <Dropdown isActive={isActive}>
-      <DropdownTrigger>
-        <Button
-          onClick={onToggle} isOutlined aria-haspopup="true"
-          aria-controls="dropdown-menu">
-          {
-            children ?
-            children :
-            <span>{value && value.label}</span>
-          }
-          <Icon icon="angle-down" isSize="small" />
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu>
-        <DropdownContent>
-          {
-            isNested ?
-              options.reduce((result, optionGroup, index) => [
-                  ...result,
-                  ...optionGroup.map(renderOption),
-                  index < options.length - 1 ? <DropdownDivider key={index} /> : null
-                ], [])
-            : options.map(renderOption)
-          }
-        </DropdownContent>
-      </DropdownMenu>
-    </Dropdown>
-  );
+  }
 
-};
+  componentWillReceiveProps = () => {
+    if (this.menuRef) {
+      const elemRect = this.menuRef.getBoundingClientRect();
+      const {x, y, width} = elemRect;
+      const {height} = this.triggerRef.getBoundingClientRect();
+      if (y > 0) {
+        this.setState({
+          x: x + width > window.innerWidth ? window.innerWidth - width : x,
+          y: y + height
+        });
+      }
+    }
+  }
+
+  render = () => {
+    const {
+      props: {
+        value,
+        onToggle,
+        onChange,
+        isActive = false,
+        options = [],
+        closeOnChange = true,
+        children
+      },
+      state: {
+        x,
+        y,
+      }
+    } = this;
+
+    const handleAction = (id, index) => {
+      if (typeof onChange === 'function') {
+        onChange(id, index);
+        if (closeOnChange) {
+          onToggle();
+        }
+      }
+    };
+    const isNested = options.length && options[0].options;
+
+    const renderOption = (option, index, nested = false) => {
+      const onClick = e => {
+        e.stopPropagation();
+        e.preventDefault();
+        handleAction(option.id, index);
+      };
+      const {label, id} = option;
+      const val = nested && value ? value[index].value : value;
+      const subIsActive = Array.isArray(val) ? val.indexOf(id) > - 1 : val === id;
+      return (
+        <DropdownItem
+          href="#"
+          key={id + index}
+          isActive={subIsActive}
+          onClick={onClick}>
+          {label}
+        </DropdownItem>
+      );
+    };
+
+    const renderGroup = (option, index) => {
+      const {id, options: subOptions} = option;
+      return [
+        <DropdownItem
+          key={id + index}>
+          <Title isSize={5}>{option.label}</Title>
+        </DropdownItem>,
+        <DropdownDivider key={id + index + 1} />,
+        ...subOptions.map(o => renderOption(o, id, true))
+      ];
+    };
+
+    const bindMenuRef = menuRef => {
+      this.menuRef = menuRef;
+    };
+    const bindTriggerRef = triggerRef => {
+      this.triggerRef = triggerRef;
+    };
+
+    return (
+      <Dropdown isActive={isActive}>
+        <div
+          ref={bindMenuRef}>
+          <div
+            ref={bindTriggerRef}>
+            <DropdownTrigger>
+              <Button
+                onClick={onToggle} isOutlined aria-haspopup="true"
+                aria-controls="dropdown-menu"
+                isColor={isActive ? 'info' : ''}>
+                {
+                children ?
+                children :
+                <span>{value && value.label}</span>
+              }
+                <Icon icon="angle-down" isSize="small" />
+              </Button>
+            </DropdownTrigger>
+          </div>
+
+          <DropdownMenu
+            style={{
+            position: 'fixed',
+            maxHeight: window.innerHeight - y,
+            overflow: 'auto',
+            top: y + 'px',
+            left: x + 'px',
+          }}
+            onClick={e => e.stopPropagation()}>
+            <DropdownContent>
+              {
+              isNested ?
+                options.map(renderGroup).reduce((cur, next, index) => [...cur, cur.length && index !== options.length - 1 ? <DropdownDivider /> : null, ...next], [])
+              : options.map(o => renderOption(o))
+            }
+            </DropdownContent>
+          </DropdownMenu>
+        </div>
+      </Dropdown>
+    );
+  }
+}
 
 DropdownContainer.propTypes = {
   isActive: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
-  value: PropTypes.shape({
-    id: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-  }),
+  value: PropTypes.oneOfType([
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    }),
+    // for nested value
+    PropTypes.object,
+  ]),
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
           PropTypes.shape({
             label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
             id: PropTypes.string,
           }),
-          PropTypes.arrayOf(
-            PropTypes.shape({
-              label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-              id: PropTypes.string,
-            })
-          )
+          PropTypes.shape({
+            id: PropTypes.string,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+            options: PropTypes.arrayOf(
+                      PropTypes.shape({
+                        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+                        id: PropTypes.string,
+                      })
+                    )
+          })
         ])
   )
 };
