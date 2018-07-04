@@ -51,15 +51,20 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
   var Ref = function Ref(_ref2) {
     var to = _ref2.to,
         children = _ref2.children;
-    return withReactRouter ? _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: to },
-      children
-    ) : _react2.default.createElement(
-      'a',
-      { href: to },
-      children
-    );
+
+    if (withReactRouter) {
+      return _react2.default.createElement(
+        _reactRouterDom.Link,
+        { to: to },
+        children
+      );
+    } else {
+      return _react2.default.createElement(
+        'a',
+        { href: to },
+        children
+      );
+    }
   };
 
   return _react2.default.createElement(

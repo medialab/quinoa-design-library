@@ -31,7 +31,8 @@ class DropdownContainer extends Component {
       let finalX;
       if (menuAlign === 'left') {
         finalX = x + width > window.innerWidth ? window.innerWidth - width : x;
-      } else if (menuAlign === 'right') {
+      }
+ else if (menuAlign === 'right') {
         finalX = window.innerWidth - (x + triggerWidth);
         finalX = finalX + width > window.innerWidth ? window.innerWidth : finalX;
       }
@@ -138,8 +139,8 @@ class DropdownContainer extends Component {
             maxHeight: window.innerHeight - y,
             overflow: 'auto',
             top: y + 'px',
-            left: menuAlign === 'left' ? x + 'px': undefined,
-            right: menuAlign === 'right' ? x + 'px': undefined,
+            left: menuAlign === 'left' ? x + 'px' : undefined,
+            right: menuAlign === 'right' ? x + 'px' : undefined,
           }}
             onClick={e => e.stopPropagation()}>
             <DropdownContent>

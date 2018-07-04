@@ -46,12 +46,13 @@ const NavbarWrapper = ({
       return (<Link to={to}>
         {children}
       </Link>);
-    } else {
-      return  (<a href={to}>
+    }
+    else {
+      return (<a href={to}>
         {children}
       </a>);
     }
-  }
+  };
 
   return (
     <Navbar className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
