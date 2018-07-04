@@ -74,10 +74,14 @@ module.exports = {
     svg: __webpack_require__(1)
   },
   asset: {
-    svg: __webpack_require__(2)
+    black: {
+      svg: __webpack_require__(2)
+    }
   },
   note: {
-    svg: __webpack_require__(3)
+    black: {
+      svg: __webpack_require__(3)
+    }
   },
   bib: {
     black: {
