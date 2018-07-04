@@ -4,6 +4,16 @@ module.exports = {
   fonioBrand: {
     svg: require('./icons/fonioBrand/fonio.svg')
   },
+  asset: {
+    black: {
+      svg: require('./icons/asset/asset-black.svg')
+    }
+  },
+  note: {
+    black: {
+      svg: require('./icons/note/note-black.svg')
+    }
+  },
   bib: {
     black: {
       svg: require('./icons/bib/bib-black.svg')
