@@ -5,7 +5,8 @@ export default (props) => {
   const {
     children,
     columns = 3,
-    style = {}
+    style = {},
+    tilesStyle = {}
   } = props;
 
   // grouping items
@@ -15,11 +16,11 @@ export default (props) => {
       if (lastGroup.length < columns) {
         lastGroup.push(child);
       }
- else {
+       else {
         result.push([child]);
       }
     }
- else {
+    else {
       result.push([child]);
     }
     return result;
@@ -33,10 +34,14 @@ export default (props) => {
             {
               group.map((item, itemIndex) => (
                 <Tile
-                  key={itemIndex} isSize={parseInt(12 / columns, 10)} isVertical
+                  key={itemIndex}
+                  isSize={parseInt(12 / columns, 10)}
+                  isVertical
                   isParent>
                   <Tile
-                    isChild render={
+                    isChild
+                    style={tilesStyle}
+                    render={
                     () => item
                   } />
                 </Tile>

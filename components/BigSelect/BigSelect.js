@@ -20,11 +20,13 @@ var BigSelect = function BigSelect(_ref) {
   var _ref$options = _ref.options,
       options = _ref$options === undefined ? [] : _ref$options,
       activeOptionId = _ref.activeOptionId,
-      onChange = _ref.onChange;
+      columns = _ref.columns,
+      onChange = _ref.onChange,
+      style = _ref.style;
 
   return _react2.default.createElement(
     _index.Grid,
-    null,
+    { columns: columns, style: style },
     options.map(function (option, index) {
       var onClick = function onClick(e) {
         e.stopPropagation();
@@ -33,7 +35,8 @@ var BigSelect = function BigSelect(_ref) {
       return _react2.default.createElement(
         _index.Box,
         {
-          onClick: onClick, key: index, style: { textAlign: 'center' },
+          onClick: onClick, key: index,
+          style: { textAlign: 'center' },
           isActive: activeOptionId === option.id },
         option.iconUrl && _react2.default.createElement(
           'div',

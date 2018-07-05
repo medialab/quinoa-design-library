@@ -10,10 +10,12 @@ import {
 const BigSelect = ({
   options = [],
   activeOptionId,
-  onChange
+  columns,
+  onChange,
+  style
 }) => {
   return (
-    <Grid>
+    <Grid columns={columns} style={style}>
       {
         options.map((option, index) => {
           const onClick = e => {
@@ -22,7 +24,8 @@ const BigSelect = ({
           };
           return (
             <Box
-              onClick={onClick} key={index} style={{textAlign: 'center'}}
+              onClick={onClick} key={index}
+              style={{textAlign: 'center'}}
               isActive={activeOptionId === option.id}>
               {
                 option.iconUrl &&

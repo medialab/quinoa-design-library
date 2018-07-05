@@ -17,7 +17,9 @@ exports.default = function (props) {
       _props$columns = props.columns,
       columns = _props$columns === undefined ? 3 : _props$columns,
       _props$style = props.style,
-      style = _props$style === undefined ? {} : _props$style;
+      style = _props$style === undefined ? {} : _props$style,
+      _props$tilesStyle = props.tilesStyle,
+      tilesStyle = _props$tilesStyle === undefined ? {} : _props$tilesStyle;
 
   // grouping items
 
@@ -46,10 +48,14 @@ exports.default = function (props) {
           return _react2.default.createElement(
             _bloomer.Tile,
             {
-              key: itemIndex, isSize: parseInt(12 / columns, 10), isVertical: true,
+              key: itemIndex,
+              isSize: parseInt(12 / columns, 10),
+              isVertical: true,
               isParent: true },
             _react2.default.createElement(_bloomer.Tile, {
-              isChild: true, render: function render() {
+              isChild: true,
+              style: tilesStyle,
+              render: function render() {
                 return item;
               } })
           );
