@@ -108,7 +108,7 @@ hr {
   }
 }
 
-.input {
+.input, .textarea {
   border: none;
   padding-left: 0;
   padding-right: 0;
@@ -148,9 +148,9 @@ hr {
   }
 }
 
-.textarea {
-  box-shadow: none;
-}
+// .textarea {
+//   box-shadow: none;
+// }
 
 .select select {
   border: none;
