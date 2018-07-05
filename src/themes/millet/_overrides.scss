@@ -335,9 +335,6 @@ hr {
 /**
  * CUSTOMIZATION
  */
-.column{
-  transition: all $transition-short ease;
-}
 @media screen and (min-width: 1088px) {
   a.navbar-item.is-active:not(:hover), .navbar-link.is-active:not(:hover) {
       background-color: #fafafa;
@@ -352,6 +349,12 @@ hr {
 }
 .is-rounded img{
   border-radius: 50%;
+}
+
+.is-wrapper{
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .columns {
@@ -378,6 +381,53 @@ hr {
  * NEW COMPONENTS
  */
 
+
+.stretched-layout-container {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+
+  &.is-direction-vertical{
+    flex-flow: column nowrap;
+  }
+  &.is-direction-horizontal{
+    flex-flow: row nowrap;
+    &.is-fluid {
+      @include mobile {
+        flex-direction: column;
+        overflow: auto;
+      }
+    }
+  }
+  &.is-absolute{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &.is-flowing{
+    overflow: auto;
+    &.is-fluid{
+      @include mobile {
+        overflow: visible;
+      }
+    }
+  }
+}
+
+.stretched-layout-item{
+  position: relative;
+  &.is-flowing{
+    overflow: auto;
+    &.is-fluid{
+      @include mobile {
+        overflow: visible;
+      }
+    }
+  }
+    
+}
 
 .color-picker-container{
   z-index: 5;
