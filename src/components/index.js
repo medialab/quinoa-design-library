@@ -1,6 +1,6 @@
 export {
   // Columns,
-  Column,
+  // Column,
   Tile,
 
   // Box,
@@ -146,9 +146,12 @@ export {default as HelpPin} from './HelpPin';
 export {default as DropZone} from './DropZone';
 export {default as Image} from './Image';
 export {default as Collapsable} from './Collapsable';
+export {default as Column} from './Column';
 export {default as Columns} from './Columns';
 export {default as CodeEditor} from './CodeEditor';
 export {default as ColorPicker} from './ColorPicker';
 export {default as BigSelect} from './BigSelect';
 export {default as Box} from './Box';
 export {default as Grid} from './Grid';
+export {default as StretchedLayoutContainer} from './StretchedLayoutContainer';
+export {default as StretchedLayoutItem} from './StretchedLayoutItem';

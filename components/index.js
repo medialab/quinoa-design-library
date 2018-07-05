@@ -6,12 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _bloomer = require('bloomer');
 
-Object.defineProperty(exports, 'Column', {
-  enumerable: true,
-  get: function get() {
-    return _bloomer.Column;
-  }
-});
 Object.defineProperty(exports, 'Tile', {
   enumerable: true,
   get: function get() {
@@ -697,6 +691,15 @@ Object.defineProperty(exports, 'Collapsable', {
   }
 });
 
+var _Column = require('./Column');
+
+Object.defineProperty(exports, 'Column', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Column).default;
+  }
+});
+
 var _Columns = require('./Columns');
 
 Object.defineProperty(exports, 'Columns', {
@@ -748,6 +751,24 @@ Object.defineProperty(exports, 'Grid', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_Grid).default;
+  }
+});
+
+var _StretchedLayoutContainer = require('./StretchedLayoutContainer');
+
+Object.defineProperty(exports, 'StretchedLayoutContainer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_StretchedLayoutContainer).default;
+  }
+});
+
+var _StretchedLayoutItem = require('./StretchedLayoutItem');
+
+Object.defineProperty(exports, 'StretchedLayoutItem', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_StretchedLayoutItem).default;
   }
 });
 
