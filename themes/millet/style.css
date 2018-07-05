@@ -6507,62 +6507,71 @@ hr {
 .icon.is-clickable {
   pointer-events: auto !important; }
 
-.input {
+.input,
+.textarea {
   border: none;
   padding-left: 0;
   padding-right: 0;
   box-shadow: inset 0 -1px 0 #dbdbdb;
   transition: all 300ms; }
-  .input.is-small {
+  .input.is-small,
+  .textarea.is-small {
     border-radius: 0; }
-  .input.is-active, .input.is-focused, .input:active, .input:focus {
+  .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus {
     box-shadow: inset 0 -2px 0 #2196F3; }
-  .input.is-white {
+  .input.is-white,
+  .textarea.is-white {
     box-shadow: inset 0 -1px 0 white; }
-    .input.is-white.is-active, .input.is-white.is-focused, .input.is-white:active, .input.is-white:focus {
+    .input.is-white.is-active, .input.is-white.is-focused, .input.is-white:active, .input.is-white:focus, .textarea.is-white.is-active, .textarea.is-white.is-focused, .textarea.is-white:active, .textarea.is-white:focus {
       box-shadow: inset 0 -2px 0 white; }
-  .input.is-black {
+  .input.is-black,
+  .textarea.is-black {
     box-shadow: inset 0 -1px 0 #0a0a0a; }
-    .input.is-black.is-active, .input.is-black.is-focused, .input.is-black:active, .input.is-black:focus {
+    .input.is-black.is-active, .input.is-black.is-focused, .input.is-black:active, .input.is-black:focus, .textarea.is-black.is-active, .textarea.is-black.is-focused, .textarea.is-black:active, .textarea.is-black:focus {
       box-shadow: inset 0 -2px 0 #0a0a0a; }
-  .input.is-light {
+  .input.is-light,
+  .textarea.is-light {
     box-shadow: inset 0 -1px 0 whitesmoke; }
-    .input.is-light.is-active, .input.is-light.is-focused, .input.is-light:active, .input.is-light:focus {
+    .input.is-light.is-active, .input.is-light.is-focused, .input.is-light:active, .input.is-light:focus, .textarea.is-light.is-active, .textarea.is-light.is-focused, .textarea.is-light:active, .textarea.is-light:focus {
       box-shadow: inset 0 -2px 0 whitesmoke; }
-  .input.is-dark {
+  .input.is-dark,
+  .textarea.is-dark {
     box-shadow: inset 0 -1px 0 #363636; }
-    .input.is-dark.is-active, .input.is-dark.is-focused, .input.is-dark:active, .input.is-dark:focus {
+    .input.is-dark.is-active, .input.is-dark.is-focused, .input.is-dark:active, .input.is-dark:focus, .textarea.is-dark.is-active, .textarea.is-dark.is-focused, .textarea.is-dark:active, .textarea.is-dark:focus {
       box-shadow: inset 0 -2px 0 #363636; }
-  .input.is-primary {
+  .input.is-primary,
+  .textarea.is-primary {
     box-shadow: inset 0 -1px 0 #3F51B5; }
-    .input.is-primary.is-active, .input.is-primary.is-focused, .input.is-primary:active, .input.is-primary:focus {
+    .input.is-primary.is-active, .input.is-primary.is-focused, .input.is-primary:active, .input.is-primary:focus, .textarea.is-primary.is-active, .textarea.is-primary.is-focused, .textarea.is-primary:active, .textarea.is-primary:focus {
       box-shadow: inset 0 -2px 0 #3F51B5; }
-  .input.is-link {
+  .input.is-link,
+  .textarea.is-link {
     box-shadow: inset 0 -1px 0 #2196F3; }
-    .input.is-link.is-active, .input.is-link.is-focused, .input.is-link:active, .input.is-link:focus {
+    .input.is-link.is-active, .input.is-link.is-focused, .input.is-link:active, .input.is-link:focus, .textarea.is-link.is-active, .textarea.is-link.is-focused, .textarea.is-link:active, .textarea.is-link:focus {
       box-shadow: inset 0 -2px 0 #2196F3; }
-  .input.is-info {
+  .input.is-info,
+  .textarea.is-info {
     box-shadow: inset 0 -1px 0 #29B6F6; }
-    .input.is-info.is-active, .input.is-info.is-focused, .input.is-info:active, .input.is-info:focus {
+    .input.is-info.is-active, .input.is-info.is-focused, .input.is-info:active, .input.is-info:focus, .textarea.is-info.is-active, .textarea.is-info.is-focused, .textarea.is-info:active, .textarea.is-info:focus {
       box-shadow: inset 0 -2px 0 #29B6F6; }
-  .input.is-success {
+  .input.is-success,
+  .textarea.is-success {
     box-shadow: inset 0 -1px 0 #4CAF50; }
-    .input.is-success.is-active, .input.is-success.is-focused, .input.is-success:active, .input.is-success:focus {
+    .input.is-success.is-active, .input.is-success.is-focused, .input.is-success:active, .input.is-success:focus, .textarea.is-success.is-active, .textarea.is-success.is-focused, .textarea.is-success:active, .textarea.is-success:focus {
       box-shadow: inset 0 -2px 0 #4CAF50; }
-  .input.is-warning {
+  .input.is-warning,
+  .textarea.is-warning {
     box-shadow: inset 0 -1px 0 #FFEB3B; }
-    .input.is-warning.is-active, .input.is-warning.is-focused, .input.is-warning:active, .input.is-warning:focus {
+    .input.is-warning.is-active, .input.is-warning.is-focused, .input.is-warning:active, .input.is-warning:focus, .textarea.is-warning.is-active, .textarea.is-warning.is-focused, .textarea.is-warning:active, .textarea.is-warning:focus {
       box-shadow: inset 0 -2px 0 #FFEB3B; }
-  .input.is-danger {
+  .input.is-danger,
+  .textarea.is-danger {
     box-shadow: inset 0 -1px 0 #F44336; }
-    .input.is-danger.is-active, .input.is-danger.is-focused, .input.is-danger:active, .input.is-danger:focus {
+    .input.is-danger.is-active, .input.is-danger.is-focused, .input.is-danger:active, .input.is-danger:focus, .textarea.is-danger.is-active, .textarea.is-danger.is-focused, .textarea.is-danger:active, .textarea.is-danger:focus {
       box-shadow: inset 0 -2px 0 #F44336; }
-  .input.is-disabled, .input[disabled], .input[readonly] {
+  .input.is-disabled, .input[disabled], .input[readonly], .textarea.is-disabled, .textarea[disabled], .textarea[readonly] {
     border-bottom: 1px dotted #dbdbdb;
     cursor: not-allowed; }
-
-.textarea {
-  box-shadow: none; }
 
 .select select {
   border: none;
