@@ -181,8 +181,8 @@ var DropdownContainer = function (_Component) {
                 maxHeight: window.innerHeight - y,
                 overflow: 'auto',
                 top: y + 'px',
-                left: menuAlign === 'left' ? x + 'px' : undefined,
-                right: menuAlign === 'right' ? x + 'px' : undefined
+                left: menuAlign === 'left' ? x + 'px' : 'unset',
+                right: menuAlign === 'right' ? x + 'px' : 'unset'
               },
               onClick: function onClick(e) {
                 return e.stopPropagation();
