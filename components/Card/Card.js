@@ -148,7 +148,7 @@ var Card = function Card(_ref) {
 };
 
 Card.propTypes = {
-  title: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]).isRequired,
+  title: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
   icon: _propTypes2.default.element,
   subtitle: _propTypes2.default.string,
   headerContent: _propTypes2.default.element,

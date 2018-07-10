@@ -39,7 +39,7 @@ const NavbarWrapper = ({
   isFixed = false,
   withReactRouter = true,
   profile,
-  style={}
+  style = {}
 }) => {
   const NavLink = withReactRouter ? Link : NavbarLink;
   const Ref = ({to, children}) => {

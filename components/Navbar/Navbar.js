@@ -45,7 +45,9 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       isFixed = _ref$isFixed === undefined ? false : _ref$isFixed,
       _ref$withReactRouter = _ref.withReactRouter,
       withReactRouter = _ref$withReactRouter === undefined ? true : _ref$withReactRouter,
-      profile = _ref.profile;
+      profile = _ref.profile,
+      _ref$style = _ref.style,
+      style = _ref$style === undefined ? {} : _ref$style;
 
   var NavLink = withReactRouter ? _reactRouterDom.Link : _bloomer.NavbarLink;
   var Ref = function Ref(_ref2) {
@@ -69,7 +71,7 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
 
   return _react2.default.createElement(
     _bloomer.Navbar,
-    { className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') },
+    { style: style, className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') },
     _react2.default.createElement(
       _index.Container,
       null,
