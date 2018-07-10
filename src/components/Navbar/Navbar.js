@@ -38,7 +38,8 @@ const NavbarWrapper = ({
   isLockStatus = 'open',
   isFixed = false,
   withReactRouter = true,
-  profile
+  profile,
+  style={}
 }) => {
   const NavLink = withReactRouter ? Link : NavbarLink;
   const Ref = ({to, children}) => {
@@ -55,7 +56,7 @@ const NavbarWrapper = ({
   };
 
   return (
-    <Navbar className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
+    <Navbar style={style} className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
       <Container>
         <NavbarBrand>
           <NavbarItem>
