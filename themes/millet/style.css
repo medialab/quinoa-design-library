@@ -6504,6 +6504,9 @@ hr {
     opacity: 0.2;
     transition: 0s; }
 
+.icon.is-clickable {
+  pointer-events: auto !important; }
+
 .input,
 .textarea {
   border: none;

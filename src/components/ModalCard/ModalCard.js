@@ -19,9 +19,10 @@ const ModalCardContainer = ({
   footerContent,
   isActive = false,
   onClose,
+  style={}
 }) => {
   return (
-    <Modal isActive={isActive}>
+    <Modal style={style} isActive={isActive}>
       <ModalBackground onClick={onClose} />
       <ModalCard>
         <ModalCardHeader>

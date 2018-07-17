@@ -62,7 +62,7 @@ hr {
   &:focus {
     border-color: transparent;
   }
-  
+
   @each $name, $pair in $colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
@@ -105,6 +105,12 @@ hr {
     transform: scale(0, 0);
     opacity: 0.2;
     transition: 0s;
+  }
+}
+
+.icon {
+  &.is-clickable {
+    pointer-events: auto !important;
   }
 }
 
@@ -329,7 +335,7 @@ hr {
       border-color: $link-hover;
       color: $link-hover;
     }
-  } 
+  }
 }
 
 /**
@@ -344,7 +350,7 @@ hr {
 /**
  * NEW MODIFIERS
  */
-.is-rounded{ 
+.is-rounded{
   border-radius: 50%;
 }
 .is-rounded img{
@@ -443,7 +449,7 @@ hr {
       }
     }
   }
-    
+
 }
 
 .color-picker-container{
