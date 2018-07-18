@@ -120,6 +120,11 @@ storiesOf('Card', module)
       <CardTest />
     </Column>))
   , {notes: 'test'})
+  .add('active', withScreenshot()(() =>
+    (<Column>
+      <CardTest isActive />
+    </Column>))
+  , {notes: 'test'})
   .add('with aside actions', withScreenshot()(() =>
     (<Column>
       <CardTest
@@ -144,6 +149,24 @@ storiesOf('Card', module)
   .add('with icon and aside actions', withScreenshot()(() =>
     (<Column>
       <CardTest
+        icon={<img src="https://bulma.io/images/placeholders/96x96.png" />}
+        asideActions={[
+          {
+            label: <span>Open</span>,
+            isColor: 'primary',
+            id: 'open'
+          },
+          {
+            label: 'copy',
+            id: 'copy'
+          }
+        ]} />
+    </Column>)
+  ))
+  .add('with icon and aside actions (active)', withScreenshot()(() =>
+    (<Column>
+      <CardTest
+        isActive
         icon={<img src="https://bulma.io/images/placeholders/96x96.png" />}
         asideActions={[
           {

@@ -210,10 +210,21 @@ hr {
   }
 
   .card-footer,
-  .card-footer-item {
+  .card-footer-item
+   {
     border: 0;
     text-transform: uppercase;
     font-weight: 500;
+  }
+
+  &.is-active{
+    background: $primary;
+    .card-content,
+    .card-header,
+    .title,
+    .subtitle{
+      color:white;
+    }
   }
 }
 
@@ -470,6 +481,7 @@ hr {
     // position: relative;
     // border-radius: 50%;
     float: left;
+    position: relative;
     &.is-lock-status-open{
       color: lightgreen;
     }

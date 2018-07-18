@@ -10,6 +10,7 @@ const Card = ({
   icon,
   footerActions = [],
   asideActions = [],
+  isActive = false,
   headerContent,
   onAction,
   lockStatus,
@@ -55,7 +56,7 @@ const Card = ({
       );
   };
   return (
-    <div className={`card is-lock-status-${displayedLockStatus}`}>
+    <div className={`card is-lock-status-${displayedLockStatus} ${isActive ? 'is-active': ''}`}>
       {headerContent && <div className="card-image">
         <figure className="image">
           {headerContent}
