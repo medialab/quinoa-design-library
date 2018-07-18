@@ -14,7 +14,8 @@ const Card = ({
   headerContent,
   onAction,
   lockStatus,
-  statusMessage
+  statusMessage,
+  onClick
 }) => {
   const displayedLockStatus = lockStatus || 'open';
   const handleAction = id => {
@@ -56,7 +57,7 @@ const Card = ({
       );
   };
   return (
-    <div className={`card is-lock-status-${displayedLockStatus} ${isActive ? 'is-active' : ''}`}>
+    <div onClick={onClick} className={`card is-lock-status-${displayedLockStatus} ${isActive ? 'is-active' : ''}`}>
       {headerContent && <div className="card-image">
         <figure className="image">
           {headerContent}

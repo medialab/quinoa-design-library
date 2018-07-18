@@ -33,6 +33,7 @@ var HelpPin = function HelpPin(_ref) {
       'data-tip': children,
       'data-for': 'help-tooltip',
       'data-type': type,
+      'data-place': place,
       'data-effect': effect },
     _react2.default.createElement(_bloomer.Icon, {
       className: 'fa fa-question-circle' }),
