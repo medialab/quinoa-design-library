@@ -4,7 +4,6 @@ import {
   Icon
 } from 'bloomer';
 
-import ReactTooltip from 'react-tooltip';
 
 const StatusMarker = ({
   lockStatus,
@@ -31,14 +30,20 @@ const StatusMarker = ({
 
   }
   return (
-    <span className={`status-marker is-lock-status-${lockStatus}`} data-for="status-marker" data-tip={statusMessage}>
-      <Icon style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none'}} data-tip={computedType} className={'fa fa-lock'} />
-      <Icon style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline'}} data-tip={computedType} className={'fa fa-unlock'} />
-      <ReactTooltip
-        place="right"
-        effect="solid"
-        id="status-marker"
-        type={computedType} />
+    <span
+      className={`status-marker is-lock-status-${lockStatus}`}
+      data-for="tooltip"
+      data-tip={statusMessage}
+      data-type={computedType}
+      data-place="right"
+      data-effect="solid">
+      <Icon
+        style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none'}}
+        className={'fa fa-lock'} />
+      <Icon
+        style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline'}}
+        className={'fa fa-unlock'} />
+
     </span>
   );
 };

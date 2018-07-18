@@ -31,6 +31,8 @@ var Card = function Card(_ref) {
       footerActions = _ref$footerActions === undefined ? [] : _ref$footerActions,
       _ref$asideActions = _ref.asideActions,
       asideActions = _ref$asideActions === undefined ? [] : _ref$asideActions,
+      _ref$isActive = _ref.isActive,
+      isActive = _ref$isActive === undefined ? false : _ref$isActive,
       headerContent = _ref.headerContent,
       onAction = _ref.onAction,
       lockStatus = _ref.lockStatus,
@@ -83,7 +85,7 @@ var Card = function Card(_ref) {
   };
   return _react2.default.createElement(
     'div',
-    { className: 'card is-lock-status-' + displayedLockStatus },
+    { className: 'card is-lock-status-' + displayedLockStatus + ' ' + (isActive ? 'is-active' : '') },
     headerContent && _react2.default.createElement(
       'div',
       { className: 'card-image' },

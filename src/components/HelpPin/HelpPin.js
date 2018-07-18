@@ -4,7 +4,7 @@ import {
   Icon,
 } from 'bloomer';
 
-import Tooltip from 'react-tooltip';
+import ReactTooltip from 'react-tooltip';
 
 const HelpPin = ({
   children,
@@ -12,13 +12,16 @@ const HelpPin = ({
   type,
   effect = 'solid'
 }) =>
-  (<span>
-    <Icon data-tip={children} data-for="help-pin" className="fa fa-question-circle" />
-    <Tooltip
-      place={place}
-      type={type}
-      effect={effect}
-      id="help-pin" />
+  (<span
+    style={{position: 'relative'}}
+    data-tip={children}
+    data-for="help-tooltip"
+    data-type={type}
+    data-place={place}
+    data-effect={effect}>
+    <Icon
+      className="fa fa-question-circle" />
+    <ReactTooltip id="help-tooltip" />
   </span>);
 
 

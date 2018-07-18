@@ -28,13 +28,15 @@ var HelpPin = function HelpPin(_ref) {
       effect = _ref$effect === undefined ? 'solid' : _ref$effect;
   return _react2.default.createElement(
     'span',
-    null,
-    _react2.default.createElement(_bloomer.Icon, { 'data-tip': children, 'data-for': 'help-pin', className: 'fa fa-question-circle' }),
-    _react2.default.createElement(_reactTooltip2.default, {
-      place: place,
-      type: type,
-      effect: effect,
-      id: 'help-pin' })
+    {
+      style: { position: 'relative' },
+      'data-tip': children,
+      'data-for': 'help-tooltip',
+      'data-type': type,
+      'data-effect': effect },
+    _react2.default.createElement(_bloomer.Icon, {
+      className: 'fa fa-question-circle' }),
+    _react2.default.createElement(_reactTooltip2.default, { id: 'help-tooltip' })
   );
 };
 

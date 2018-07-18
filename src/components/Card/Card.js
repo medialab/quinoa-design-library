@@ -56,7 +56,7 @@ const Card = ({
       );
   };
   return (
-    <div className={`card is-lock-status-${displayedLockStatus} ${isActive ? 'is-active': ''}`}>
+    <div className={`card is-lock-status-${displayedLockStatus} ${isActive ? 'is-active' : ''}`}>
       {headerContent && <div className="card-image">
         <figure className="image">
           {headerContent}

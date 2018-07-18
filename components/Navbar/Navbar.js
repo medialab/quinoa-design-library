@@ -16,10 +16,6 @@ var _reactRouterDom = require('react-router-dom');
 
 var _bloomer = require('bloomer');
 
-var _reactTooltip = require('react-tooltip');
-
-var _reactTooltip2 = _interopRequireDefault(_reactTooltip);
-
 var _index = require('../index');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -179,14 +175,14 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
             _react2.default.createElement(
               _index.Button,
               {
-                onClick: onProfileClick, 'data-tip': 'logged as ' + profile.nickName, 'data-for': 'profile-btn',
+                'data-for': 'tooltip',
+                'data-tip': 'logged as ' + profile.nickName,
+                'data-effect': 'solid',
+                'data-place': 'left',
+                onClick: onProfileClick,
                 isRounded: true },
               _react2.default.createElement(_index.Image, { isRounded: true, isSize: '32x32', src: profile.imageUri })
-            ),
-            _react2.default.createElement(_reactTooltip2.default, {
-              id: 'profile-btn',
-              effect: 'solid',
-              place: 'left' })
+            )
           ) : null
         )
       )

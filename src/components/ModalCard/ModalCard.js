@@ -19,7 +19,7 @@ const ModalCardContainer = ({
   footerContent,
   isActive = false,
   onClose,
-  style={}
+  style = {}
 }) => {
   return (
     <Modal style={style} isActive={isActive}>

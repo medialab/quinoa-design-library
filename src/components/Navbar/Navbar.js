@@ -16,7 +16,6 @@ import {
   Breadcrumb,
   BreadcrumbItem
 } from 'bloomer';
-import Tooltip from 'react-tooltip';
 
 import {
   StatusMarker,
@@ -150,14 +149,14 @@ const NavbarWrapper = ({
             profile ?
               <NavbarItem>
                 <Button
-                  onClick={onProfileClick} data-tip={`logged as ${profile.nickName}`} data-for="profile-btn"
+                  data-for="tooltip"
+                  data-tip={`logged as ${profile.nickName}`}
+                  data-effect="solid"
+                  data-place="left"
+                  onClick={onProfileClick}
                   isRounded>
                   <Image isRounded isSize="32x32" src={profile.imageUri} />
                 </Button>
-                <Tooltip
-                  id="profile-btn"
-                  effect="solid"
-                  place="left" />
               </NavbarItem>
             : null
           }

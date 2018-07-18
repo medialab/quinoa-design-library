@@ -1,6 +1,6 @@
 {
   "name": "quinoa-design-library",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "design library (components and styling themes) for quinoa components",
   "main": "components/index.js",
   "author": "Robin de Mourat",
@@ -17,8 +17,7 @@
     "react-color": "^2.14.1",
     "react-dom": "^16.3.1",
     "react-dropzone": "^4.2.9",
-    "react-router-dom": "^4.3.1",
-    "react-tooltip": "^3.5.0"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@robindemourat/eslint-config": "https://github.com/robindemourat/eslint-config",

@@ -14,10 +14,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _bloomer = require('bloomer');
 
-var _reactTooltip = require('react-tooltip');
-
-var _reactTooltip2 = _interopRequireDefault(_reactTooltip);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StatusMarker = function StatusMarker(_ref) {
@@ -46,14 +42,19 @@ var StatusMarker = function StatusMarker(_ref) {
   }
   return _react2.default.createElement(
     'span',
-    { className: 'status-marker is-lock-status-' + lockStatus, 'data-for': 'status-marker', 'data-tip': statusMessage },
-    _react2.default.createElement(_bloomer.Icon, { style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none' }, 'data-tip': computedType, className: 'fa fa-lock' }),
-    _react2.default.createElement(_bloomer.Icon, { style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline' }, 'data-tip': computedType, className: 'fa fa-unlock' }),
-    _react2.default.createElement(_reactTooltip2.default, {
-      place: 'right',
-      effect: 'solid',
-      id: 'status-marker',
-      type: computedType })
+    {
+      className: 'status-marker is-lock-status-' + lockStatus,
+      'data-for': 'tooltip',
+      'data-tip': statusMessage,
+      'data-type': computedType,
+      'data-place': 'right',
+      'data-effect': 'solid' },
+    _react2.default.createElement(_bloomer.Icon, {
+      style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none' },
+      className: 'fa fa-lock' }),
+    _react2.default.createElement(_bloomer.Icon, {
+      style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline' },
+      className: 'fa fa-unlock' })
   );
 };
 
