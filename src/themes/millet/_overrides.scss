@@ -217,6 +217,10 @@ hr {
     font-weight: 500;
   }
 
+  &.is-selectable{
+    cursor: pointer;
+  }
+
   &.is-active{
     background: $primary;
     .card-content,
