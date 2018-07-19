@@ -112,10 +112,23 @@ class DropdownContainer extends Component {
       this.triggerRef = triggerRef;
     };
 
+    const catchClickStyle = {
+      position: 'fixed',
+      left: 0,
+      top: 0,
+      width: '100%',
+      height: '100%',
+      background: 'rgba(0,0,0,0.05)',
+      zIndex: 2,
+    };
+
     return (
       <Dropdown isActive={isActive}>
         <div
           ref={bindMenuRef}>
+          {isActive && <div
+            style={catchClickStyle}
+            onClick={onToggle} />}
           <div
             ref={bindTriggerRef}>
             <DropdownTrigger>
@@ -139,6 +152,7 @@ class DropdownContainer extends Component {
             maxHeight: window.innerHeight - y,
             overflow: 'auto',
             top: y + 'px',
+            zIndex: 3,
             left: menuAlign === 'left' ? x + 'px' : 'unset',
             right: menuAlign === 'right' ? x + 'px' : 'unset',
           }}

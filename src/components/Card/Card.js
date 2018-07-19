@@ -58,7 +58,7 @@ const Card = ({
       );
   };
   return (
-    <div onClick={onClick} className={`card is-lock-status-${displayedLockStatus} ${isSelectable ? 'is-selectable': ''} ${isActive ? 'is-active' : ''}`}>
+    <div onClick={onClick} className={`card is-lock-status-${displayedLockStatus} ${isSelectable ? 'is-selectable' : ''} ${isActive ? 'is-active' : ''}`}>
       {headerContent && <div className="card-image">
         <figure className="image">
           {headerContent}

@@ -6612,6 +6612,8 @@ hr {
     border: 0;
     text-transform: uppercase;
     font-weight: 500; }
+  .card.is-selectable {
+    cursor: pointer; }
   .card.is-active {
     background: #3F51B5; }
     .card.is-active .card-content,
