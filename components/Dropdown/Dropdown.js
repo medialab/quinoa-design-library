@@ -163,8 +163,7 @@ var DropdownContainer = function (_Component) {
             ref: bindMenuRef },
           isActive && _react2.default.createElement('div', {
             style: catchClickStyle,
-            onClick: onToggle
-          }),
+            onClick: onToggle }),
           _react2.default.createElement(
             'div',
             {

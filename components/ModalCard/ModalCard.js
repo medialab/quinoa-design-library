@@ -28,11 +28,11 @@ var ModalCardContainer = function ModalCardContainer(_ref) {
 
   return _react2.default.createElement(
     _bloomer.Modal,
-    { style: style, isActive: isActive },
+    { isActive: isActive },
     _react2.default.createElement(_bloomer.ModalBackground, { onClick: onClose }),
     _react2.default.createElement(
       _bloomer.ModalCard,
-      null,
+      { style: style },
       _react2.default.createElement(
         _bloomer.ModalCardHeader,
         null,
