@@ -22,9 +22,9 @@ const ModalCardContainer = ({
   style = {}
 }) => {
   return (
-    <Modal style={style} isActive={isActive}>
+    <Modal isActive={isActive}>
       <ModalBackground onClick={onClose} />
-      <ModalCard>
+      <ModalCard style={style}>
         <ModalCardHeader>
           <ModalCardTitle>{headerContent}</ModalCardTitle>
           <Delete onClick={onClose} />
