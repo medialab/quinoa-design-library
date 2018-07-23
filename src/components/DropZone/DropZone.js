@@ -12,12 +12,14 @@ import Dropzone from 'react-dropzone';
 const DropZone = ({
   onDrop,
   children,
-  accept
+  accept,
+  maxSize
 }) => (
   <Dropzone
     className="drop-zone"
     activeClassName="active"
     accept={accept}
+    maxSize={maxSize}
     onDrop={onDrop}>
     {({isDragActive, isDragReject}) => (
       <div className={'caption-wrapper ' + (isDragActive ? 'active ' : ' ') + (isDragReject ? 'reject' : '')}>
