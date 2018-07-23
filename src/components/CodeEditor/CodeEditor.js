@@ -27,10 +27,19 @@ class CodeEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || ''
+      value: props.value || '', 
+      focused: false
     };
     const delay = props.changeDelay || TRIGGER_DEBOUNCE_DELAY;
     this.debouncedTriggerChange = debounce(this.triggerChange, delay);
+  }
+
+  componentWillReceiveProps = nextProps => {
+    if (this.props.value !== nextProps.value && !this.state.focused) {
+      this.setState({
+        value: nextProps.value
+      })
+    }
   }
 
 
@@ -79,6 +88,8 @@ class CodeEditor extends Component {
             mode,
             lineNumbers
           }}
+          onFocus={() => this.setState({focused: true})}
+          onBlur={() => this.setState({focused: false})}
           onBeforeChange={(editor, data, thatValue) => {
             this.setState({value: thatValue}); // state management here
           }}
