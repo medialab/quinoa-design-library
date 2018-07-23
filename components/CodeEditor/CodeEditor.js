@@ -44,6 +44,14 @@ var CodeEditor = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (CodeEditor.__proto__ || Object.getPrototypeOf(CodeEditor)).call(this, props));
 
+    _this.componentWillReceiveProps = function (nextProps) {
+      if (_this.props.value !== nextProps.value && !_this.state.focused) {
+        _this.setState({
+          value: nextProps.value
+        });
+      }
+    };
+
     _this.triggerChange = function (code) {
       if (_this.props.onChange && typeof _this.props.onChange === 'function') {
         _this.props.onChange(code);
@@ -68,7 +76,8 @@ var CodeEditor = function (_Component) {
     };
 
     _this.state = {
-      value: props.value || ''
+      value: props.value || '',
+      focused: false
     };
     var delay = props.changeDelay || TRIGGER_DEBOUNCE_DELAY;
     _this.debouncedTriggerChange = (0, _lodash.debounce)(_this.triggerChange, delay);
@@ -97,6 +106,12 @@ var CodeEditor = function (_Component) {
           options: {
             mode: mode,
             lineNumbers: lineNumbers
+          },
+          onFocus: function onFocus() {
+            return _this2.setState({ focused: true });
+          },
+          onBlur: function onBlur() {
+            return _this2.setState({ focused: false });
           },
           onBeforeChange: function onBeforeChange(editor, data, thatValue) {
             _this2.setState({ value: thatValue }); // state management here

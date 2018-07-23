@@ -112,7 +112,7 @@ var DropdownContainer = function (_Component) {
           _bloomer.DropdownItem,
           {
             href: '#',
-            key: id + index,
+            key: id + '-' + index,
             isActive: subIsActive,
             onClick: onClick },
           label
@@ -126,13 +126,13 @@ var DropdownContainer = function (_Component) {
         return [_react2.default.createElement(
           _bloomer.DropdownItem,
           {
-            key: id + index },
+            key: id + '-' + index },
           _react2.default.createElement(
             _bloomer.Title,
             { isSize: 5 },
             option.label
           )
-        ), _react2.default.createElement(_bloomer.DropdownDivider, { key: id + index + 1 })].concat(_toConsumableArray(subOptions.map(function (o) {
+        ), _react2.default.createElement(_bloomer.DropdownDivider, { key: id + '-' + (index + 1) })].concat(_toConsumableArray(subOptions.map(function (o) {
           return renderOption(o, id, true);
         })));
       };

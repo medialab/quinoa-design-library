@@ -1,6 +1,6 @@
 {
   "name": "quinoa-design-library",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "design library (components and styling themes) for quinoa components",
   "main": "components/index.js",
   "author": "Robin de Mourat",

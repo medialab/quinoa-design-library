@@ -27,7 +27,7 @@ class CodeEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || '', 
+      value: props.value || '',
       focused: false
     };
     const delay = props.changeDelay || TRIGGER_DEBOUNCE_DELAY;
@@ -38,7 +38,7 @@ class CodeEditor extends Component {
     if (this.props.value !== nextProps.value && !this.state.focused) {
       this.setState({
         value: nextProps.value
-      })
+      });
     }
   }
 

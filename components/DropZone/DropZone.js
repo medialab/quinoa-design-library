@@ -27,13 +27,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var DropZone = function DropZone(_ref) {
   var onDrop = _ref.onDrop,
       children = _ref.children,
-      accept = _ref.accept;
+      accept = _ref.accept,
+      maxSize = _ref.maxSize;
   return _react2.default.createElement(
     _reactDropzone2.default,
     {
       className: 'drop-zone',
       activeClassName: 'active',
       accept: accept,
+      maxSize: maxSize,
       onDrop: onDrop },
     function (_ref2) {
       var isDragActive = _ref2.isDragActive,
