@@ -85,7 +85,7 @@ class DropdownContainer extends Component {
       return (
         <DropdownItem
           href="#"
-          key={id + index}
+          key={id + '-' + index}
           isActive={subIsActive}
           onClick={onClick}>
           {label}
@@ -97,10 +97,10 @@ class DropdownContainer extends Component {
       const {id, options: subOptions} = option;
       return [
         <DropdownItem
-          key={id + index}>
+          key={id + '-' + index}>
           <Title isSize={5}>{option.label}</Title>
         </DropdownItem>,
-        <DropdownDivider key={id + index + 1} />,
+        <DropdownDivider key={id + '-' + (index + 1)} />,
         ...subOptions.map(o => renderOption(o, id, true))
       ];
     };
