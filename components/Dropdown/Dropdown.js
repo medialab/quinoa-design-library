@@ -143,17 +143,6 @@ var DropdownContainer = function (_Component) {
       var bindTriggerRef = function bindTriggerRef(triggerRef) {
         _this.triggerRef = triggerRef;
       };
-
-      var catchClickStyle = {
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        width: '100%',
-        height: '100%',
-        background: 'rgba(0,0,0,0.05)',
-        zIndex: 2
-      };
-
       return _react2.default.createElement(
         _bloomer.Dropdown,
         { isActive: isActive },
@@ -162,7 +151,7 @@ var DropdownContainer = function (_Component) {
           {
             ref: bindMenuRef },
           isActive && _react2.default.createElement('div', {
-            style: catchClickStyle,
+            className: 'dropdown-background',
             onClick: onToggle }),
           _react2.default.createElement(
             'div',
@@ -190,11 +179,8 @@ var DropdownContainer = function (_Component) {
             _bloomer.DropdownMenu,
             {
               style: {
-                position: 'fixed',
                 maxHeight: window.innerHeight - y,
-                overflow: 'auto',
                 top: y + 'px',
-                zIndex: 3,
                 left: menuAlign === 'left' ? x + 'px' : 'unset',
                 right: menuAlign === 'right' ? x + 'px' : 'unset'
               },

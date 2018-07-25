@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 import {
   Modal,
   ModalBackground,
@@ -33,8 +34,8 @@ const ModalCardContainer = ({
           {mainContent}
         </ModalCardBody>
         {footerContent && <ModalCardFooter>
-          {footerContent}
-        </ModalCardFooter>}
+            {footerContent}
+          </ModalCardFooter>}
       </ModalCard>
     </Modal>
   );

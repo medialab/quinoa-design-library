@@ -38,6 +38,8 @@ var Card = function Card(_ref) {
       lockStatus = _ref.lockStatus,
       statusMessage = _ref.statusMessage,
       isSelectable = _ref.isSelectable,
+      _ref$style = _ref.style,
+      style = _ref$style === undefined ? {} : _ref$style,
       onClick = _ref.onClick;
 
   var displayedLockStatus = lockStatus || 'open';
@@ -87,7 +89,7 @@ var Card = function Card(_ref) {
   };
   return _react2.default.createElement(
     'div',
-    { onClick: onClick, className: 'card is-lock-status-' + displayedLockStatus + ' ' + (isSelectable ? 'is-selectable' : '') + ' ' + (isActive ? 'is-active' : '') },
+    { style: style, onClick: onClick, className: 'card is-lock-status-' + displayedLockStatus + ' ' + (isSelectable ? 'is-selectable' : '') + ' ' + (isActive ? 'is-active' : '') },
     headerContent && _react2.default.createElement(
       'div',
       { className: 'card-image' },

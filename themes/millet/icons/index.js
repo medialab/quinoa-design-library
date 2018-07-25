@@ -215,7 +215,7 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "cf65accc5245eaf8d2db565c86e4d8f0.svg";
+module.exports = __webpack_require__.p + "db3c56d9d4ed3da2a3f1ec51d03ebd2f.svg";
 
 /***/ }),
 /* 2 */
