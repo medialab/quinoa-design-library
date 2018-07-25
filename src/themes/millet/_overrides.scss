@@ -1,8 +1,9 @@
 // Overrides
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 
-hr {
-  background-color: lighten($grey-lighter, 5);
+hr
+{
+    background-color: lighten($grey-lighter, 5);
 }
 
 .button,
@@ -15,534 +16,728 @@ hr {
 .pagination-previous,
 .select,
 .select select,
-.textarea {
-  height: 2.5em;
+.textarea
+{
+    height: 2.5em;
 }
 
-.content {
-  letter-spacing: 0.04em;
+.content
+{
+    letter-spacing: .04em;
 
-  figure{
-    text-align: left;
-  }
+    figure
+    {
+        text-align: left;
+    }
 }
 
-.box {
-  box-shadow: $shadow;
+.box
+{
+    box-shadow: $shadow;
 }
 
-.button {
-  border-radius: 3px;
-  box-shadow: $shadow;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+.button
+{
+    font-weight: 500;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),
     background-color 300ms ease;
-  position: relative;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    text-transform: uppercase;
 
-  &.is-hovered,
-  &:hover {
-    border-color: transparent;
-    background-color: darken($button-background-color, 5);
-  }
+    border-radius: 3px;
+    box-shadow: $shadow;
 
-  &.is-disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+    &.is-hovered,
+    &:hover
+    {
+        border-color: transparent;
+        background-color: darken($button-background-color, 5);
+    }
 
-  &.is-active,
-  &:active {
-    box-shadow: $shadow-large;
-  }
+    &.is-disabled
+    {
+        cursor: not-allowed;
 
-  &.is-focused,
-  &:focus {
-    border-color: transparent;
-  }
+        opacity: .3;
+    }
 
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-
-    &.is-#{$name} {
-      &.is-hovered,
-      &:hover {
-        background-color: darken($color, 5);
-      }
-
-      &.is-active,
-      &:active {
+    &.is-active,
+    &:active
+    {
         box-shadow: $shadow-large;
-      }
     }
-  }
 
-  &.is-text {
-    box-shadow: none;
-  }
+    &.is-focused,
+    &:focus
+    {
+        border-color: transparent;
+    }
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transform: scale(10, 10);
-    opacity: 0;
-    transition: transform 0.5s, opacity 1s;
-  }
+    @each $name, $pair in $colors
+    {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
 
-  &:active:before {
-    transform: scale(0, 0);
-    opacity: 0.2;
-    transition: 0s;
-  }
+        &.is-#{$name}
+        {
+            &.is-hovered,
+            &:hover
+            {
+                background-color: darken($color, 5);
+            }
+
+            &.is-active,
+            &:active
+            {
+                box-shadow: $shadow-large;
+            }
+        }
+    }
+
+    &.is-text
+    {
+        box-shadow: none;
+    }
+
+    &:before
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        content: '';
+        transition: transform .5s, opacity 1s;
+        transform: scale(10, 10);
+        pointer-events: none;
+
+        opacity: 0;
+        background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+    }
+
+    &:active:before
+    {
+        transition: 0s;
+        transform: scale(0, 0);
+
+        opacity: .2;
+    }
 }
 
-.icon {
-  &.is-clickable {
-    pointer-events: auto !important;
-  }
+.icon
+{
+    &.is-clickable
+    {
+        pointer-events: auto !important;
+    }
 }
 
-.input, .textarea {
-  border: none;
-  padding-left: 0;
-  padding-right: 0;
-  box-shadow: inset 0 -1px 0 $grey-lighter;
-  transition: all 300ms;
+.input,
+.textarea
+{
+    padding-right: 0;
+    padding-left: 0;
 
-  &.is-small {
-    border-radius: 0;
-  }
+    transition: all 300ms;
 
-  &.is-active,
-  &.is-focused,
-  &:active,
-  &:focus {
-    box-shadow: inset 0 -2px 0 $input-focus-border-color;
-  }
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
+    border: none;
+    box-shadow: inset 0 -1px 0 $grey-lighter;
 
-    &.is-#{$name} {
-      box-shadow: inset 0 -1px 0 $color;
-
-      &.is-active,
-      &.is-focused,
-      &:active,
-      &:focus {
-        box-shadow: inset 0 -2px 0 $color;
-      }
+    &.is-small
+    {
+        border-radius: 0;
     }
-  }
 
-  &.is-disabled,
-  &[disabled],
-  &[readonly] {
-    border-bottom: 1px dotted $grey-lighter;
-    cursor: not-allowed;
-  }
+    &.is-active,
+    &.is-focused,
+    &:active,
+    &:focus
+    {
+        box-shadow: inset 0 -2px 0 $input-focus-border-color;
+    }
+    @each $name, $pair in $colors
+    {
+        $color: nth($pair, 1);
+
+        &.is-#{$name}
+        {
+            box-shadow: inset 0 -1px 0 $color;
+
+            &.is-active,
+            &.is-focused,
+            &:active,
+            &:focus
+            {
+                box-shadow: inset 0 -2px 0 $color;
+            }
+        }
+    }
+
+    &.is-disabled,
+    &[disabled],
+    &[readonly]
+    {
+        cursor: not-allowed;
+
+        border-bottom: 1px dotted $grey-lighter;
+    }
 }
 
 // .textarea {
 //   box-shadow: none;
 // }
 
-.select select {
-  border: none;
-  border-radius: 0;
-  box-shadow: inset 0 -1px 0 $grey-lighter;
-  transition: all 300ms;
+.select select
+{
+    transition: all 300ms;
 
-  &.is-active,
-  &.is-focused,
-  &:active,
-  &:focus {
-    box-shadow: inset 0 -2px 0 $input-focus-border-color;
-  }
-}
-
-.control {
-  &.has-addons {
-    .button,
-    .input,
-    .select {
-      &:first-child,
-      &:last-child {
-        border-radius: 0;
-
-        select {
-          border-radius: 0;
-        }
-      }
-    }
-
-    .button {
-      box-shadow: none;
-    }
-  }
-}
-
-.progress {
-  height: $size-7;
-  border-radius: $radius;
-
-  &.is-small {
-    height: 0.5rem;
-  }
-}
-
-.card {
-  box-shadow: $shadow;
-
-  .card-header {
-    box-shadow: none;
-  }
-
-  .card-footer,
-  .card-footer-item
-   {
-    border: 0;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  &.is-selectable{
-    cursor: pointer;
-  }
-
-  &.is-active{
-    background: $primary;
-    .card-content,
-    .card-header,
-    .title,
-    .subtitle{
-      color:white;
-    }
-  }
-}
-
-.menu {
-  .menu-list {
-    a {
-      border-radius: $radius;
-      padding: $size-7;
-
-      &.is-active {
-        background-color: transparent;
-        color: $link;
-      }
-    }
-  }
-}
-
-.notification {
-  box-shadow: $shadow;
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-
-    &.is-#{$name} {
-      a:not(.button) {
-        color: $color-invert;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.modal {
-  .modal-background {
-    background-color: rgba($black, 0.6);
-  }
-
-  .modal-card {
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-      0 13px 19px 2px rgba(0, 0, 0, 0.14), 0 5px 24px 4px rgba(0, 0, 0, 0.12);
-  }
-}
-
-.hero .navbar{
-  background: $background;
-}
-
-.navbar {
-  &:not(.is-transparent) {
-    box-shadow: $shadow;
-  }
-
-  .has-dropdown .navbar-item {
-    @include desktop {
-      color: $text;
-    }
-  }
-
-  @include touch {
-    .navbar-menu {
-      background-color: inherit;
-    }
-  }
-
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-
-    &.is-#{$name} {
-      @include touch {
-        .navbar-menu {
-          .navbar-item,
-          .navbar-link {
-            color: $color-invert;
-            &.is-active {
-              background-color: darken($color, 5);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .breadcrumb{
-    margin-bottom: 0;
-  }
-}
-
-.tabs {
-  .is-active a {
-    box-shadow: inset 0 -1px 0 $link;
-  }
-
-  &.is-boxed {
-    .is-active a {
-      border-top: 0;
-      box-shadow: inset 0 2px 0 $link;
-    }
-  }
-}
-
-.panel {
-  box-shadow: $shadow;
-
-  .panel-block,
-  .panel-heading,
-  .panel-tabs {
-    border-radius: $radius;
     border: none;
-    padding: $size-7;
-  }
+    border-radius: 0;
+    box-shadow: inset 0 -1px 0 $grey-lighter;
 
-  .panel-block.is-active {
-    color: $primary;
-  }
-
-  .panel-tabs {
-    a:hover {
-      border-color: $link-hover;
-      color: $link-hover;
+    &.is-active,
+    &.is-focused,
+    &:active,
+    &:focus
+    {
+        box-shadow: inset 0 -2px 0 $input-focus-border-color;
     }
-  }
+}
+
+.control
+{
+    &.has-addons
+    {
+        .button,
+        .input,
+        .select
+        {
+            &:first-child,
+            &:last-child
+            {
+                border-radius: 0;
+
+                select
+                {
+                    border-radius: 0;
+                }
+            }
+        }
+
+        .button
+        {
+            box-shadow: none;
+        }
+    }
+}
+
+.progress
+{
+    height: $size-7;
+
+    border-radius: $radius;
+
+    &.is-small
+    {
+        height: .5rem;
+    }
+}
+
+.card
+{
+    box-shadow: $shadow;
+
+    .card-header
+    {
+        box-shadow: none;
+    }
+
+    .card-footer,
+    .card-footer-item
+    {
+        font-weight: 500;
+
+        text-transform: uppercase;
+
+        border: 0;
+    }
+
+    &.is-selectable
+    {
+        cursor: pointer;
+    }
+
+    &.is-active
+    {
+        background: $primary;
+        .card-content,
+        .card-header,
+        .title,
+        .subtitle
+        {
+            color: white;
+        }
+    }
+}
+
+.menu
+{
+    .menu-list
+    {
+        a
+        {
+            padding: $size-7;
+
+            border-radius: $radius;
+
+            &.is-active
+            {
+                color: $link;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.notification
+{
+    box-shadow: $shadow;
+    @each $name, $pair in $colors
+    {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name}
+        {
+            a:not(.button)
+            {
+                text-decoration: underline;
+
+                color: $color-invert;
+            }
+        }
+    }
+}
+
+.modal
+{
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    
+    transition: all .5s ease;
+    .modal-background
+    {
+        background-color: rgba(0,0,0,0);
+        transition: all .5s ease;
+    }
+
+    .modal-card
+    {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2),
+        0 13px 19px 2px rgba(0, 0, 0, .14), 0 5px 24px 4px rgba(0, 0, 0, .12);
+        max-height: 0;
+        overflow: hidden;
+        transition: all .5s ease;
+        opacity: 0;
+    }
+    &.is-active{
+        opacity: 1;
+        pointer-events: all;
+        .modal-card{
+            max-height: 100%;
+            opacity: 1;
+        }
+
+        .modal-background
+        {
+            background-color: rgba($black, .6);
+        }
+    }
+}
+
+.hero .navbar
+{
+    background: $background;
+}
+
+.navbar
+{
+        
+    @include touch
+    {
+        .navbar-menu
+        {
+            background-color: inherit;
+        }
+    }
+    &:not(.is-transparent)
+    {
+        box-shadow: $shadow;
+    }
+
+    .has-dropdown .navbar-item
+    {
+        @include desktop
+        {
+            color: $text;
+        }
+    }
+
+    @each $name, $pair in $colors
+    {
+        $color: nth($pair, 1);
+        $color-invert: nth($pair, 2);
+
+        &.is-#{$name}
+        {
+            @include touch
+            {
+                .navbar-menu
+                {
+                    .navbar-item,
+                    .navbar-link
+                    {
+                        color: $color-invert;
+                        &.is-active
+                        {
+                            background-color: darken($color, 5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .breadcrumb
+    {
+        margin-bottom: 0;
+    }
+}
+
+.tabs
+{
+    .is-active a
+    {
+        box-shadow: inset 0 -1px 0 $link;
+    }
+
+    &.is-boxed
+    {
+        .is-active a
+        {
+            border-top: 0;
+            box-shadow: inset 0 2px 0 $link;
+        }
+    }
+}
+
+.panel
+{
+    box-shadow: $shadow;
+
+    .panel-block,
+    .panel-heading,
+    .panel-tabs
+    {
+        padding: $size-7;
+
+        border: none;
+        border-radius: $radius;
+    }
+
+    .panel-block.is-active
+    {
+        color: $primary;
+    }
+
+    .panel-tabs
+    {
+        a:hover
+        {
+            color: $link-hover;
+            border-color: $link-hover;
+        }
+    }
 }
 
 /**
  * CUSTOMIZATION
  */
-@media screen and (min-width: 1088px) {
-  a.navbar-item.is-active:not(:hover), .navbar-link.is-active:not(:hover) {
-      background-color: #fafafa;
-  }
+@media screen and (min-width: 1088px)
+{
+    a.navbar-item.is-active:not(:hover),
+    .navbar-link.is-active:not(:hover)
+    {
+        background-color: #fafafa;
+    }
 }
 
 /**
  * NEW MODIFIERS
  */
-.is-rounded{
-  border-radius: 50%;
+.is-rounded
+{
+    border-radius: 50%;
 }
-.is-rounded img{
-  border-radius: 50%;
-}
-
-.is-wrapper{
-  width: 100%;
-  height: 100%;
-  position: relative;
+.is-rounded img
+{
+    border-radius: 50%;
 }
 
-.columns {
-  &.is-fullheight {
-    min-height: calc(100vh - #{$navbar-height});
-    max-height: calc(100vh - #{$navbar-height});
-    // min-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
-    // max-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    > .column {
-      overflow-y: auto;
+.is-wrapper
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.columns
+{
+    &.is-fullheight
+    {
+        // min-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
+        // max-height: calc(100vh - ( #{$navbar-height} - .75rem ) )
+        display: flex;
+        flex-direction: row;
+
+        min-height: calc(100vh - #{$navbar-height});
+        max-height: calc(100vh - #{$navbar-height});
+
+        justify-content: stretch;
+         > .column
+        {
+            overflow-y: auto;
+        }
     }
-  }
 }
 
-.box.is-active{
-  background: $primary;
-  color: $background;
+.box.is-active
+{
+    color: $background;
+    background: $primary;
 }
 
-.tag{
-
-  &.is-clickable{
-    cursor: pointer;
-  }
-  &.is-rounded{
-    border-radius: 1em;
-  }
+.tag
+{
+    &.is-clickable
+    {
+        cursor: pointer;
+    }
+    &.is-rounded
+    {
+        border-radius: 1em;
+    }
 }
 
-.dropdown{
-  .dropdown-menu{
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  }
+.dropdown
+{
+    .dropdown-menu
+    {
+        position: fixed;
+        z-index: 999;
+
+        overflow: auto;
+
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+
+    .dropdown-background
+    {
+        position: fixed;
+        z-index: 888;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0,0,0,.05);
+    }
 }
-  
+
+.tabs.is-boxed a
+{
+    border: none;
+}
+
+.tabs ul
+{
+    border: none;
+}
+
+.control
+{
+    margin-bottom: 1rem;
+}
 
 /**
  * NEW COMPONENTS
  */
 
 
-.stretched-layout-container {
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
+.stretched-layout-container
+{
+    display: flex;
+    overflow: hidden;
 
-  &.is-direction-vertical{
-    flex-flow: column nowrap;
-  }
-  &.is-direction-horizontal{
-    flex-flow: row nowrap;
-    &.is-fluid {
-      @include mobile {
-        flex-direction: column;
+    align-items: stretch;
+
+    &.is-direction-vertical
+    {
+        flex-flow: column nowrap;
+    }
+    &.is-direction-horizontal
+    {
+        flex-flow: row nowrap;
+        &.is-fluid
+        {
+            @include mobile
+            {
+                overflow: auto;
+                flex-direction: column;
+            }
+        }
+    }
+    &.is-absolute
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+    &.is-flowing
+    {
         overflow: auto;
-      }
+        &.is-fluid
+        {
+            @include mobile
+            {
+                overflow: visible;
+            }
+        }
     }
-  }
-  &.is-absolute{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  &.is-flowing{
-    overflow: auto;
-    &.is-fluid{
-      @include mobile {
-        overflow: visible;
-      }
+}
+
+.stretched-layout-item
+{
+    position: relative;
+    &.is-flowing
+    {
+        overflow: auto;
+        &.is-fluid
+        {
+            @include mobile
+            {
+                overflow: visible;
+            }
+        }
     }
-  }
 }
 
-.stretched-layout-item{
-  position: relative;
-  &.is-flowing{
-    overflow: auto;
-    &.is-fluid{
-      @include mobile {
-        overflow: visible;
-      }
+.color-picker-container
+{
+    z-index: 5;
+}
+
+.collapsable
+{
+    overflow: hidden;
+
+    max-height: 30rem;
+
+    transition: all $transition-medium ease;
+    &.is-collapsed
+    {
+        max-height: 0;
     }
-  }
-
 }
-
-.color-picker-container{
-  z-index: 5;
-}
-
-.collapsable{
-  transition: all $transition-medium ease;
-  max-height: 30rem;
-  overflow: hidden;
-  &.is-collapsed{
-    max-height: 0;
-  }
-}
-.status-marker{
-    width: 1.2em;
+.status-marker
+{
+    position: relative;
     // height: .5em;
     // position: relative;
     // border-radius: 50%;
+
     float: left;
-    position: relative;
-    &.is-lock-status-open{
-      color: lightgreen;
+
+    width: 1.2em;
+    &.is-lock-status-open
+    {
+        color: $green;
     }
-    &.is-lock-status-active{
-      color: lightblue;
+    &.is-lock-status-active
+    {
+        color: $blue;
     }
-    &.is-lock-status-locked{
-      color: red;
+    &.is-lock-status-locked
+    {
+        color: $red;
     }
-    &.is-lock-status-asked{
-      color: lightgrey;
+    &.is-lock-status-asked
+    {
+        color: $yellow;
     }
-    &.is-lock-status-idle{
-      color: darkgrey;
+    &.is-lock-status-idle
+    {
+        color: $yellow;
     }
 }
 
 .drop-zone
 {
-  /*
+    /*
    * root component
    */
-  position: relative;
+    position: relative;
 
-  width: 100%;// todo: parametrize that
-  min-height: 10rem;
+    display: flex;
 
-  text-align: center;
+    width: 100%;// todo: parametrize that
+    min-height: 10rem;
+    padding: 1rem;
 
-  border: 1px dashed $primary;// todo: parametrize that
-  display: flex;
-  align-items: center;
-  flex-flow: row nowrap;
-  padding: 1rem;
+    text-align: center;
 
-  .caption-wrapper
-  {
-      display: flex;
-      align-items: center;
-      flex-flow: row nowrap;
-      flex: 1;
+    border: 1px dashed $primary;// todo: parametrize that
 
-      &.active
-      {
-      }
-      &.reject
-      {
-      }
-      .caption-container
-      {
-          font-size: 1rem;
-          font-style: italic;
+    align-items: center;
+    flex-flow: row nowrap;
 
-          display: flex;
-          align-items: center;
-          flex: 1;
-          flex-flow: column nowrap;
-      }
-  }
+    .caption-wrapper
+    {
+        display: flex;
+
+        align-items: center;
+        flex-flow: row nowrap;
+        flex: 1;
+
+
+
+        .caption-container
+        {
+            font-size: 1rem;
+            font-style: italic;
+
+            display: flex;
+
+            align-items: center;
+            flex: 1;
+            flex-flow: column nowrap;
+        }
+    }
 }
