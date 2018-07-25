@@ -12,10 +12,10 @@ const StatusMarker = ({
   let computedType;
   switch (lockStatus) {
     case 'open':
-      computedType = 'info';
+      computedType = 'success';
       break;
     case 'active':
-      computedType = 'success';
+      computedType = 'info';
       break;
     case 'locked':
       computedType = 'error';
