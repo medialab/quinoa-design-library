@@ -264,6 +264,11 @@ hr
         box-shadow: none;
     }
 
+    .card-content
+    {
+        word-break: break-all;
+    }
+
     .card-footer,
     .card-footer-item
     {
@@ -336,7 +341,7 @@ hr
     display: flex;
     opacity: 0;
     pointer-events: none;
-    
+
     transition: all .5s ease;
     .modal-background
     {
@@ -375,7 +380,7 @@ hr
 
 .navbar
 {
-        
+
     @include touch
     {
         .navbar-menu
