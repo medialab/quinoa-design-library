@@ -6,6 +6,8 @@ import {action} from '@storybook/addon-actions';
 
 import {withScreenshot} from 'storybook-chrome-screenshot';
 
+import {MemoryRouter} from 'react-router';
+
 
 import Column from './ResizableColumn';
 
@@ -381,6 +383,9 @@ storiesOf('Dropdown', module)
  * ==========================================================
  */
 storiesOf('Mock views for the Fonio app', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
   .add('home view', withScreenshot()(() => <HomeView />))
   .add('password prompt view', withScreenshot()(() => <PasswordPromptView />))
   .add('authentication view', withScreenshot()(() => <AuthenticationView />))
