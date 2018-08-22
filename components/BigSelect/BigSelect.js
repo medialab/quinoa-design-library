@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -16,18 +18,16 @@ var _index = require('../index');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var BigSelect = function BigSelect(_ref) {
   var _ref$options = _ref.options,
       options = _ref$options === undefined ? [] : _ref$options,
       activeOptionId = _ref.activeOptionId,
       _ref$columns = _ref.columns,
       columns = _ref$columns === undefined ? 2 : _ref$columns,
-      minHeight = _ref.minHeight,
       onChange = _ref.onChange,
       style = _ref.style,
-      boxStyle = _ref.boxStyle;
+      _ref$boxStyle = _ref.boxStyle,
+      boxStyle = _ref$boxStyle === undefined ? {} : _ref$boxStyle;
 
   return _react2.default.createElement(
     _index.Grid,
@@ -39,12 +39,11 @@ var BigSelect = function BigSelect(_ref) {
       };
       return _react2.default.createElement(
         _index.Box,
-        _defineProperty({
+        {
           onClick: onClick,
           key: index,
-          style: { textAlign: 'center' },
-          isActive: activeOptionId === option.id
-        }, 'style', boxStyle),
+          isActive: activeOptionId === option.id,
+          style: _extends({ textAlign: 'center' }, boxStyle) },
         option.iconUrl && _react2.default.createElement(
           'div',
           { style: { textAlign: 'center' } },
