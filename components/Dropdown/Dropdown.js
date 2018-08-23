@@ -191,7 +191,7 @@ var DropdownContainer = function (_Component) {
               _bloomer.DropdownContent,
               null,
               isNested ? options.map(renderGroup).reduce(function (cur, next, index) {
-                return [].concat(_toConsumableArray(cur), [cur.length && index !== options.length - 1 ? _react2.default.createElement(_bloomer.DropdownDivider, null) : null], _toConsumableArray(next));
+                return [].concat(_toConsumableArray(cur), [cur.length && index !== options.length - 1 ? _react2.default.createElement(_bloomer.DropdownDivider, { key: index + .5 }) : null], _toConsumableArray(next));
               }, []) : options.map(function (o) {
                 return renderOption(o);
               })

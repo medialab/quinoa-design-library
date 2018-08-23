@@ -146,7 +146,7 @@ class DropdownContainer extends Component {
             <DropdownContent>
               {
               isNested ?
-                options.map(renderGroup).reduce((cur, next, index) => [...cur, cur.length && index !== options.length - 1 ? <DropdownDivider /> : null, ...next], [])
+                options.map(renderGroup).reduce((cur, next, index) => [...cur, cur.length && index !== options.length - 1 ? <DropdownDivider key={index + .5} /> : null, ...next], [])
               : options.map(o => renderOption(o))
             }
             </DropdownContent>
