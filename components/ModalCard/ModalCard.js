@@ -41,7 +41,7 @@ var ModalCardContainer = function ModalCardContainer(_ref) {
           null,
           headerContent
         ),
-        _react2.default.createElement(_bloomer.Delete, { onClick: onClose })
+        typeof onClose === 'function' && _react2.default.createElement(_bloomer.Delete, { onClick: onClose })
       ),
       _react2.default.createElement(
         _bloomer.ModalCardBody,

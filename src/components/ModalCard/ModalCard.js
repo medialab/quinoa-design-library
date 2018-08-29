@@ -28,7 +28,7 @@ const ModalCardContainer = ({
       <ModalCard style={style}>
         <ModalCardHeader>
           <ModalCardTitle>{headerContent}</ModalCardTitle>
-          <Delete onClick={onClose} />
+          {typeof onClose === 'function' && <Delete onClick={onClose} />}
         </ModalCardHeader>
         <ModalCardBody>
           {mainContent}
