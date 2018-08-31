@@ -112,7 +112,7 @@ var Card = function Card(_ref) {
         { className: 'column is-two-fifths' },
         _react2.default.createElement(
           'div',
-          { className: 'card-content' },
+          { className: 'card-content aside-actions' },
           asideActions.map(function (action, index) {
             var onActionClick = function onActionClick() {
               handleAction(action.id);

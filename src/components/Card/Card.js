@@ -72,7 +72,7 @@ const Card = ({
             {renderContent()}
           </div>
           <div className="column is-two-fifths">
-            <div className="card-content">
+            <div className="card-content aside-actions">
               {
               asideActions.map((action, index) => {
                 const onActionClick = () => {

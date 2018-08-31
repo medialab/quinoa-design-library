@@ -264,6 +264,13 @@ hr
 {
     box-shadow: $shadow;
 
+    transition: box-shadow .5s ease;
+
+    &:hover,
+    &.active{
+     box-shadow: $shadow-large;
+    }
+
     .card-header
     {
         box-shadow: none;
@@ -272,6 +279,12 @@ hr
     .card-content
     {
         word-break: break-all;
+    }
+
+    .aside-actions{
+        .button{
+            justify-content: flex-start;
+        }
     }
 
     .card-footer,
