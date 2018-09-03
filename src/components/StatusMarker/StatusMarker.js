@@ -33,14 +33,13 @@ const StatusMarker = ({
   return (
     <span
       className={`status-marker is-lock-status-${lockStatus}`}
-      style={style}
-      >
+      style={style}>
       <Icon
         data-for="tooltip"
         data-tip={statusMessage}
         // data-type={computedType}
         data-place="right"
-        style={{display: 'inline' /*['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none'*/}}
+        style={{display: 'inline'}}
         icon={'circle'} />
 
       {/*<Icon

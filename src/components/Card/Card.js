@@ -20,9 +20,9 @@ const Card = ({
   onClick
 }) => {
   const displayedLockStatus = lockStatus || 'open';
-  const handleAction = id => {
+  const handleAction = (id, e) => {
     if (typeof onAction === 'function') {
-      onAction(id);
+      onAction(id, e);
     }
   };
   const renderContent = () => {
@@ -75,8 +75,8 @@ const Card = ({
             <div className="card-content aside-actions">
               {
               asideActions.map((action, index) => {
-                const onActionClick = () => {
-                  handleAction(action.id);
+                const onActionClick = (e) => {
+                  handleAction(action.id, e);
                 };
                 return (
                   <p key={index} onClick={onActionClick}>
@@ -100,8 +100,8 @@ const Card = ({
         <footer className="card-footer">
           {
             footerActions.map((action, index) => {
-              const onActionClick = () => {
-                handleAction(action.id);
+              const onActionClick = (e) => {
+                handleAction(action.id, e);
               };
               return (
                 <p key={index} className="card-footer-item">

@@ -43,9 +43,9 @@ var Card = function Card(_ref) {
       onClick = _ref.onClick;
 
   var displayedLockStatus = lockStatus || 'open';
-  var handleAction = function handleAction(id) {
+  var handleAction = function handleAction(id, e) {
     if (typeof onAction === 'function') {
-      onAction(id);
+      onAction(id, e);
     }
   };
   var renderContent = function renderContent() {
@@ -114,8 +114,8 @@ var Card = function Card(_ref) {
           'div',
           { className: 'card-content aside-actions' },
           asideActions.map(function (action, index) {
-            var onActionClick = function onActionClick() {
-              handleAction(action.id);
+            var onActionClick = function onActionClick(e) {
+              handleAction(action.id, e);
             };
             return _react2.default.createElement(
               'p',
@@ -134,8 +134,8 @@ var Card = function Card(_ref) {
       'footer',
       { className: 'card-footer' },
       footerActions.map(function (action, index) {
-        var onActionClick = function onActionClick() {
-          handleAction(action.id);
+        var onActionClick = function onActionClick(e) {
+          handleAction(action.id, e);
         };
         return _react2.default.createElement(
           'p',

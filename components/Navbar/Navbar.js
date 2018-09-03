@@ -125,18 +125,34 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
                 _react2.default.createElement(
                   'span',
                   null,
-                  item.content,
-                  item.lockStatus ? _react2.default.createElement(_index.StatusMarker, {
-                    lockStatus: item.lockStatus,
-                    statusMessage: item.statusMessage }) : null
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    item.content
+                  ),
+                  _react2.default.createElement(
+                    'span',
+                    { style: { marginLeft: '0.5rem' } },
+                    item.lockStatus ? _react2.default.createElement(_index.StatusMarker, {
+                      lockStatus: item.lockStatus,
+                      statusMessage: item.statusMessage }) : null
+                  )
                 )
               ) : _react2.default.createElement(
                 'span',
                 null,
-                item.content,
-                item.lockStatus ? _react2.default.createElement(_index.StatusMarker, {
-                  lockStatus: item.lockStatus,
-                  statusMessage: item.statusMessage }) : null
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  item.content
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { style: { marginLeft: '0.5rem' } },
+                  item.lockStatus ? _react2.default.createElement(_index.StatusMarker, {
+                    lockStatus: item.lockStatus,
+                    statusMessage: item.statusMessage }) : null
+                )
               ),
               item.subItems && item.subItems.length > 0 && _react2.default.createElement(
                 _bloomer.NavbarDropdown,
@@ -148,10 +164,19 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
                     _react2.default.createElement(
                       'span',
                       null,
-                      subItem.content,
-                      _react2.default.createElement(_index.StatusMarker, {
-                        lockStatus: subItem.lockStatus,
-                        statusMessage: subItem.statusMessage })
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        ' ',
+                        subItem.content
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { style: { marginLeft: '0.5rem' } },
+                        _react2.default.createElement(_index.StatusMarker, {
+                          lockStatus: subItem.lockStatus,
+                          statusMessage: subItem.statusMessage })
+                      )
                     )
                   );
                 })
@@ -181,7 +206,12 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
                 'data-place': 'left',
                 onClick: onProfileClick,
                 isRounded: true },
-              _react2.default.createElement(_index.Image, { isRounded: true, isSize: '32x32', src: profile.imageUri })
+              _react2.default.createElement(
+                _index.Icon,
+                {
+                  isSize: '32x32' },
+                _react2.default.createElement('img', { src: profile.imageUri })
+              )
             )
           ) : null
         )

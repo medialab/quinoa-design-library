@@ -18,43 +18,41 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var StatusMarker = function StatusMarker(_ref) {
   var lockStatus = _ref.lockStatus,
-      statusMessage = _ref.statusMessage;
+      statusMessage = _ref.statusMessage,
+      style = _ref.style;
 
-  var computedType = void 0;
-  switch (lockStatus) {
-    case 'open':
-      computedType = 'success';
-      break;
-    case 'active':
-      computedType = 'info';
-      break;
-    case 'locked':
-      computedType = 'error';
-      break;
-    case 'asked':
-      computedType = 'light';
-      break;
-    case 'idle':
-    default:
-      computedType = 'light';
-      break;
+  // let computedType;
+  // switch (lockStatus) {
+  //   case 'open':
+  //     computedType = 'light';
+  //     break;
+  //   case 'active':
+  //     computedType = 'success';
+  //     break;
+  //   case 'locked':
+  //     computedType = 'info';
+  //     break;
+  //   case 'asked':
+  //     computedType = 'light';
+  //     break;
+  //   case 'idle':
+  //   default:
+  //     computedType = 'light';
+  //     break;
 
-  }
+  // }
   return _react2.default.createElement(
     'span',
     {
       className: 'status-marker is-lock-status-' + lockStatus,
+      style: style },
+    _react2.default.createElement(_bloomer.Icon, {
       'data-for': 'tooltip',
-      'data-tip': statusMessage,
-      'data-type': computedType,
-      'data-place': 'right',
-      'data-effect': 'solid' },
-    _react2.default.createElement(_bloomer.Icon, {
-      style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'inline' : 'none' },
-      className: 'fa fa-lock' }),
-    _react2.default.createElement(_bloomer.Icon, {
-      style: { display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline' },
-      className: 'fa fa-unlock' })
+      'data-tip': statusMessage
+      // data-type={computedType}
+      , 'data-place': 'right',
+      style: { display: 'inline' },
+      icon: 'circle' })
   );
 };
 
