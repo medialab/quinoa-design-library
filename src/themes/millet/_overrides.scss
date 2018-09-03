@@ -693,24 +693,23 @@ hr
 .status-marker
 {
     position: relative;
+    transition: color .5s ease;
     // height: .5em;
     // position: relative;
     // border-radius: 50%;
 
-    float: left;
-
     width: 1.2em;
     &.is-lock-status-open
     {
-        color: $green;
+        color: $light;
     }
     &.is-lock-status-active
     {
-        color: $blue;
+        color: $turquoise;
     }
     &.is-lock-status-locked
     {
-        color: $red;
+        color: $blue;
     }
     &.is-lock-status-asked
     {
