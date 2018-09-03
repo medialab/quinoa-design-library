@@ -70,7 +70,9 @@ var DropdownContainer = function (_Component) {
       var _this$props = _this.props,
           value = _this$props.value,
           onToggle = _this$props.onToggle,
+          style = _this$props.style,
           onChange = _this$props.onChange,
+          isColor = _this$props.isColor,
           _this$props$isActive = _this$props.isActive,
           isActive = _this$props$isActive === undefined ? false : _this$props$isActive,
           _this$props$options = _this$props.options,
@@ -143,6 +145,12 @@ var DropdownContainer = function (_Component) {
       var bindTriggerRef = function bindTriggerRef(triggerRef) {
         _this.triggerRef = triggerRef;
       };
+      var color = '';
+      if (isActive) {
+        color = 'info';
+      } else if (isColor) {
+        color = isColor;
+      }
       return _react2.default.createElement(
         _bloomer.Dropdown,
         { isActive: isActive },
@@ -163,9 +171,11 @@ var DropdownContainer = function (_Component) {
               _react2.default.createElement(
                 _Button2.default,
                 {
-                  onClick: onToggle, isOutlined: true, 'aria-haspopup': 'true',
+                  onClick: onToggle,
+                  isOutlined: true,
+                  'aria-haspopup': 'true',
                   'aria-controls': 'dropdown-menu',
-                  isColor: isActive ? 'info' : '' },
+                  isColor: color },
                 children ? children : _react2.default.createElement(
                   'span',
                   null,
