@@ -21,7 +21,7 @@ import {
   StatusMarker,
   Button,
   Container,
-  Image
+  Icon
 } from '../index';
 
 const NavbarWrapper = ({
@@ -93,23 +93,28 @@ const NavbarWrapper = ({
                       item.subItems && item.subItems.length > 0 ?
                         <NavLink href={item.href}>
                           <span>
-                            {item.content}
-                            {
+                            <span>{item.content}</span>
+                            <span style={{marginLeft: '0.5rem'}}>
+                              {
                               item.lockStatus ?
                                 <StatusMarker
                                   lockStatus={item.lockStatus}
                                   statusMessage={item.statusMessage} /> : null
                             }
+                            </span>
                           </span>
                         </NavLink> :
                         <span>
-                          {item.content}
-                          {
+                          <span>{item.content}</span>
+                          <span style={{marginLeft: '0.5rem'}}>
+
+                            {
                             item.lockStatus ?
                               <StatusMarker
                                 lockStatus={item.lockStatus}
                                 statusMessage={item.statusMessage} /> : null
                           }
+                          </span>
                         </span>
                     }
                     {
@@ -119,10 +124,13 @@ const NavbarWrapper = ({
                           item.subItems.map((subItem, index2) => (
                             <NavbarItem key={index2} href={subItem.href}>
                               <span>
-                                {subItem.content}
-                                <StatusMarker
-                                  lockStatus={subItem.lockStatus}
-                                  statusMessage={subItem.statusMessage} />
+                                <span> {subItem.content}</span>
+                                <span style={{marginLeft: '0.5rem'}}>
+
+                                  <StatusMarker
+                                    lockStatus={subItem.lockStatus}
+                                    statusMessage={subItem.statusMessage} />
+                                </span>
                               </span>
                             </NavbarItem>
                           ))
@@ -155,7 +163,10 @@ const NavbarWrapper = ({
                   data-place="left"
                   onClick={onProfileClick}
                   isRounded>
-                  <Image isRounded isSize="32x32" src={profile.imageUri} />
+                  <Icon
+                    isSize="32x32">
+                    <img src={profile.imageUri} />
+                  </Icon>
                 </Button>
               </NavbarItem>
             : null
