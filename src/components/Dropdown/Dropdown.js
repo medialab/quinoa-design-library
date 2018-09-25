@@ -50,7 +50,6 @@ class DropdownContainer extends Component {
       props: {
         value,
         onToggle,
-        style,
         onChange,
         isColor,
         isActive = false,
@@ -116,7 +115,8 @@ class DropdownContainer extends Component {
     let color = '';
     if (isActive) {
       color = 'info';
-    } else if (isColor) {
+    }
+    else if (isColor) {
       color = isColor;
     }
     return (
@@ -130,8 +130,8 @@ class DropdownContainer extends Component {
             ref={bindTriggerRef}>
             <DropdownTrigger>
               <Button
-                onClick={onToggle} 
-                isOutlined 
+                onClick={onToggle}
+                isOutlined
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
                 isColor={color}>

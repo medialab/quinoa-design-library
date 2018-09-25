@@ -70,7 +70,6 @@ var DropdownContainer = function (_Component) {
       var _this$props = _this.props,
           value = _this$props.value,
           onToggle = _this$props.onToggle,
-          style = _this$props.style,
           onChange = _this$props.onChange,
           isColor = _this$props.isColor,
           _this$props$isActive = _this$props.isActive,

@@ -6860,6 +6860,19 @@ hr {
     color: #363636;
     border-color: #363636; }
 
+.absolute-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.flex-container {
+  display: flex;
+  flex-flow: row-nowrap;
+  justify-content: stretch;
+  align-items: stretch; }
+
 /**
  * CUSTOMIZATION
  */

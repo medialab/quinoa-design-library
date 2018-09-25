@@ -155,3 +155,5 @@ export {default as Box} from './Box';
 export {default as Grid} from './Grid';
 export {default as StretchedLayoutContainer} from './StretchedLayoutContainer';
 export {default as StretchedLayoutItem} from './StretchedLayoutItem';
+export {default as AbsoluteContainer} from './AbsoluteContainer';
+export {default as FlexContainer} from './FlexContainer';
