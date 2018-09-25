@@ -29,7 +29,7 @@ const FlexContainer = ({
 };
 
 FlexContainer.propTypes = {
-  style: PropTypes.obj,
+  style: PropTypes.object,
   flexDirection: PropTypes.string,
   flexWrap: PropTypes.string,
   alignItems: PropTypes.string,

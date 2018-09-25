@@ -12,8 +12,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _index = require('../index');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AbsoluteContainer = function AbsoluteContainer(_ref) {
@@ -33,7 +31,7 @@ var AbsoluteContainer = function AbsoluteContainer(_ref) {
 };
 
 AbsoluteContainer.propTypes = {
-  style: _propTypes2.default.obj,
+  style: _propTypes2.default.object,
   className: _propTypes2.default.string
 };
 

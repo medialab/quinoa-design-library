@@ -14,8 +14,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _index = require('../index');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var FlexContainer = function FlexContainer(_ref) {
@@ -47,7 +45,7 @@ var FlexContainer = function FlexContainer(_ref) {
 };
 
 FlexContainer.propTypes = {
-  style: _propTypes2.default.obj,
+  style: _propTypes2.default.object,
   flexDirection: _propTypes2.default.string,
   flexWrap: _propTypes2.default.string,
   alignItems: _propTypes2.default.string,

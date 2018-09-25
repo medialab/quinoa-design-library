@@ -16,7 +16,7 @@ const AbsoluteContainer = ({
 };
 
 AbsoluteContainer.propTypes = {
-  style: PropTypes.obj,
+  style: PropTypes.object,
   className: PropTypes.string,
 };
 
