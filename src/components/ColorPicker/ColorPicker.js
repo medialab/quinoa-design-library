@@ -1,12 +1,12 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
 import {SwatchesPicker as Picker} from 'react-color';
+import onClickOutside from 'react-onclickoutside';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPalette} from '@fortawesome/free-solid-svg-icons';
 
-
-export default class ColorPicker extends Component {
-
+class ColorPicker extends Component {
 
   static propTypes = {
     edited: PropTypes.bool,
@@ -28,6 +28,12 @@ export default class ColorPicker extends Component {
       this.setState({color: nextProps.color});
     }
   }
+
+  handleClickOutside = () => {
+    if (this.state.edited) {
+      this.setState({edited: false});
+    }
+  };
 
   setEdited = edited => {
     this.setState({edited});
@@ -59,13 +65,9 @@ export default class ColorPicker extends Component {
     } = this;
 
     return (
-      <div style={{position: 'relative'}}>
+      <div style={{position: 'relative', display: 'inline-block'}}>
         <button className="button" onClick={toggleEdited}>
-          <span style={{
-            width: '1em',
-            height: '1em',
-            background: color
-          }} />
+          <FontAwesomeIcon icon={faPalette} />
         </button>
         {
           edited &&
@@ -79,3 +81,5 @@ export default class ColorPicker extends Component {
     );
   }
 }
+
+export default onClickOutside(ColorPicker);

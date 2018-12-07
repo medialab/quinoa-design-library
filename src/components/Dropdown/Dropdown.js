@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button';
 import {
   Dropdown,
   DropdownTrigger,
-  Icon,
   DropdownMenu,
   DropdownContent,
   DropdownItem,
   DropdownDivider,
   Title,
 } from 'bloomer';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button';
 
 class DropdownContainer extends Component {
 
@@ -140,7 +141,7 @@ class DropdownContainer extends Component {
                 children :
                 <span>{value && value.label}</span>
               }
-                <Icon icon="angle-down" isSize="small" />
+                <FontAwesomeIcon icon={faAngleDown} isSize="small" />
               </Button>
             </DropdownTrigger>
           </div>
