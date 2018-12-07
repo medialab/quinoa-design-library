@@ -14,6 +14,14 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactColor = require('react-color');
 
+var _reactOnclickoutside = require('react-onclickoutside');
+
+var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
+
+var _reactFontawesome = require('@fortawesome/react-fontawesome');
+
+var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33,6 +41,12 @@ var ColorPicker = function (_Component) {
     _this.componentWillReceiveProps = function (nextProps) {
       if (_this.props.color !== nextProps.color) {
         _this.setState({ color: nextProps.color });
+      }
+    };
+
+    _this.handleClickOutside = function () {
+      if (_this.state.edited) {
+        _this.setState({ edited: false });
       }
     };
 
@@ -67,15 +81,11 @@ var ColorPicker = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: { position: 'relative' } },
+        { style: { position: 'relative', display: 'inline-block' } },
         _react2.default.createElement(
           'button',
           { className: 'button', onClick: toggleEdited },
-          _react2.default.createElement('span', { style: {
-              width: '1em',
-              height: '1em',
-              background: color
-            } })
+          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faPalette })
         ),
         edited && _react2.default.createElement(
           'div',
@@ -103,4 +113,4 @@ ColorPicker.propTypes = {
   onEdit: _propTypes2.default.func,
   onChange: _propTypes2.default.func
 };
-exports.default = ColorPicker;
+exports.default = (0, _reactOnclickoutside2.default)(ColorPicker);

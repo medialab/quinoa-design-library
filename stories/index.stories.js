@@ -31,6 +31,7 @@ import {
   Content,
   Title,
   Container,
+  ColorPicker
 } from '../src/components';
 
 /**
@@ -362,6 +363,33 @@ storiesOf('Dropdown', module)
  * END DROPDOWN COMPONENT STORIES
  * ==========================================================
  */
+
+/**
+ * ============================================ ==============
+ * DROPDOWN COMPONENT STORIES
+ * ==========================================================
+ */
+
+class ColorPickerContainer extends Component {
+  state = {
+    color: undefined
+  }
+  render () {
+    return (
+      <div>
+        <p>{this.state.color ? <span style={{color: this.state.color}}>color picked: {this.state.color}</span> : 'No colors picked yet'}</p>
+        <ColorPicker onChange={color => this.setState({
+          color
+        })} />
+      </div>
+    );
+  }
+}
+
+storiesOf('Color Picker', module)
+    .add('default', withScreenshot()(() => (
+      <ColorPickerContainer />
+    )));
 
 /**
  * ==========================================================
