@@ -12,11 +12,15 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _bloomer = require('bloomer');
+
+var _reactFontawesome = require('@fortawesome/react-fontawesome');
+
+var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+
 var _Button = require('../Button');
 
 var _Button2 = _interopRequireDefault(_Button);
-
-var _bloomer = require('bloomer');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -180,7 +184,7 @@ var DropdownContainer = function (_Component) {
                   null,
                   value && value.label
                 ),
-                _react2.default.createElement(_bloomer.Icon, { icon: 'angle-down', isSize: 'small' })
+                _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faAngleDown, isSize: 'small' })
               )
             )
           ),
