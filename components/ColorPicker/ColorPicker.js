@@ -68,6 +68,9 @@ var ColorPicker = function (_Component) {
 
       if (typeof _this.props.onChange === 'function') {
         _this.props.onChange(hex);
+        _this.setState({
+          color: hex
+        });
       }
     };
 
@@ -85,7 +88,8 @@ var ColorPicker = function (_Component) {
         _react2.default.createElement(
           'button',
           { className: 'button', onClick: toggleEdited },
-          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faPalette })
+          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faPalette }),
+          _react2.default.createElement('div', { className: 'color-picker--color-notification', style: { background: color } })
         ),
         edited && _react2.default.createElement(
           'div',

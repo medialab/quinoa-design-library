@@ -51,10 +51,10 @@ class ColorPicker extends Component {
   onChange = ({hex}) => {
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(hex);
-      this.setState({
-        color: hex
-      });
     }
+    this.setState({
+      color: hex
+    });
   }
 
   render = () => {

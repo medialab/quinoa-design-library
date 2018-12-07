@@ -6975,6 +6975,14 @@ hr {
 .color-picker-container {
   z-index: 5; }
 
+.color-picker--color-notification {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%; }
+
 .collapsable {
   overflow: hidden;
   max-height: 30rem;
