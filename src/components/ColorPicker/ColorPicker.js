@@ -51,6 +51,9 @@ class ColorPicker extends Component {
   onChange = ({hex}) => {
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(hex);
+      this.setState({
+        color: hex
+      });
     }
   }
 
@@ -68,6 +71,7 @@ class ColorPicker extends Component {
       <div style={{position: 'relative', display: 'inline-block'}}>
         <button className="button" onClick={toggleEdited}>
           <FontAwesomeIcon icon={faPalette} />
+          <div className="color-picker--color-notification" style={{background: color}} />
         </button>
         {
           edited &&
