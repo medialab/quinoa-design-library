@@ -10,7 +10,7 @@ class ColorPicker extends Component {
 
   static propTypes = {
     edited: PropTypes.bool,
-    value: PropTypes.string,
+    color: PropTypes.string,
     onEdit: PropTypes.func,
     onChange: PropTypes.func,
   }

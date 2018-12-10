@@ -378,9 +378,11 @@ class ColorPickerContainer extends Component {
     return (
       <div>
         <p>{this.state.color ? <span style={{color: this.state.color}}>color picked: {this.state.color}</span> : 'No colors picked yet'}</p>
-        <ColorPicker onChange={color => this.setState({
-          color
-        })} />
+        <ColorPicker
+          color={this.state.color}
+          onChange={color => this.setState({
+            color
+          })} />
       </div>
     );
   }

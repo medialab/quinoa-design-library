@@ -68,10 +68,10 @@ var ColorPicker = function (_Component) {
 
       if (typeof _this.props.onChange === 'function') {
         _this.props.onChange(hex);
-        _this.setState({
-          color: hex
-        });
       }
+      _this.setState({
+        color: hex
+      });
     };
 
     _this.render = function () {
@@ -113,7 +113,7 @@ var ColorPicker = function (_Component) {
 
 ColorPicker.propTypes = {
   edited: _propTypes2.default.bool,
-  value: _propTypes2.default.string,
+  color: _propTypes2.default.string,
   onEdit: _propTypes2.default.func,
   onChange: _propTypes2.default.func
 };
