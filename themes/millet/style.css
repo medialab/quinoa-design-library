@@ -6928,6 +6928,20 @@ hr {
   height: 100%;
   background: rgba(0, 0, 0, 0.05); }
 
+.dropdown.is-fullwidth {
+  width: 100%; }
+  .dropdown.is-fullwidth .dropdown-bind-menu-ref, .dropdown.is-fullwidth .dropdown-bind-trigger-ref, .dropdown.is-fullwidth .dropdown-trigger.is-fullwidth {
+    width: 100%; }
+
+.dropdown .svg-inline--fa {
+  margin-left: 5px; }
+
+.dropdown .button.is-fullwidth {
+  justify-content: left; }
+  .dropdown .button.is-fullwidth .svg-inline--fa {
+    position: absolute;
+    right: 15px; }
+
 .tabs.is-boxed a {
   border: none; }
 
@@ -6944,6 +6958,8 @@ hr {
   display: flex;
   overflow: hidden;
   align-items: stretch; }
+  .stretched-layout-container.is-overflow-visible {
+    overflow: visible; }
   .stretched-layout-container.is-direction-vertical {
     flex-flow: column nowrap; }
   .stretched-layout-container.is-direction-horizontal {

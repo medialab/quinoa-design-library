@@ -605,6 +605,22 @@ hr
 
         background: rgba(0,0,0,.05);
     }
+    &.is-fullwidth {
+        width: 100%;
+        .dropdown-bind-menu-ref, .dropdown-bind-trigger-ref, .dropdown-trigger.is-fullwidth {
+            width: 100%;            
+        }
+    }
+    .svg-inline--fa {
+        margin-left: 5px;
+    }
+    .button.is-fullwidth {
+        justify-content: left;
+        .svg-inline--fa {
+            position: absolute;
+            right: 15px;
+        }
+    }
 }
 
 .tabs.is-boxed a
@@ -633,6 +649,11 @@ hr
     overflow: hidden;
 
     align-items: stretch;
+
+    &.is-overflow-visible
+    {
+        overflow: visible;
+    }
 
     &.is-direction-vertical
     {

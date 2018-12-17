@@ -54,6 +54,7 @@ var DropdownContainer = function (_Component) {
             height = _this$triggerRef$getB.height,
             triggerWidth = _this$triggerRef$getB.width;
 
+        console.log(width, triggerWidth);
         var finalX = void 0;
         if (menuAlign === 'left') {
           finalX = x + width > window.innerWidth ? window.innerWidth - width : x;
@@ -64,7 +65,12 @@ var DropdownContainer = function (_Component) {
         if (y > 0) {
           _this.setState({
             x: finalX,
-            y: y + height
+            y: y + height,
+            width: width
+          });
+        } else {
+          _this.setState({
+            width: width
           });
         }
       }
@@ -74,6 +80,7 @@ var DropdownContainer = function (_Component) {
       var _this$props = _this.props,
           value = _this$props.value,
           onToggle = _this$props.onToggle,
+          isFullWidth = _this$props.isFullWidth,
           onChange = _this$props.onChange,
           isColor = _this$props.isColor,
           _this$props$isActive = _this$props.isActive,
@@ -156,10 +163,11 @@ var DropdownContainer = function (_Component) {
       }
       return _react2.default.createElement(
         _bloomer.Dropdown,
-        { isActive: isActive },
+        { isActive: isActive, isFullWidth: isFullWidth },
         _react2.default.createElement(
           'div',
           {
+            className: 'dropdown-bind-menu-ref',
             ref: bindMenuRef },
           isActive && _react2.default.createElement('div', {
             className: 'dropdown-background',
@@ -167,13 +175,15 @@ var DropdownContainer = function (_Component) {
           _react2.default.createElement(
             'div',
             {
+              className: 'dropdown-bind-trigger-ref',
               ref: bindTriggerRef },
             _react2.default.createElement(
               _bloomer.DropdownTrigger,
-              null,
+              { isFullWidth: isFullWidth },
               _react2.default.createElement(
                 _Button2.default,
                 {
+                  isFullWidth: isFullWidth,
                   onClick: onToggle,
                   isOutlined: true,
                   'aria-haspopup': 'true',
@@ -184,7 +194,7 @@ var DropdownContainer = function (_Component) {
                   null,
                   value && value.label
                 ),
-                _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faAngleDown, isSize: 'small' })
+                _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faAngleDown })
               )
             )
           ),
@@ -195,7 +205,8 @@ var DropdownContainer = function (_Component) {
                 maxHeight: window.innerHeight - y,
                 top: y + 'px',
                 left: menuAlign === 'left' ? x + 'px' : 'unset',
-                right: menuAlign === 'right' ? x + 'px' : 'unset'
+                right: menuAlign === 'right' ? x + 'px' : 'unset',
+                width: _this.state.width
               },
               onClick: function onClick(e) {
                 return e.stopPropagation();
@@ -216,7 +227,8 @@ var DropdownContainer = function (_Component) {
 
     _this.state = {
       x: 0,
-      y: 0
+      y: 0,
+      width: 192
     };
     return _this;
   }
