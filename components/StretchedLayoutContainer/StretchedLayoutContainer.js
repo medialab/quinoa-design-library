@@ -20,11 +20,12 @@ exports.default = function (_ref) {
       isAbsolute = _ref$isAbsolute === undefined ? false : _ref$isAbsolute,
       isFlowing = _ref.isFlowing,
       isFluid = _ref.isFluid,
+      isOverflowVisible = _ref.isOverflowVisible,
       _ref$className = _ref.className,
       className = _ref$className === undefined ? '' : _ref$className;
   return _react2.default.createElement(
     'div',
-    { style: style, className: 'stretched-layout-container ' + className + ' is-direction-' + isDirection + ' ' + (isAbsolute ? 'is-absolute' : '') + ' ' + (isFlowing ? 'is-flowing' : '') + ' ' + (isFluid ? 'is-fluid' : '') },
+    { style: style, className: 'stretched-layout-container ' + className + ' is-direction-' + isDirection + ' ' + (isAbsolute ? 'is-absolute' : '') + ' ' + (isFlowing ? 'is-flowing' : '') + ' ' + (isFluid ? 'is-fluid' : '') + ' ' + (isOverflowVisible ? 'is-overflow-visible' : '') },
     children
   );
 };

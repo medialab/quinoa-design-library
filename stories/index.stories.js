@@ -8,7 +8,6 @@ import {withScreenshot} from 'storybook-chrome-screenshot';
 
 import {MemoryRouter} from 'react-router';
 
-
 import Column from './ResizableColumn';
 
 
@@ -31,7 +30,9 @@ import {
   Content,
   Title,
   Container,
-  ColorPicker
+  ColorPicker,
+  StretchedLayoutContainer,
+  Control
 } from '../src/components';
 
 /**
@@ -317,35 +318,30 @@ class DropContainer extends Component {
     super(props);
     this.state = {
       value: {id: 'option3', label: <span>salut <strong>option 3</strong></span>},
-      options: [
-              [{
-                id: 'option1',
-                label: 'option 1'
-              }, {
-                id: 'option2',
-                label: 'option 2'
-              }],
-              [{
-                id: 'option3',
-                label: 'option 3'
-              }, {
-                id: 'option4',
-                label: 'option 4'
-              }]
-            ],
+      options: [{
+        id: 'option1',
+        label: 'option 1'
+      }, {
+        id: 'option2',
+        label: 'option 2'
+      }, {
+        id: 'option3',
+        label: 'option 3'
+      }, {
+        id: 'option4',
+        label: 'option 4'
+      }],
       isActive: false
     };
   }
   onChange = id => {
-    const value = this.state.options
-      .find(optionsGroup => optionsGroup.find(option => option.id === id))
-      .find(option => option.id === id)
-      ;
+    const value = this.state.options.find(option => option.id === id);
     this.setState({value});
   }
   render = () => {
     return (
       <Dropdown
+        isFullWidth
         onToggle={() => this.setState({isActive: !this.state.isActive})}
         isActive={this.state.isActive}
         onChange={this.onChange}
@@ -356,7 +352,13 @@ class DropContainer extends Component {
 }
 storiesOf('Dropdown', module)
   .add('default', withScreenshot()(() => (
-    <DropContainer />
+    <div style={{width: 400}}>
+      <StretchedLayoutContainer isFullWidth >
+        <Control isFullWidth >
+          <DropContainer isFullWidth />
+        </Control>
+      </StretchedLayoutContainer>
+    </div>
   )));
 /**
  * ============================================ ==============
