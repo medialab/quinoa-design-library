@@ -352,7 +352,7 @@ class DropContainer extends Component {
 }
 storiesOf('Dropdown', module)
   .add('default', withScreenshot()(() => (
-    <div style={ { width: 400 } }>
+    <div style={{width: 400}}>
       <StretchedLayoutContainer isFullWidth >
         <Control isFullWidth >
           <DropContainer isFullWidth />

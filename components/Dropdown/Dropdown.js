@@ -54,7 +54,6 @@ var DropdownContainer = function (_Component) {
             height = _this$triggerRef$getB.height,
             triggerWidth = _this$triggerRef$getB.width;
 
-        console.log(width, triggerWidth);
         var finalX = void 0;
         if (menuAlign === 'left') {
           finalX = x + width > window.innerWidth ? window.innerWidth - width : x;
