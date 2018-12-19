@@ -2,6 +2,7 @@ import React from 'react';
 import RcSlider, {createSliderWithTooltip, Handle} from 'rc-slider';
 import Tooltip from 'rc-tooltip';
 import {omit} from 'lodash/fp';
+import 'rc-slider/assets/index.css';
 
 const VisibleHandle = props => (
   <Tooltip
@@ -15,7 +16,7 @@ const VisibleHandle = props => (
 );
 
 const Slider = props => (
-  <RcSlider {...props} handle={VisibleHandle} />
+  <RcSlider {...props} className="quinoa-slider" handle={VisibleHandle} />
 );
 
 export default createSliderWithTooltip(Slider);

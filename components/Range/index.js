@@ -20,6 +20,8 @@ var _rcTooltip2 = _interopRequireDefault(_rcTooltip);
 
 var _fp = require('lodash/fp');
 
+require('rc-slider/assets/index.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var VisibleHandle = function VisibleHandle(props) {
@@ -36,7 +38,7 @@ var VisibleHandle = function VisibleHandle(props) {
 };
 
 var Slider = function Slider(props) {
-  return _react2.default.createElement(_rcSlider2.default, _extends({}, props, { handle: VisibleHandle }));
+  return _react2.default.createElement(_rcSlider2.default, _extends({}, props, { className: 'quinoa-slider', handle: VisibleHandle }));
 };
 
 exports.default = (0, _rcSlider.createSliderWithTooltip)(Slider);
