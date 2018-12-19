@@ -1,6 +1,7 @@
 import React from 'react';
 import RcSlider, {createSliderWithTooltip, Handle} from 'rc-slider';
 import Tooltip from 'rc-tooltip';
+import {omit} from 'lodash/fp';
 
 const VisibleHandle = props => (
   <Tooltip
@@ -9,7 +10,7 @@ const VisibleHandle = props => (
     visible
     placement="bottom"
     key={props.index}>
-    <Handle {...props} />
+    <Handle {...omit(['dragging'], props)} />
   </Tooltip>
 );
 
