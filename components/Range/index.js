@@ -18,6 +18,8 @@ var _rcTooltip = require('rc-tooltip');
 
 var _rcTooltip2 = _interopRequireDefault(_rcTooltip);
 
+var _fp = require('lodash/fp');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var VisibleHandle = function VisibleHandle(props) {
@@ -29,7 +31,7 @@ var VisibleHandle = function VisibleHandle(props) {
       visible: true,
       placement: 'bottom',
       key: props.index },
-    _react2.default.createElement(_rcSlider.Handle, props)
+    _react2.default.createElement(_rcSlider.Handle, (0, _fp.omit)(['dragging'], props))
   );
 };
 
