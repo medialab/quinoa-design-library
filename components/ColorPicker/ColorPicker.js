@@ -14,10 +14,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactColor = require('react-color');
 
-var _reactOnclickoutside = require('react-onclickoutside');
-
-var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
-
 var _reactFontawesome = require('@fortawesome/react-fontawesome');
 
 var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
@@ -79,12 +75,16 @@ var ColorPicker = function (_Component) {
           edited = _this$state.edited,
           color = _this$state.color,
           toggleEdited = _this.toggleEdited,
+          handleClickOutside = _this.handleClickOutside,
           onChange = _this.onChange;
 
 
       return _react2.default.createElement(
         'div',
-        { style: { position: 'relative', display: 'inline-block' } },
+        { className: 'color-picker dropdown', style: { position: 'relative', display: 'inline-block' } },
+        edited && _react2.default.createElement('div', {
+          className: 'dropdown-background',
+          onClick: handleClickOutside }),
         _react2.default.createElement(
           'button',
           { className: 'button', onClick: toggleEdited },
@@ -117,4 +117,4 @@ ColorPicker.propTypes = {
   onEdit: _propTypes2.default.func,
   onChange: _propTypes2.default.func
 };
-exports.default = (0, _reactOnclickoutside2.default)(ColorPicker);
+exports.default = ColorPicker;
