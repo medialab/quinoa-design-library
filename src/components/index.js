@@ -157,3 +157,4 @@ export {default as StretchedLayoutContainer} from './StretchedLayoutContainer';
 export {default as StretchedLayoutItem} from './StretchedLayoutItem';
 export {default as AbsoluteContainer} from './AbsoluteContainer';
 export {default as FlexContainer} from './FlexContainer';
+export {default as Range} from './Range';

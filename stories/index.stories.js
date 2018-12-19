@@ -32,7 +32,8 @@ import {
   Container,
   ColorPicker,
   StretchedLayoutContainer,
-  Control
+  Control,
+  Range
 } from '../src/components';
 
 /**
@@ -394,6 +395,28 @@ storiesOf('Color Picker', module)
     .add('default', withScreenshot()(() => (
       <ColorPickerContainer />
     )));
+
+// eslint-disable-next-line react/require-optimization
+class RangeExampleContainer extends Component {
+  state = {
+    value: 0.5
+  }
+  render () {
+    const {value} = this.state;
+    return (
+      <Range
+        defaultValue={value}
+        step={0.1}
+        min={0}
+        max={1} />
+    );
+  }
+}
+
+storiesOf('Range selector', module)
+  .add('default', withScreenshot()(() => (
+    <RangeExampleContainer />
+  )));
 
 /**
  * ==========================================================

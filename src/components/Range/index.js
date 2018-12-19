@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
+import RcSlider, {createSliderWithTooltip, Handle} from 'rc-slider';
+import Tooltip from 'rc-tooltip';
 
-const Slider = props => {
-  const [value, setValue] = useState(props.defaultValue);
-  const onChange = (event) => {
-    setValue(event.target.value);
-    props.onChange(+event.target.value);
-  };
-  return (
-    <div>
-      <input
-        {...props}
-        onChange={onChange}
-        type={'range'}
-        value={value} />
-    </div>
-  );
-};
+const VisibleHandle = props => (
+  <Tooltip
+    prefixCls="rc-slider-tooltip"
+    overlay={props.value}
+    visible
+    placement="top"
+    key={props.index}>
+    <Handle {...props} />
+  </Tooltip>
+);
 
-export default Slider;
+const Slider = props => (
+  <RcSlider {...props} handle={VisibleHandle} />
+);
+
+export default createSliderWithTooltip(Slider);
