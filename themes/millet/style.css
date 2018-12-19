@@ -7056,7 +7056,8 @@ hr {
   -ms-touch-action: none;
   touch-action: none;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin-bottom: 1rem; }
 
 .rc-slider * {
   box-sizing: border-box;
@@ -7088,6 +7089,7 @@ hr {
   border-radius: 50%;
   border: solid 2px #29B6F6;
   background-color: #fff;
+  transition: box-shadow 300ms ease;
   -ms-touch-action: pan-x;
   touch-action: pan-x; }
 

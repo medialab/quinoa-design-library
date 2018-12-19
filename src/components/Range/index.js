@@ -7,7 +7,7 @@ const VisibleHandle = props => (
     prefixCls="rc-slider-tooltip"
     overlay={props.value}
     visible
-    placement="top"
+    placement="bottom"
     key={props.index}>
     <Handle {...props} />
   </Tooltip>
