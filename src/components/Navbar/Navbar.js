@@ -38,7 +38,8 @@ const NavbarWrapper = ({
   isFixed = false,
   withReactRouter = true,
   profile,
-  style = {}
+  style = {},
+  messages = {}
 }) => {
   const NavLink = withReactRouter ? Link : NavbarLink;
   const Ref = ({to, children}) => {
@@ -158,7 +159,7 @@ const NavbarWrapper = ({
               <NavbarItem>
                 <Button
                   data-for="tooltip"
-                  data-tip={`logged as ${profile.nickName}`}
+                  data-tip={messages.profileMessage ? messages.profileMessage : `logged as ${profile.nickName}`}
                   data-effect="solid"
                   data-place="left"
                   onClick={onProfileClick}
