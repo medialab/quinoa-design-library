@@ -6989,7 +6989,7 @@ hr {
         overflow: visible; } }
 
 .color-picker-container {
-  z-index: 5; }
+  z-index: 900; }
 
 .color-picker--color-notification {
   width: 7px;
