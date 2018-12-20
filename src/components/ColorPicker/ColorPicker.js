@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {SwatchesPicker as Picker} from 'react-color';
-import onClickOutside from 'react-onclickoutside';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPalette} from '@fortawesome/free-solid-svg-icons';
 
@@ -64,11 +63,15 @@ class ColorPicker extends Component {
         color
       },
       toggleEdited,
+      handleClickOutside,
       onChange,
     } = this;
 
     return (
-      <div style={{position: 'relative', display: 'inline-block'}}>
+      <div className="color-picker dropdown" style={{position: 'relative', display: 'inline-block'}}>
+        {edited && <div
+          className="dropdown-background"
+          onClick={handleClickOutside} />}
         <button className="button" onClick={toggleEdited}>
           <FontAwesomeIcon icon={faPalette} />
           <div className="color-picker--color-notification" style={{background: color}} />
@@ -86,4 +89,4 @@ class ColorPicker extends Component {
   }
 }
 
-export default onClickOutside(ColorPicker);
+export default ColorPicker;
