@@ -18,15 +18,15 @@ fs.ensureDir(DIST_PATH)
       const themeDist = DIST_PATH + '/' + themeName;
       const scssPath = folderPath + '/' + 'bulma.theme.scss';
       const iconsPath = folderPath + '/' + 'icons';
-      const fontsPath = folderPath + '/' + 'fonts';
+      // const fontsPath = folderPath + '/' + 'fonts';
       const cssPath = themeDist + '/' + 'style.css';
       const iconsDistPath = themeDist + '/' + 'icons';
-      const fontsDistPath = themeDist + '/' + 'fonts';
+      // const fontsDistPath = themeDist + '/' + 'fonts';
       return curr
         .then(() => fs.ensureDir(themeDist))
         .then(() => fs.exists(scssPath))
         .then(() => fs.exists(iconsPath))
-        .then(() => fs.exists(fontsPath))
+        // .then(() => fs.exists(fontsPath))
         .then(() => fs.exists(WEBPACK_CONFIG_PATH))
         .then(() => {
           return new Promise((resolve, reject) => {
@@ -63,9 +63,9 @@ fs.ensureDir(DIST_PATH)
             });
           });
         })
-        .then(() => {
-          return fs.copy(fontsPath, fontsDistPath);
-        })
+        // .then(() => {
+        //   return fs.copy(fontsPath, fontsDistPath);
+        // })
         .then(() => {
           return new Promise(resolve => {
             console.log('all the prepping and building was successful for theme %s', themeName);
