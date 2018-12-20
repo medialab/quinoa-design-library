@@ -1,16 +1,15 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
 import {SwatchesPicker as Picker} from 'react-color';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPalette} from '@fortawesome/free-solid-svg-icons';
 
-
-export default class ColorPicker extends Component {
-
+class ColorPicker extends Component {
 
   static propTypes = {
     edited: PropTypes.bool,
-    value: PropTypes.string,
+    color: PropTypes.string,
     onEdit: PropTypes.func,
     onChange: PropTypes.func,
   }
@@ -29,6 +28,12 @@ export default class ColorPicker extends Component {
     }
   }
 
+  handleClickOutside = () => {
+    if (this.state.edited) {
+      this.setState({edited: false});
+    }
+  };
+
   setEdited = edited => {
     this.setState({edited});
     if (typeof this.props.onEdit === 'function' && edited) {
@@ -46,6 +51,9 @@ export default class ColorPicker extends Component {
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(hex);
     }
+    this.setState({
+      color: hex
+    });
   }
 
   render = () => {
@@ -55,17 +63,18 @@ export default class ColorPicker extends Component {
         color
       },
       toggleEdited,
+      handleClickOutside,
       onChange,
     } = this;
 
     return (
-      <div style={{position: 'relative'}}>
+      <div className="color-picker dropdown" style={{position: 'relative', display: 'inline-block'}}>
+        {edited && <div
+          className="dropdown-background"
+          onClick={handleClickOutside} />}
         <button className="button" onClick={toggleEdited}>
-          <span style={{
-            width: '1em',
-            height: '1em',
-            background: color
-          }} />
+          <FontAwesomeIcon icon={faPalette} />
+          <div className="color-picker--color-notification" style={{background: color}} />
         </button>
         {
           edited &&
@@ -79,3 +88,5 @@ export default class ColorPicker extends Component {
     );
   }
 }
+
+export default ColorPicker;

@@ -3,8 +3,7 @@
  * Millet theme
  */
 /*! bulma.io v0.7.0 | MIT License | github.com/jgthms/bulma */
-@import url(~font-awesome/css/font-awesome.css);
-@import url(./fonts/roboto/roboto.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 @keyframes spinAround {
   from {
     transform: rotate(0deg); }
@@ -6929,6 +6928,20 @@ hr {
   height: 100%;
   background: rgba(0, 0, 0, 0.05); }
 
+.dropdown.is-fullwidth {
+  width: 100%; }
+  .dropdown.is-fullwidth .dropdown-bind-menu-ref, .dropdown.is-fullwidth .dropdown-bind-trigger-ref, .dropdown.is-fullwidth .dropdown-trigger.is-fullwidth {
+    width: 100%; }
+
+.dropdown .svg-inline--fa {
+  margin-left: 5px; }
+
+.dropdown .button.is-fullwidth {
+  justify-content: left; }
+  .dropdown .button.is-fullwidth .svg-inline--fa {
+    position: absolute;
+    right: 15px; }
+
 .tabs.is-boxed a {
   border: none; }
 
@@ -6945,6 +6958,8 @@ hr {
   display: flex;
   overflow: hidden;
   align-items: stretch; }
+  .stretched-layout-container.is-overflow-visible {
+    overflow: visible; }
   .stretched-layout-container.is-direction-vertical {
     flex-flow: column nowrap; }
   .stretched-layout-container.is-direction-horizontal {
@@ -6974,7 +6989,15 @@ hr {
         overflow: visible; } }
 
 .color-picker-container {
-  z-index: 5; }
+  z-index: 900; }
+
+.color-picker--color-notification {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%; }
 
 .collapsable {
   overflow: hidden;
@@ -7023,3 +7046,30 @@ hr {
       align-items: center;
       flex: 1;
       flex-flow: column nowrap; }
+
+.quinoa-slider.rc-slider {
+  margin-bottom: 1rem; }
+
+.quinoa-slider .rc-slider-track {
+  background-color: #2196F3; }
+
+.quinoa-slider .rc-slider-handle {
+  border: solid 2px #29B6F6;
+  transition: box-shadow 300ms ease; }
+
+.quinoa-slider .rc-slider-handle:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 0 5px #29B6F6; }
+
+.quinoa-slider .rc-slider-handle-click-focused:focus {
+  border-color: #29B6F6; }
+
+.quinoa-slider .rc-slider-handle:hover {
+  border-color: #2196F3; }
+
+.quinoa-slider .rc-slider-handle:active {
+  border-color: #2196F3;
+  box-shadow: 0 0 5px #2196F3; }
+
+.quinoa-slider .rc-slider-dot-active {
+  border-color: #29B6F6; }

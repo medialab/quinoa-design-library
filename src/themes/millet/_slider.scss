@@ -1,0 +1,29 @@
+.quinoa-slider {
+  &.rc-slider {
+    margin-bottom: 1rem;
+  }
+  .rc-slider-track {
+    background-color: $blue;
+  }
+  .rc-slider-handle {
+    border: solid 2px $cyan;
+    transition: box-shadow 300ms ease;
+  }
+  .rc-slider-handle:focus {
+    border-color: $blue;
+    box-shadow: 0 0 0 5px $cyan;
+  }
+  .rc-slider-handle-click-focused:focus {
+    border-color: $cyan;
+  }
+  .rc-slider-handle:hover {
+    border-color: $blue;
+  }
+  .rc-slider-handle:active {
+    border-color: $blue;
+    box-shadow: 0 0 5px $blue;
+  }
+  .rc-slider-dot-active {
+    border-color: $cyan;
+  }  
+}

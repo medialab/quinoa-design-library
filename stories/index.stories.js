@@ -8,7 +8,6 @@ import {withScreenshot} from 'storybook-chrome-screenshot';
 
 import {MemoryRouter} from 'react-router';
 
-
 import Column from './ResizableColumn';
 
 
@@ -31,6 +30,10 @@ import {
   Content,
   Title,
   Container,
+  ColorPicker,
+  StretchedLayoutContainer,
+  Control,
+  Range
 } from '../src/components';
 
 /**
@@ -316,35 +319,30 @@ class DropContainer extends Component {
     super(props);
     this.state = {
       value: {id: 'option3', label: <span>salut <strong>option 3</strong></span>},
-      options: [
-              [{
-                id: 'option1',
-                label: 'option 1'
-              }, {
-                id: 'option2',
-                label: 'option 2'
-              }],
-              [{
-                id: 'option3',
-                label: 'option 3'
-              }, {
-                id: 'option4',
-                label: 'option 4'
-              }]
-            ],
+      options: [{
+        id: 'option1',
+        label: 'option 1'
+      }, {
+        id: 'option2',
+        label: 'option 2'
+      }, {
+        id: 'option3',
+        label: 'option 3'
+      }, {
+        id: 'option4',
+        label: 'option 4'
+      }],
       isActive: false
     };
   }
   onChange = id => {
-    const value = this.state.options
-      .find(optionsGroup => optionsGroup.find(option => option.id === id))
-      .find(option => option.id === id)
-      ;
+    const value = this.state.options.find(option => option.id === id);
     this.setState({value});
   }
   render = () => {
     return (
       <Dropdown
+        isFullWidth
         onToggle={() => this.setState({isActive: !this.state.isActive})}
         isActive={this.state.isActive}
         onChange={this.onChange}
@@ -355,13 +353,70 @@ class DropContainer extends Component {
 }
 storiesOf('Dropdown', module)
   .add('default', withScreenshot()(() => (
-    <DropContainer />
+    <div style={{width: 400}}>
+      <StretchedLayoutContainer isFullWidth >
+        <Control isFullWidth >
+          <DropContainer isFullWidth />
+        </Control>
+      </StretchedLayoutContainer>
+    </div>
   )));
 /**
  * ============================================ ==============
  * END DROPDOWN COMPONENT STORIES
  * ==========================================================
  */
+
+/**
+ * ============================================ ==============
+ * DROPDOWN COMPONENT STORIES
+ * ==========================================================
+ */
+
+class ColorPickerContainer extends Component {
+  state = {
+    color: undefined
+  }
+  render () {
+    return (
+      <div>
+        <p>{this.state.color ? <span style={{color: this.state.color}}>color picked: {this.state.color}</span> : 'No colors picked yet'}</p>
+        <ColorPicker
+          color={this.state.color}
+          onChange={color => this.setState({
+            color
+          })} />
+      </div>
+    );
+  }
+}
+
+storiesOf('Color Picker', module)
+    .add('default', withScreenshot()(() => (
+      <ColorPickerContainer />
+    )));
+
+// eslint-disable-next-line react/require-optimization
+class RangeExampleContainer extends Component {
+  state = {
+    value: 0.5
+  }
+  render () {
+    const {value} = this.state;
+    return (
+      <Range
+        defaultValue={value}
+        step={0.1}
+        min={0}
+        max={1} />
+    );
+  }
+}
+
+storiesOf('Range selector', module)
+  .add('default', withScreenshot()(() => (
+    <RangeExampleContainer />
+  )));
 
 /**
  * ==========================================================

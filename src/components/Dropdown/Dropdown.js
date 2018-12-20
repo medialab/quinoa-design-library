@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button';
 import {
   Dropdown,
   DropdownTrigger,
-  Icon,
   DropdownMenu,
   DropdownContent,
   DropdownItem,
   DropdownDivider,
   Title,
 } from 'bloomer';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button';
 
 class DropdownContainer extends Component {
 
@@ -18,7 +19,8 @@ class DropdownContainer extends Component {
     super(props);
     this.state = {
       x: 0,
-      y: 0
+      y: 0,
+      width: 192
     };
   }
 
@@ -39,7 +41,13 @@ class DropdownContainer extends Component {
       if (y > 0) {
         this.setState({
           x: finalX,
-          y: y + height
+          y: y + height,
+          width
+        });
+      }
+      else {
+        this.setState({
+          width,
         });
       }
     }
@@ -50,6 +58,7 @@ class DropdownContainer extends Component {
       props: {
         value,
         onToggle,
+        isFullWidth,
         onChange,
         isColor,
         isActive = false,
@@ -120,16 +129,19 @@ class DropdownContainer extends Component {
       color = isColor;
     }
     return (
-      <Dropdown isActive={isActive}>
+      <Dropdown isActive={isActive} isFullWidth={isFullWidth}>
         <div
+          className="dropdown-bind-menu-ref"
           ref={bindMenuRef}>
           {isActive && <div
             className="dropdown-background"
             onClick={onToggle} />}
           <div
+            className="dropdown-bind-trigger-ref"
             ref={bindTriggerRef}>
-            <DropdownTrigger>
+            <DropdownTrigger isFullWidth={isFullWidth}>
               <Button
+                isFullWidth={isFullWidth}
                 onClick={onToggle}
                 isOutlined
                 aria-haspopup="true"
@@ -140,7 +152,7 @@ class DropdownContainer extends Component {
                 children :
                 <span>{value && value.label}</span>
               }
-                <Icon icon="angle-down" isSize="small" />
+                <FontAwesomeIcon icon={faAngleDown} />
               </Button>
             </DropdownTrigger>
           </div>
@@ -151,6 +163,7 @@ class DropdownContainer extends Component {
             top: y + 'px',
             left: menuAlign === 'left' ? x + 'px' : 'unset',
             right: menuAlign === 'right' ? x + 'px' : 'unset',
+            width: this.state.width
           }}
             onClick={e => e.stopPropagation()}>
             <DropdownContent>

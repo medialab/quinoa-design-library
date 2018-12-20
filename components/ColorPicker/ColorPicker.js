@@ -14,6 +14,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactColor = require('react-color');
 
+var _reactFontawesome = require('@fortawesome/react-fontawesome');
+
+var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -36,6 +40,12 @@ var ColorPicker = function (_Component) {
       }
     };
 
+    _this.handleClickOutside = function () {
+      if (_this.state.edited) {
+        _this.setState({ edited: false });
+      }
+    };
+
     _this.setEdited = function (edited) {
       _this.setState({ edited: edited });
       if (typeof _this.props.onEdit === 'function' && edited) {
@@ -55,6 +65,9 @@ var ColorPicker = function (_Component) {
       if (typeof _this.props.onChange === 'function') {
         _this.props.onChange(hex);
       }
+      _this.setState({
+        color: hex
+      });
     };
 
     _this.render = function () {
@@ -62,20 +75,21 @@ var ColorPicker = function (_Component) {
           edited = _this$state.edited,
           color = _this$state.color,
           toggleEdited = _this.toggleEdited,
+          handleClickOutside = _this.handleClickOutside,
           onChange = _this.onChange;
 
 
       return _react2.default.createElement(
         'div',
-        { style: { position: 'relative' } },
+        { className: 'color-picker dropdown', style: { position: 'relative', display: 'inline-block' } },
+        edited && _react2.default.createElement('div', {
+          className: 'dropdown-background',
+          onClick: handleClickOutside }),
         _react2.default.createElement(
           'button',
           { className: 'button', onClick: toggleEdited },
-          _react2.default.createElement('span', { style: {
-              width: '1em',
-              height: '1em',
-              background: color
-            } })
+          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faPalette }),
+          _react2.default.createElement('div', { className: 'color-picker--color-notification', style: { background: color } })
         ),
         edited && _react2.default.createElement(
           'div',
@@ -99,7 +113,7 @@ var ColorPicker = function (_Component) {
 
 ColorPicker.propTypes = {
   edited: _propTypes2.default.bool,
-  value: _propTypes2.default.string,
+  color: _propTypes2.default.string,
   onEdit: _propTypes2.default.func,
   onChange: _propTypes2.default.func
 };
