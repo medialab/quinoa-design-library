@@ -178,6 +178,7 @@ DropdownContainer.propTypes = {
     }),
     // for nested value
     PropTypes.object,
+    PropTypes.array,
   ]),
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
