@@ -43,7 +43,9 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       withReactRouter = _ref$withReactRouter === undefined ? true : _ref$withReactRouter,
       profile = _ref.profile,
       _ref$style = _ref.style,
-      style = _ref$style === undefined ? {} : _ref$style;
+      style = _ref$style === undefined ? {} : _ref$style,
+      _ref$messages = _ref.messages,
+      messages = _ref$messages === undefined ? {} : _ref$messages;
 
   var NavLink = withReactRouter ? _reactRouterDom.Link : _bloomer.NavbarLink;
   var Ref = function Ref(_ref2) {
@@ -201,7 +203,7 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
               _index.Button,
               {
                 'data-for': 'tooltip',
-                'data-tip': 'logged as ' + profile.nickName,
+                'data-tip': messages.profileMessage ? messages.profileMessage : 'logged as ' + profile.nickName,
                 'data-effect': 'solid',
                 'data-place': 'left',
                 onClick: onProfileClick,

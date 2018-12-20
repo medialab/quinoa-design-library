@@ -244,7 +244,7 @@ DropdownContainer.propTypes = {
     value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element])
   }),
   // for nested value
-  _propTypes2.default.object]),
+  _propTypes2.default.object, _propTypes2.default.array]),
   options: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.shape({
     label: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element]),
     id: _propTypes2.default.string
