@@ -404,11 +404,15 @@ class RangeExampleContainer extends Component {
   render () {
     const {value} = this.state;
     return (
-      <Range
-        defaultValue={value}
-        step={0.1}
-        min={0}
-        max={1} />
+      <div style={{height: '90vh'}}>
+        <div style={{height: '110vh'}}>
+          <Range
+            defaultValue={value}
+            step={0.1}
+            min={0}
+            max={1} />
+        </div>
+      </div>
     );
   }
 }
