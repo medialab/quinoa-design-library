@@ -24,21 +24,26 @@ require('rc-slider/assets/index.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var VisibleHandle = function VisibleHandle(props) {
+var _handle = function _handle(props) {
   return _react2.default.createElement(
     _rcTooltip2.default,
     {
       prefixCls: 'rc-slider-tooltip',
       overlay: props.value,
       visible: true,
+      getTooltipContainer: props.getTooltipContainer,
       placement: 'bottom',
       key: props.index },
-    _react2.default.createElement(_rcSlider.Handle, (0, _fp.omit)(['dragging'], props))
+    _react2.default.createElement(_rcSlider.Handle, (0, _fp.omit)(['dragging', 'getTooltipContainer'], props))
   );
 };
 
 var Slider = function Slider(props) {
-  return _react2.default.createElement(_rcSlider2.default, _extends({}, props, { className: 'quinoa-slider', handle: VisibleHandle }));
+  return _react2.default.createElement(_rcSlider2.default, _extends({}, props, {
+    className: 'quinoa-slider',
+    handle: function handle(p) {
+      return _handle(_extends({}, p, { getTooltipContainer: props.getTooltipContainer }));
+    } }));
 };
 
 exports.default = (0, _rcSlider.createSliderWithTooltip)(Slider);

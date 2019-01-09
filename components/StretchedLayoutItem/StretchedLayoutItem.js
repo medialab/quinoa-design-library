@@ -12,7 +12,7 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var StretchedLayoutItem = function StretchedLayoutItem(_ref) {
+var StretchedLayoutItem = function StretchedLayoutItem(_ref, ref) {
   var children = _ref.children,
       _ref$style = _ref.style,
       style = _ref$style === undefined ? {} : _ref$style,
@@ -20,10 +20,13 @@ var StretchedLayoutItem = function StretchedLayoutItem(_ref) {
       isFlowing = _ref.isFlowing,
       _ref$className = _ref.className,
       className = _ref$className === undefined ? '' : _ref$className,
-      isFluid = _ref.isFluid;
+      isFluid = _ref.isFluid,
+      id = _ref.id;
   return _react2.default.createElement(
     'div',
     {
+      ref: ref,
+      id: id,
       className: 'stretched-layout-item ' + className + ' ' + (isFlowing ? 'is-flowing' : '') + ' ' + (isFluid ? 'is-fluid' : ''), style: _extends({
         flex: isFlex !== undefined ? isFlex : undefined
       }, style) },
@@ -31,4 +34,4 @@ var StretchedLayoutItem = function StretchedLayoutItem(_ref) {
   );
 };
 
-exports.default = StretchedLayoutItem;
+exports.default = (0, _react.forwardRef)(StretchedLayoutItem);
