@@ -209,9 +209,8 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
                 onClick: onProfileClick,
                 isRounded: true },
               _react2.default.createElement(
-                _index.Icon,
-                {
-                  isSize: '32x32' },
+                'span',
+                { style: { width: 32, height: 32 } },
                 _react2.default.createElement('img', { src: profile.imageUri })
               )
             )

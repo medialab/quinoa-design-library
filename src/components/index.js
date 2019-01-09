@@ -7,7 +7,7 @@ export {
   // Button,
   Content,
   Delete,
-  Icon,
+  // Icon,
   // Image,
   Notification,
   Progress,
@@ -145,6 +145,7 @@ export {default as StatusMarker} from './StatusMarker';
 export {default as HelpPin} from './HelpPin';
 export {default as DropZone} from './DropZone';
 export {default as Image} from './Image';
+export {default as Icon} from './Icon';
 export {default as Collapsable} from './Collapsable';
 export {default as Column} from './Column';
 export {default as Columns} from './Columns';

@@ -24,12 +24,6 @@ Object.defineProperty(exports, 'Delete', {
     return _bloomer.Delete;
   }
 });
-Object.defineProperty(exports, 'Icon', {
-  enumerable: true,
-  get: function get() {
-    return _bloomer.Icon;
-  }
-});
 Object.defineProperty(exports, 'Notification', {
   enumerable: true,
   get: function get() {
@@ -679,6 +673,15 @@ Object.defineProperty(exports, 'Image', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_Image).default;
+  }
+});
+
+var _Icon = require('./Icon');
+
+Object.defineProperty(exports, 'Icon', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Icon).default;
   }
 });
 

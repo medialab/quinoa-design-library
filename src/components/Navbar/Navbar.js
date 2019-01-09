@@ -21,7 +21,6 @@ import {
   StatusMarker,
   Button,
   Container,
-  Icon
 } from '../index';
 
 const NavbarWrapper = ({
@@ -164,10 +163,9 @@ const NavbarWrapper = ({
                   data-place="left"
                   onClick={onProfileClick}
                   isRounded>
-                  <Icon
-                    isSize="32x32">
+                  <span style={{width: 32, height: 32}}>
                     <img src={profile.imageUri} />
-                  </Icon>
+                  </span>
                 </Button>
               </NavbarItem>
             : null
