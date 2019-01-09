@@ -10,7 +10,7 @@ import {
   Title,
 } from 'bloomer';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons/faAngleDown';
 import Button from '../Button';
 
 class DropdownContainer extends Component {

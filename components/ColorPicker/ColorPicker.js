@@ -16,7 +16,7 @@ var _reactColor = require('react-color');
 
 var _reactFontawesome = require('@fortawesome/react-fontawesome');
 
-var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+var _faPalette = require('@fortawesome/free-solid-svg-icons/faPalette');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88,7 +88,7 @@ var ColorPicker = function (_Component) {
         _react2.default.createElement(
           'button',
           { className: 'button', onClick: toggleEdited },
-          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faPalette }),
+          _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _faPalette.faPalette }),
           _react2.default.createElement('div', { className: 'color-picker--color-notification', style: { background: color } })
         ),
         edited && _react2.default.createElement(

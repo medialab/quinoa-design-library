@@ -16,7 +16,7 @@ var _bloomer = require('bloomer');
 
 var _reactFontawesome = require('@fortawesome/react-fontawesome');
 
-var _freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+var _faAngleDown = require('@fortawesome/free-solid-svg-icons/faAngleDown');
 
 var _Button = require('../Button');
 
@@ -193,7 +193,7 @@ var DropdownContainer = function (_Component) {
                   null,
                   value && value.label
                 ),
-                _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _freeSolidSvgIcons.faAngleDown })
+                _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _faAngleDown.faAngleDown })
               )
             )
           ),
