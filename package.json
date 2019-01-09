@@ -5,10 +5,12 @@
   "main": "components/index.js",
   "author": "Robin de Mourat",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@fortawesome/react-fontawesome": "^0.1.3",
+    "@fortawesome/react-fontawesome": "^0.1.3"
+  },
+  "dependencies": {
     "bloomer": "^0.6.3",
     "bulma": "^0.7.0",
     "bulma-material-form": "^0.1.0",
@@ -27,6 +29,9 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "@robindemourat/eslint-config": "https://github.com/robindemourat/eslint-config",
     "@storybook/addon-actions": "^3.4.1",
     "@storybook/addon-links": "^3.4.1",
