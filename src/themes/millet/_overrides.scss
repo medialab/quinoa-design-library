@@ -424,6 +424,14 @@ hr
         }
     }
 
+    &.with-large-header{
+        > .container{
+            margin-left: 2rem;
+            margin-right: 2rem;
+            max-width: unset;
+        }
+    }
+
     @each $name, $pair in $colors
     {
         $color: nth($pair, 1);

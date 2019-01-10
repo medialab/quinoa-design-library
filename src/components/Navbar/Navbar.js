@@ -36,6 +36,7 @@ const NavbarWrapper = ({
   isLockStatus = 'open',
   isFixed = false,
   withReactRouter = true,
+  withLargeHeader = false,
   profile,
   style = {},
   messages = {}
@@ -53,9 +54,8 @@ const NavbarWrapper = ({
       </a>);
     }
   };
-
   return (
-    <Navbar style={style} className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''}`}>
+    <Navbar style={style} className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''} ${withLargeHeader ? 'with-large-header': ''}`}>
       <Container>
         <NavbarBrand>
           <NavbarItem>

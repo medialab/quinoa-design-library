@@ -41,6 +41,8 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       isFixed = _ref$isFixed === undefined ? false : _ref$isFixed,
       _ref$withReactRouter = _ref.withReactRouter,
       withReactRouter = _ref$withReactRouter === undefined ? true : _ref$withReactRouter,
+      _ref$withLargeHeader = _ref.withLargeHeader,
+      withLargeHeader = _ref$withLargeHeader === undefined ? false : _ref$withLargeHeader,
       profile = _ref.profile,
       _ref$style = _ref.style,
       style = _ref$style === undefined ? {} : _ref$style,
@@ -66,10 +68,9 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
       );
     }
   };
-
   return _react2.default.createElement(
     _bloomer.Navbar,
-    { style: style, className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') },
+    { style: style, className: 'is-lock-status-' + isLockStatus + ' ' + (isFixed ? 'is-fixed-top' : '') + ' ' + (withLargeHeader ? 'with-large-header' : '') },
     _react2.default.createElement(
       _index.Container,
       null,

@@ -6759,6 +6759,11 @@ hr {
   .navbar .has-dropdown .navbar-item {
     color: #4a4a4a; } }
 
+.navbar.with-large-header > .container {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: unset; }
+
 @media screen and (max-width: 1087px) {
   .navbar.is-white .navbar-menu .navbar-item,
   .navbar.is-white .navbar-menu .navbar-link {
