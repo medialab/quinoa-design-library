@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Icon
-} from 'bloomer';
 
 
 const StatusMarker = ({
@@ -33,18 +30,12 @@ const StatusMarker = ({
   return (
     <span
       className={`status-marker is-lock-status-${lockStatus}`}
-      style={style}>
-      <Icon
-        data-for="tooltip"
-        data-tip={statusMessage}
+      data-for="tooltip"
+      data-tip={statusMessage}
         // data-type={computedType}
-        data-place="right"
-        style={{display: 'inline'}}
-        icon={'circle'} />
-
-      {/*<Icon
-        style={{display: ['locked', 'active'].indexOf(lockStatus) > -1 ? 'none' : 'inline'}}
-        className={'fa fa-unlock'} />*/}
+      data-place="right"
+      style={style}>
+      ●
 
     </span>
   );
