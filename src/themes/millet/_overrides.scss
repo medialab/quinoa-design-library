@@ -757,6 +757,11 @@ hr
     // border-radius: 50%;
 
     width: 1.2em;
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
     &.is-lock-status-open
     {
         color: $light;
