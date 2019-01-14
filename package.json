@@ -1,6 +1,6 @@
 {
   "name": "quinoa-design-library",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "design library (components and styling themes) for quinoa components",
   "main": "components/index.js",
   "author": "Robin de Mourat",
@@ -9,13 +9,11 @@
   ],
   "license": "ISC",
   "peerDependencies": {
+    "react": "^16.7.0-alpha",
+    "react-dom": "^16.7.0-alpha",
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@fortawesome/react-fontawesome": "^0.1.3"
-  },
-  "peerDependencies": {
-    "react": "^16.7.0-alpha",
-    "react-dom": "^16.7.0-alpha"
+    "@fortawesome/react-fontawesome": "^0.1"
   },
   "dependencies": {
     "bloomer": "^0.6.3",
@@ -34,8 +32,8 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
     "@fortawesome/react-fontawesome": "^0.1.3",
     "@robindemourat/eslint-config": "https://github.com/robindemourat/eslint-config",
     "@storybook/addon-actions": "^3.4.1",
@@ -54,9 +52,11 @@
     "eslint-plugin-react": "^7.0.1",
     "file-loader": "^1.1.11",
     "fs-extra": "^5.0.0",
-    "image-webpack-loader": "^4.2.0",
+    "image-webpack-loader": "^4.6.0",
     "node-sass": "^4.10.0",
     "pre-commit": "^1.2.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "sass-loader": "^7.0.1",
     "story2sketch": "^0.3.0",
     "storybook": "^1.0.0",

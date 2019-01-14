@@ -135,7 +135,7 @@ var NavbarWrapper = function NavbarWrapper(_ref) {
                   ),
                   _react2.default.createElement(
                     'span',
-                    { style: { marginLeft: '0.5rem' } },
+                    null,
                     item.lockStatus ? _react2.default.createElement(_index.StatusMarker, {
                       lockStatus: item.lockStatus,
                       statusMessage: item.statusMessage }) : null

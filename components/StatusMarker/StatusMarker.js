@@ -12,8 +12,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _bloomer = require('bloomer');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StatusMarker = function StatusMarker(_ref) {
@@ -45,14 +43,12 @@ var StatusMarker = function StatusMarker(_ref) {
     'span',
     {
       className: 'status-marker is-lock-status-' + lockStatus,
-      style: style },
-    _react2.default.createElement(_bloomer.Icon, {
       'data-for': 'tooltip',
       'data-tip': statusMessage
       // data-type={computedType}
       , 'data-place': 'right',
-      style: { display: 'inline' },
-      icon: 'circle' })
+      style: style },
+    '\u25CF'
   );
 };
 

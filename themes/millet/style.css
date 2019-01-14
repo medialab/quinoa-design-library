@@ -7018,7 +7018,12 @@ hr {
 .status-marker {
   position: relative;
   transition: color .5s ease;
-  width: 1.2em; }
+  width: 1.2em;
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  line-height: 0; }
   .status-marker.is-lock-status-open {
     color: rgba(0, 0, 0, 0.05); }
   .status-marker.is-lock-status-active {
