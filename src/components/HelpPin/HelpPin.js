@@ -21,8 +21,7 @@ const HelpPin = ({
     data-type={type}
     data-place={place}
     data-effect={effect}>
-    <Icon
-    >
+    <Icon >
       <FontAwesomeIcon icon={faQuestionCircle} />
     </Icon>
     <ReactTooltip id="help-tooltip" />
