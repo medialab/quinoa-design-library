@@ -12,7 +12,11 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _bloomer = require('bloomer');
+var _index = require('../index');
+
+var _reactFontawesome = require('@fortawesome/react-fontawesome');
+
+var _faQuestionCircle = require('@fortawesome/free-solid-svg-icons/faQuestionCircle');
 
 var _reactTooltip = require('react-tooltip');
 
@@ -35,8 +39,11 @@ var HelpPin = function HelpPin(_ref) {
       'data-type': type,
       'data-place': place,
       'data-effect': effect },
-    _react2.default.createElement(_bloomer.Icon, {
-      className: 'fa fa-question-circle' }),
+    _react2.default.createElement(
+      _index.Icon,
+      null,
+      _react2.default.createElement(_reactFontawesome.FontAwesomeIcon, { icon: _faQuestionCircle.faQuestionCircle })
+    ),
     _react2.default.createElement(_reactTooltip2.default, { id: 'help-tooltip' })
   );
 };

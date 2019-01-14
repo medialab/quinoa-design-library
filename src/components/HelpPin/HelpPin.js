@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Icon,
-} from 'bloomer';
+} from '../index';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faQuestionCircle} from '@fortawesome/free-solid-svg-icons/faQuestionCircle';
 
 import ReactTooltip from 'react-tooltip';
 
@@ -20,7 +22,9 @@ const HelpPin = ({
     data-place={place}
     data-effect={effect}>
     <Icon
-      className="fa fa-question-circle" />
+    >
+      <FontAwesomeIcon icon={faQuestionCircle} />
+    </Icon>
     <ReactTooltip id="help-tooltip" />
   </span>);
 
