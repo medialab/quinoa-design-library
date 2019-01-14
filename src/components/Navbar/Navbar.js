@@ -55,7 +55,7 @@ const NavbarWrapper = ({
     }
   };
   return (
-    <Navbar style={style} className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''} ${withLargeHeader ? 'with-large-header': ''}`}>
+    <Navbar style={style} className={`is-lock-status-${isLockStatus} ${isFixed ? 'is-fixed-top' : ''} ${withLargeHeader ? 'with-large-header' : ''}`}>
       <Container>
         <NavbarBrand>
           <NavbarItem>
@@ -94,7 +94,7 @@ const NavbarWrapper = ({
                         <NavLink href={item.href}>
                           <span>
                             <span>{item.content}</span>
-                            <span style={{marginLeft: '0.5rem'}}>
+                            <span>
                               {
                               item.lockStatus ?
                                 <StatusMarker
@@ -106,7 +106,7 @@ const NavbarWrapper = ({
                         </NavLink> :
                         <span>
                           <span>{item.content}</span>
-                          <span style={{marginLeft: '0.5rem'}}>
+                          <span>
 
                             {
                             item.lockStatus ?
