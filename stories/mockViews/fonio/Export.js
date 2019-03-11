@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 import {
    ModalCard,
    BigSelect,
    Column,
    Notification,
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class ExportView extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 import {
   Button,
   Card,
@@ -25,7 +25,7 @@ import {
   StatusMarker,
   Navbar,
   Title,
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class SectionsView extends Component {
   constructor(props) {

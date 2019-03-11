@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 
 import {
   Button,
@@ -36,7 +36,7 @@ import {
   Tabs,
   Help,
   Title,
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class HomeView extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ export default class HomeView extends Component {
       stories,
       instanceTitle: 'Scube 2018',
       profileEdited: false,
-      backgroundImage: require('../mockAssets/cover_forccast.jpg')
+      backgroundImage: require('../../mockAssets/cover_forccast.jpg')
     };
   }
 

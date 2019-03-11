@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {v4 as genId} from 'uuid';
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 import {
   BigSelect,
   Button,
@@ -27,7 +27,7 @@ import {
   Tabs,
   TextArea,
   Title,
-} from '../../src/components';
+} from '../../../src/components';
 
 import ReactTooltip from 'react-tooltip';
 
@@ -480,7 +480,7 @@ export default class SectionView extends Component {
         );
       case 'edit':
       default:
-        return <img src={require('../mockAssets/mock-section-editor.png')} />;
+        return <img src={require('../../mockAssets/mock-section-editor.png')} />;
     }
   }
 

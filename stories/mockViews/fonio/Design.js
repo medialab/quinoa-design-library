@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 import {
   Column,
   Columns,
@@ -25,7 +25,7 @@ import {
   Tab,
   Help,
   Content,
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class DesignView extends Component {
   constructor(props) {
@@ -242,7 +242,7 @@ p{
               {renderContent()}
             </Column>
             <Column isSize={'fullwidth'}>
-              <img src={require('../mockAssets/mock-story-preview.png')} />
+              <img src={require('../../mockAssets/mock-story-preview.png')} />
             </Column>
           </Columns>
         </Container>

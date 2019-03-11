@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {v4 as genId} from 'uuid';
-import '../../src/themes/millet/bulma.theme.scss';
-import icons from '../../src/themes/millet/icons';
+import '../../../src/themes/millet/bulma.theme.scss';
+import icons from '../../../src/themes/millet/icons';
 import {
   BigSelect,
 
@@ -35,7 +35,7 @@ import {
   StatusMarker,
   Grid,
   Card,
-} from '../../src/components';
+} from '../../../src/components';
 
 const mockResourcesIds = [];
 const mockResourcesNbr = 20;
