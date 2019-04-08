@@ -39,14 +39,16 @@ import {
 /**
  * Mock views import
  */
-import HomeView from './mockViews/Home';
-import AuthenticationView from './mockViews/Authentication';
-import PasswordPromptView from './mockViews/PasswordPrompt';
-import SectionView from './mockViews/Section';
-import SummaryView from './mockViews/Summary';
-import DesignView from './mockViews/Design';
-import LibraryView from './mockViews/Library';
-import ExportView from './mockViews/Export';
+import HomeView from './mockViews/fonio/Home';
+import AuthenticationView from './mockViews/fonio/Authentication';
+import PasswordPromptView from './mockViews/fonio/PasswordPrompt';
+import SectionView from './mockViews/fonio/Section';
+import SummaryView from './mockViews/fonio/Summary';
+import DesignView from './mockViews/fonio/Design';
+import LibraryView from './mockViews/fonio/Library';
+import ExportView from './mockViews/fonio/Export';
+
+import ImageAnnotationDraft from './mockViews/images-annotation/Draft';
 
 storiesOf('Presentation', module)
   .add('Welcome', () => {
@@ -453,6 +455,12 @@ storiesOf('Mock views for the Fonio app', module)
   .add('library view', withScreenshot()(() => <LibraryView />))
   .add('design view', withScreenshot()(() => <DesignView />))
   .add('export view', withScreenshot()(() => <ExportView />));
+
+storiesOf('Mock views for the images annotation app', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
+  .add('fist draft', withScreenshot()(() => <ImageAnnotationDraft />));
 /**
  * ==========================================================
  * ==========================================================

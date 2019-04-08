@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../src/themes/millet/bulma.theme.scss';
+import '../../../src/themes/millet/bulma.theme.scss';
 import {
    ModalCard,
    Button,
@@ -10,7 +10,7 @@ import {
    HelpPin,
    Help,
    Icon
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class PasswordView extends Component {
   constructor(props) {

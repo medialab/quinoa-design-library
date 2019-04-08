@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../../src/themes/millet/bulma.theme.scss';
+import '../../../src/themes/millet/bulma.theme.scss';
 import {
    ModalCard,
    Button,
@@ -11,7 +11,7 @@ import {
    Columns,
    Column,
    DropZone
-} from '../../src/components';
+} from '../../../src/components';
 
 export default class AuthenticationView extends Component {
   constructor(props) {

@@ -27,6 +27,30 @@ module.exports = {
       svg: require('./icons/cover/cover-black.svg')
     }
   },
+  anchorRectangle: {
+    white: {
+      svg: require('./icons/anchor-rectangle/anchor-rectangle-white.svg')
+    },
+    black: {
+      svg: require('./icons/anchor-rectangle/anchor-rectangle-black.svg')
+    }
+  },
+  anchorEllipse: {
+    white: {
+      svg: require('./icons/anchor-ellipse/anchor-ellipse-white.svg')
+    },
+    black: {
+      svg: require('./icons/anchor-ellipse/anchor-ellipse-black.svg')
+    }
+  },
+  anchorPolygon: {
+    white: {
+      svg: require('./icons/anchor-polygon/anchor-polygon-white.svg')
+    },
+    black: {
+      svg: require('./icons/anchor-polygon/anchor-polygon-black.svg')
+    }
+  },
   dataPresentation: {
     // white: {
     //   svg: require('./icons/data-presentation/data-presentation-white.svg')
