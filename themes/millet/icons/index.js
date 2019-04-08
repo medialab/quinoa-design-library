@@ -96,20 +96,44 @@ module.exports = {
       svg: __webpack_require__(6)
     }
   },
+  anchorRectangle: {
+    white: {
+      svg: __webpack_require__(7)
+    },
+    black: {
+      svg: __webpack_require__(8)
+    }
+  },
+  anchorEllipse: {
+    white: {
+      svg: __webpack_require__(9)
+    },
+    black: {
+      svg: __webpack_require__(10)
+    }
+  },
+  anchorPolygon: {
+    white: {
+      svg: __webpack_require__(11)
+    },
+    black: {
+      svg: __webpack_require__(12)
+    }
+  },
   dataPresentation: {
     // white: {
     //   svg: require('./icons/data-presentation/data-presentation-white.svg')
     // },
     black: {
-      svg: __webpack_require__(7)
+      svg: __webpack_require__(13)
     }
   },
   edit: {
     white: {
-      svg: __webpack_require__(8)
+      svg: __webpack_require__(14)
     },
     black: {
-      svg: __webpack_require__(9)
+      svg: __webpack_require__(15)
     }
   },
   embed: {
@@ -117,7 +141,7 @@ module.exports = {
     //   svg: require('./icons/embed/embed-white.svg')
     // },
     black: {
-      svg: __webpack_require__(10)
+      svg: __webpack_require__(16)
     }
   },
   glossary: {
@@ -125,7 +149,7 @@ module.exports = {
     //   svg: require('./icons/glossary/glossary-white.svg')
     // },
     black: {
-      svg: __webpack_require__(11)
+      svg: __webpack_require__(17)
     }
   },
   image: {
@@ -133,58 +157,26 @@ module.exports = {
     //   svg: require('./icons/image/image-white.svg')
     // },
     black: {
-      svg: __webpack_require__(12)
+      svg: __webpack_require__(18)
     }
   },
   move: {
     white: {
-      svg: __webpack_require__(13)
+      svg: __webpack_require__(19)
     },
     black: {
-      svg: __webpack_require__(14)
+      svg: __webpack_require__(20)
     }
   },
   preview: {
     white: {
-      svg: __webpack_require__(15)
-    },
-    black: {
-      svg: __webpack_require__(16)
-    }
-  },
-  remove: {
-    white: {
-      svg: __webpack_require__(17)
-    },
-    black: {
-      svg: __webpack_require__(18)
-    }
-  },
-  section: {
-    // white: {
-    //   svg: require('./icons/section/section-white.svg')
-    // },
-    black: {
-      svg: __webpack_require__(19)
-    }
-  },
-  settings: {
-    white: {
-      svg: __webpack_require__(20)
-    },
-    black: {
       svg: __webpack_require__(21)
-    }
-  },
-  table: {
-    // white: {
-    //   svg: require('./icons/table/table-white.svg')
-    // },
+    },
     black: {
       svg: __webpack_require__(22)
     }
   },
-  takeAway: {
+  remove: {
     white: {
       svg: __webpack_require__(23)
     },
@@ -192,12 +184,44 @@ module.exports = {
       svg: __webpack_require__(24)
     }
   },
+  section: {
+    // white: {
+    //   svg: require('./icons/section/section-white.svg')
+    // },
+    black: {
+      svg: __webpack_require__(25)
+    }
+  },
+  settings: {
+    white: {
+      svg: __webpack_require__(26)
+    },
+    black: {
+      svg: __webpack_require__(27)
+    }
+  },
+  table: {
+    // white: {
+    //   svg: require('./icons/table/table-white.svg')
+    // },
+    black: {
+      svg: __webpack_require__(28)
+    }
+  },
+  takeAway: {
+    white: {
+      svg: __webpack_require__(29)
+    },
+    black: {
+      svg: __webpack_require__(30)
+    }
+  },
   video: {
     // white: {
     //   svg: require('./icons/video/video-white.svg')
     // },
     black: {
-      svg: __webpack_require__(25)
+      svg: __webpack_require__(31)
     }
   },
   webpage: {
@@ -205,7 +229,7 @@ module.exports = {
     //   svg: require('./icons/webpage/webpage-white.svg')
     // },
     black: {
-      svg: __webpack_require__(26)
+      svg: __webpack_require__(32)
     }
   }
 };
@@ -251,118 +275,154 @@ module.exports = __webpack_require__.p + "791a747b4c2792c204f00861f106e621.svg";
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "d9929b67bd869c44778f362c7d3f9b42.svg";
+module.exports = __webpack_require__.p + "95ea2fc13cb8d9e2645ba7a259e1197d.svg";
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "fbb2a907c843608f3a3ca4ba030b717a.svg";
+module.exports = __webpack_require__.p + "317daf1e2877ca5ee3be9071b3280c23.svg";
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "08aa53c6651bb0a7955717131df4ce14.svg";
+module.exports = __webpack_require__.p + "931ae642970f8a21e6c37ed86d9a51ec.svg";
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "82b2021b21e3c7e730f455d3976b1b17.svg";
+module.exports = __webpack_require__.p + "7c731a8a81bb429d629a5c56e207aeca.svg";
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "28a808964aab1898cb56a034a103013c.svg";
+module.exports = __webpack_require__.p + "6c9b034cbc0f719823467b60722978f2.svg";
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "f6de7162e168ecccaa5cbbb2d2b497c1.svg";
+module.exports = __webpack_require__.p + "6c9b034cbc0f719823467b60722978f2.svg";
 
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "afc4108656cbab9046acb7b351232064.svg";
+module.exports = __webpack_require__.p + "d9929b67bd869c44778f362c7d3f9b42.svg";
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "af7ce1bcf5568192ad22249b781d32cc.svg";
+module.exports = __webpack_require__.p + "fbb2a907c843608f3a3ca4ba030b717a.svg";
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "bdbca33b800d8b40678c3da17ea4fe9a.svg";
+module.exports = __webpack_require__.p + "08aa53c6651bb0a7955717131df4ce14.svg";
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "f501e4426ba4b18566fb216de1b26ec7.svg";
+module.exports = __webpack_require__.p + "82b2021b21e3c7e730f455d3976b1b17.svg";
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "72b5bb8b36e059d4d6672e59ec8a0b75.svg";
+module.exports = __webpack_require__.p + "28a808964aab1898cb56a034a103013c.svg";
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "8d79ebad3c4a0089667ec14a33ec5fdd.svg";
+module.exports = __webpack_require__.p + "f6de7162e168ecccaa5cbbb2d2b497c1.svg";
 
 /***/ }),
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "6c673dee0420cf643997a1bb8f4354ad.svg";
+module.exports = __webpack_require__.p + "afc4108656cbab9046acb7b351232064.svg";
 
 /***/ }),
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "47dbadb94ee69da70d4e5a0ca0b0244e.svg";
+module.exports = __webpack_require__.p + "af7ce1bcf5568192ad22249b781d32cc.svg";
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "1bf0715a9742d3c0b19db73491e0965b.svg";
+module.exports = __webpack_require__.p + "bdbca33b800d8b40678c3da17ea4fe9a.svg";
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "5fdccbdde9e8bee68e0335f0635d5657.svg";
+module.exports = __webpack_require__.p + "f501e4426ba4b18566fb216de1b26ec7.svg";
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "13a003d65cdcf1f32b3f5a7b844d5404.svg";
+module.exports = __webpack_require__.p + "72b5bb8b36e059d4d6672e59ec8a0b75.svg";
 
 /***/ }),
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "4aa3b37376d16d9a0228e4c7b70b3cf4.svg";
+module.exports = __webpack_require__.p + "8d79ebad3c4a0089667ec14a33ec5fdd.svg";
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "e5a4021c525b0007b56ba939bf06d673.svg";
+module.exports = __webpack_require__.p + "6c673dee0420cf643997a1bb8f4354ad.svg";
 
 /***/ }),
 /* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "47dbadb94ee69da70d4e5a0ca0b0244e.svg";
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "1bf0715a9742d3c0b19db73491e0965b.svg";
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "5fdccbdde9e8bee68e0335f0635d5657.svg";
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "13a003d65cdcf1f32b3f5a7b844d5404.svg";
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "4aa3b37376d16d9a0228e4c7b70b3cf4.svg";
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "e5a4021c525b0007b56ba939bf06d673.svg";
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "68e3ace3f7c36ccec5c0dde2b10d6200.svg";

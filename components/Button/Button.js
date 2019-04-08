@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-exports.default = function (props) {
+exports.default = _react2.default.forwardRef(function (props, ref) {
   var className = props.className,
       isLockStatus = props.isLockStatus,
       isRounded = props.isRounded,
@@ -34,7 +34,8 @@ exports.default = function (props) {
   };
 
   return _react2.default.createElement(_bloomer.Button, _extends({
+    ref: ref,
     onClick: handleClick,
     className: (className || '') + ' is-lock-status-' + (isLockStatus || 'open') + ' ' + (isRounded ? 'is-rounded' : '') + ' ' + (isDisabled ? 'is-disabled' : '')
   }, otherProps));
-};
+});
