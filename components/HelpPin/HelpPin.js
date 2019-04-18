@@ -29,10 +29,13 @@ var HelpPin = function HelpPin(_ref) {
       place = _ref.place,
       type = _ref.type,
       _ref$effect = _ref.effect,
-      effect = _ref$effect === undefined ? 'solid' : _ref$effect;
+      effect = _ref$effect === undefined ? 'solid' : _ref$effect,
+      _ref$className = _ref.className,
+      className = _ref$className === undefined ? '' : _ref$className;
   return _react2.default.createElement(
     'span',
     {
+      className: 'help-pin ' + className,
       style: { position: 'relative' },
       'data-tip': children,
       'data-for': 'help-tooltip',

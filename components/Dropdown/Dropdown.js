@@ -61,11 +61,13 @@ var DropdownContainer = function (_Component) {
           finalX = window.innerWidth - (x + triggerWidth);
           finalX = finalX + width > window.innerWidth ? window.innerWidth : finalX;
         }
+        var maxWidth = window.innerWidth - x;
         if (y > 0) {
           _this.setState({
             x: finalX,
             y: y + height,
-            width: width
+            width: width,
+            maxWidth: maxWidth
           });
         } else {
           _this.setState({
@@ -205,7 +207,7 @@ var DropdownContainer = function (_Component) {
                 top: y + 'px',
                 left: menuAlign === 'left' ? x + 'px' : 'unset',
                 right: menuAlign === 'right' ? x + 'px' : 'unset',
-                width: _this.state.width
+                maxWidth: _this.state.maxWidth
               },
               onClick: function onClick(e) {
                 return e.stopPropagation();
