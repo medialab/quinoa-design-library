@@ -411,10 +411,10 @@ hr
             background-color: inherit;
         }
     }
-    &:not(.is-transparent)
-    {
-        box-shadow: $shadow;
-    }
+    // &:not(.is-transparent)
+    // {
+    //     box-shadow: $shadow;
+    // }
 
     .has-dropdown .navbar-item
     {
@@ -426,10 +426,14 @@ hr
 
     &.with-large-header{
         > .container{
-            margin-left: 2rem;
-            margin-right: 2rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
             max-width: unset;
+            @media screen and (max-width: 1024px) {
+                margin-left: 0;
+            }
         }
+        
     }
 
     @each $name, $pair in $colors
