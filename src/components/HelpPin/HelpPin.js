@@ -12,9 +12,11 @@ const HelpPin = ({
   children,
   place,
   type,
-  effect = 'solid'
+  effect = 'solid',
+  className = '',
 }) =>
   (<span
+    className={`help-pin ${className}`}
     style={{position: 'relative'}}
     data-tip={children}
     data-for="help-tooltip"
