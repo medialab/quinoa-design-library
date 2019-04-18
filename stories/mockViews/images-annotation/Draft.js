@@ -109,7 +109,9 @@ const ImagesAnnotationDraft = () => {
           }}>
           {['anchorRectangle', 'anchorEllipse', 'anchorPolygon']
             .map(type => (
-              <Button key={type} isColor={type === activeTool ? 'primary' : ''} style={{marginBottom: '.5rem'}} isRounded>
+              <Button
+                key={type} isColor={type === activeTool ? 'primary' : ''} style={{marginBottom: '.5rem'}}
+                isRounded>
                 <Icon isSize="medium" isAlign="left">
                   <img src={icons[type][type === activeTool ? 'white' : 'black'].svg} />
                 </Icon>
