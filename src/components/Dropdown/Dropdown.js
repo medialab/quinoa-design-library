@@ -38,11 +38,13 @@ class DropdownContainer extends Component {
         finalX = window.innerWidth - (x + triggerWidth);
         finalX = finalX + width > window.innerWidth ? window.innerWidth : finalX;
       }
+      const maxWidth = window.innerWidth - x;
       if (y > 0) {
         this.setState({
           x: finalX,
           y: y + height,
-          width
+          width,
+          maxWidth
         });
       }
       else {
@@ -163,7 +165,7 @@ class DropdownContainer extends Component {
             top: y + 'px',
             left: menuAlign === 'left' ? x + 'px' : 'unset',
             right: menuAlign === 'right' ? x + 'px' : 'unset',
-            width: this.state.width
+            maxWidth: this.state.maxWidth
           }}
             onClick={e => e.stopPropagation()}>
             <DropdownContent>
