@@ -91,6 +91,14 @@ module.exports = {
       svg: require('./icons/image/image-black.svg')
     }
   },
+  diagram: {
+    // white: {
+    //   svg: require('./icons/diagram/diagram-white.svg')
+    // },
+    black: {
+      svg: require('./icons/diagram/diagram-black.svg')
+    }
+  },
   move: {
     white: {
       svg: require('./icons/move/move-white.svg')

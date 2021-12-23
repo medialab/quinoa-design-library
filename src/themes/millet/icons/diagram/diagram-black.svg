@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M43 6H7V45H43V6Z" fill="#8D2408" stroke="white" stroke-miterlimit="10"/>
+<path d="M20.1603 33.4545L20.1603 17.866L33.6603 25.6603L20.1603 33.4545Z" stroke="white"/>
+<circle cx="20.5" cy="17.5" r="3" fill="#8D2408" stroke="white"/>
+<circle cx="33.5" cy="26.5" r="3" fill="#8D2408" stroke="white"/>
+<circle cx="20.5" cy="34.5" r="3" fill="#8D2408" stroke="white"/>
+</svg>
